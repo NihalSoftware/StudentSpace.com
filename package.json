@@ -1,0 +1,18 @@
+{
+  "name": "studentspace-web",
+  "version": "1.0.0",
+  "description": "StudentSpace & edplan.ai full-stack production website in pure JavaScript and Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "studentspace",
+    "edplan",
+    "edtech",
+    "new-mexico"
+  ],
+  "author": "StudentSpace",
+  "license": "ISC"
+}

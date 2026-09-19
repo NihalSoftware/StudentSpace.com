@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudentSpace — Twenty-Seven Years Building Edtech. Now Giving It Away to New Mexico.</title>
+  <meta name="description" content="StudentSpace is opening its 27 years of student-tracking software, source code, and business playbooks free to New Mexico builders, alongside edplan.ai, a free student planning portal.">
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /* Brand Color System (Exact Tokens) */
+      --ink: #141D26;             /* Primary dark background */
+      --ink-alt: #1B2733;         /* Secondary dark panels */
+      --panel: #0F1620;           /* Header/footer, darkest surface */
+      --surface: #E9DFC7;         /* Light section background */
+      --surface-alt: #DED2B4;     /* Cards on light sections */
+      --ink-text: #F3EFE3;        /* Text on dark backgrounds */
+      --ink-dim: #B9C1C9;         /* Secondary text on dark */
+      --text-on-surface: #1C2229; /* Text on light backgrounds */
+      --text-on-surface-dim: #555E68;
+      --turquoise: #3AA79C;       /* Primary accent, links, active states */
+      --turquoise-dim: #2B8177;
+      --chile: #B93F2E;           /* Secondary accent, high-emphasis CTAs */
+      --chile-dim: #942E20;
+      --gold: #D8A63C;            /* Sparing highlight only (hero graphic detail) */
+      
+      --border: rgba(243, 239, 227, 0.14);
+      --border-strong: rgba(243, 239, 227, 0.28);
+      --border-surface: rgba(28, 34, 41, 0.16);
+      --border-surface-strong: rgba(28, 34, 41, 0.32);
+      --radius: 2px;
+      --maxw: 1180px;
+    }
+
+    /* Reset & Base Typography */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      background: var(--ink);
+    }
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--ink-text);
+      font-family: 'Libre Franklin', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 17px;
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, svg {
+      max-width: 100%;
+      display: block;
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 600;
+      line-height: 1.15;
+      margin: 0 0 0.5em;
+      letter-spacing: -0.015em;
+      color: var(--ink-text);
+    }
+    p {
+      margin: 0 0 1.15em;
+    }
+    a {
+      color: var(--turquoise);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    a:hover {
+      color: var(--ink-text);
+    }
+    ul, ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    /* Layout Containers */
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+    section {
+      padding: 92px 0;
+    }
+    @media (max-width: 768px) {
+      section { padding: 60px 0; }
+      .wrap { padding: 0 20px; }
+    }
+
+    /* Accessibility & Focus */
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 16px;
+      background: var(--turquoise);
+      color: var(--ink);
+      padding: 10px 16px;
+      font-weight: 700;
+      font-size: 14px;
+      z-index: 100;
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 16px;
+    }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--turquoise);
+      outline-offset: 3px;
+    }
+
+    /* Global Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 22, 32, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 78px;
+    }
+    .brand-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .brand-name {
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink-text);
+    }
+    .brand-sep {
+      color: var(--ink-dim);
+      font-weight: 400;
+      user-select: none;
+    }
+    .brand-product {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--turquoise);
+    }
+
+    /* Primary Navigation */
+    nav.primary {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-btn {
+      font-family: 'Libre Franklin', sans-serif;
+      background: none;
+      border: none;
+      color: var(--ink-dim);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 10px 14px;
+      cursor: pointer;
+      border-radius: var(--radius);
+      transition: color 0.15s ease, background-color 0.15s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-btn:hover {
+      color: var(--ink-text);
+    }
+    .nav-btn[aria-current="page"] {
+      color: var(--ink-text);
+      position: relative;
+    }
+    .nav-btn[aria-current="page"]::after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 2px;
+      height: 2px;
+      background: var(--turquoise);
+    }
+
+    /* Dropdown Menus */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--panel);
+      border: 1px solid var(--border-strong);
+      padding: 8px 0;
+      min-width: 220px;
+      border-radius: var(--radius);
+      z-index: 60;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu button {
+      width: 100%;
+      text-align: left;
+      padding: 10px 18px;
+      font-size: 14px;
+      background: none;
+      border: none;
+      color: var(--ink-dim);
+      cursor: pointer;
+      font-family: 'Libre Franklin', sans-serif;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+    .dropdown-menu button:hover,
+    .dropdown-menu button:focus {
+      background: var(--ink-alt);
+      color: var(--turquoise);
+      outline: none;
+    }
+
+    .nav-cta {
+      margin-left: 10px;
+      padding: 10px 18px !important;
+      border: 1px solid var(--border-strong) !important;
+      color: var(--ink-text) !important;
+      border-radius: var(--radius);
+      font-weight: 600;
+    }
+    .nav-cta:hover {
+      border-color: var(--turquoise) !important;
+      color: var(--turquoise) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-strong);
+      color: var(--ink-text);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    @media (max-width: 920px) {
+      .menu-toggle { display: block; }
+      nav.primary {
+        display: none;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        right: 0;
+        background: var(--panel);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px 20px 24px;
+        border-bottom: 1px solid var(--border);
+        gap: 8px;
+      }
+      nav.primary.open { display: flex; }
+      .nav-btn { text-align: left; width: 100%; padding: 12px 14px; }
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: var(--ink-alt);
+        border: none;
+        border-left: 2px solid var(--turquoise);
+        margin: 4px 0 8px 16px;
+        padding: 4px 0;
+      }
+      .dropdown:hover .dropdown-menu { display: none; }
+      .dropdown.mobile-open .dropdown-menu { display: block; }
+      .nav-cta { margin-left: 0; margin-top: 8px; text-align: center; }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Libre Franklin', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 13px 24px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-decoration: none;
+      line-height: 1.2;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    .btn-primary {
+      background: var(--turquoise);
+      color: #0B1917;
+    }
+    .btn-primary:hover {
+      background: var(--turquoise-dim);
+      color: #FFFFFF;
+    }
+    .btn-ghost {
+      border-color: var(--border-strong);
+      color: var(--ink-text);
+      background: transparent;
+    }
+    .btn-ghost:hover {
+      border-color: var(--turquoise);
+      color: var(--turquoise);
+    }
+    .btn-chile {
+      background: var(--chile);
+      color: #FDEEEB;
+    }
+    .btn-chile:hover {
+      background: var(--chile-dim);
+      color: #FFFFFF;
+    }
+    .btn-on-surface {
+      background: transparent;
+      border-color: var(--border-surface-strong);
+      color: var(--text-on-surface);
+    }
+    .btn-on-surface:hover {
+      border-color: var(--chile);
+      color: var(--chile);
+    }
+
+    /* Page Switching */
+    .page-section {
+      display: none;
+    }
+    .page-section.active {
+      display: block;
+    }
+
+    /* Hero Section with Signature Mesa Motif */
+    .hero {
+      padding: 88px 0 0;
+      position: relative;
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .hero .wrap {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-eyebrow {
+      color: var(--turquoise);
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-size: clamp(34px, 5.2vw, 62px);
+      max-width: 17ch;
+      font-weight: 700;
+    }
+    .hero .lede {
+      font-size: clamp(18px, 2vw, 21px);
+      color: var(--ink-dim);
+      max-width: 58ch;
+      margin-top: 20px;
+      line-height: 1.55;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .hero-figure {
+      margin-top: 64px;
+    }
+    .hero-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { animation: rise 0.65s cubic-bezier(0.16, 1, 0.3, 1) both; }
+      .reveal-2 { animation-delay: 0.12s; }
+      .reveal-3 { animation-delay: 0.22s; }
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+
+    /* Stat Strip */
+    .stat-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--ink-alt);
+    }
+    .stat-strip .wrap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      padding: 40px 28px;
+    }
+    .stat-strip .stat b {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 3.2vw, 36px);
+      color: var(--turquoise);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .stat-strip .stat span {
+      color: var(--ink-dim);
+      font-size: 14px;
+      line-height: 1.4;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .stat-strip .wrap { grid-template-columns: repeat(2, 1fr); gap: 24px; padding: 32px 20px; }
+    }
+
+    /* Grid & Cards (Clean 1px Hairline Borders, No Shadows) */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .split { grid-template-columns: 1fr; gap: 36px; }
+    }
+    .card-block {
+      border: 1px solid var(--border);
+      padding: 36px;
+      border-radius: var(--radius);
+      background: var(--ink-alt);
+    }
+    .card-block h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .card-block p {
+      color: var(--ink-dim);
+      margin-bottom: 24px;
+    }
+
+    /* Surface Light Sections */
+    .surface {
+      background: var(--surface);
+      color: var(--text-on-surface);
+    }
+    .surface h1, .surface h2, .surface h3, .surface h4 {
+      color: var(--text-on-surface);
+    }
+    .surface p {
+      color: var(--text-on-surface);
+    }
+    .surface .dim {
+      color: var(--text-on-surface-dim);
+    }
+    .surface .card-block {
+      background: var(--surface-alt);
+      border-color: var(--border-surface);
+    }
+    .surface .card-block p {
+      color: var(--text-on-surface-dim);
+    }
+    .surface .card-block h3 {
+      color: var(--text-on-surface);
+    }
+
+    /* Section Headers */
+    .section-head {
+      max-width: 66ch;
+      margin-bottom: 48px;
+    }
+    .section-head h2 {
+      font-size: clamp(28px, 3.8vw, 42px);
+      margin-bottom: 12px;
+    }
+    .section-head p {
+      color: var(--ink-dim);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+    .surface .section-head p {
+      color: var(--text-on-surface-dim);
+    }
+
+    /* Pull Quote */
+    .quote-box {
+      border-left: 3px solid var(--turquoise);
+      padding-left: 28px;
+      margin: 16px 0;
+    }
+    .quote-text {
+      font-family: 'Libre Franklin', sans-serif;
+      font-style: italic;
+      font-size: clamp(20px, 2.4vw, 25px);
+      line-height: 1.5;
+      color: var(--text-on-surface);
+      margin: 0;
+    }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+    }
+    .tl-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 32px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+    }
+    .tl-row:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+    .tl-year {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      color: var(--turquoise);
+      font-weight: 700;
+    }
+    @media (max-width: 640px) {
+      .tl-row { grid-template-columns: 1fr; gap: 8px; }
+    }
+
+    /* Product Grid */
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border-surface);
+      border: 1px solid var(--border-surface);
+    }
+    .prod-cell {
+      background: var(--surface-alt);
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .prod-cell h3, .prod-cell h4 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--text-on-surface);
+    }
+    .prod-cell p {
+      color: var(--text-on-surface-dim);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+    .prod-cell-link {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--chile);
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .prod-cell-link:hover {
+      color: var(--chile-dim);
+      text-decoration: underline;
+    }
+    @media (max-width: 860px) {
+      .prod-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Steps Sequence */
+    .steps {
+      display: flex;
+      flex-direction: column;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 24px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+    }
+    .step:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+    .step-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      color: var(--chile);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .step h3, .step h4 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .step p {
+      color: var(--ink-dim);
+      margin-bottom: 0;
+    }
+
+    /* Checklist */
+    .checklist li {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border-surface);
+      font-size: 16px;
+      color: var(--text-on-surface);
+    }
+    .checklist li:last-child {
+      border-bottom: 1px solid var(--border-surface);
+    }
+    .checklist .mark {
+      color: var(--turquoise-dim);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      user-select: none;
+    }
+
+    /* Callout Box */
+    .callout {
+      border: 1px solid var(--chile-dim);
+      background: rgba(185, 63, 46, 0.08);
+      padding: 32px;
+      border-radius: var(--radius);
+    }
+    .callout p {
+      margin-bottom: 0;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    /* Team / Leadership Placeholder Cards */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    @media (max-width: 768px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+    .team-card {
+      border: 1px solid var(--border);
+      background: var(--ink-alt);
+      padding: 32px;
+      border-radius: var(--radius);
+    }
+    .team-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--gold);
+      background: rgba(216, 166, 60, 0.12);
+      border: 1px solid rgba(216, 166, 60, 0.3);
+      padding: 4px 10px;
+      margin-bottom: 14px;
+      border-radius: var(--radius);
+    }
+    .placeholder-tag {
+      font-family: 'Space Grotesk', monospace;
+      background: rgba(243, 239, 227, 0.08);
+      border: 1px dashed var(--border-strong);
+      padding: 12px 16px;
+      margin-top: 14px;
+      border-radius: var(--radius);
+      color: var(--ink-text);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* Product Deep Dive Detail Pages */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0;
+    }
+    .spec-table th, .spec-table td {
+      padding: 18px 20px;
+      text-align: left;
+      border-top: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .spec-table tr:last-child td {
+      border-bottom: 1px solid var(--border);
+    }
+    .spec-table th {
+      color: var(--turquoise);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      width: 28%;
+    }
+    .spec-table td {
+      color: var(--ink-dim);
+      font-size: 15px;
+    }
+
+    /* FAQ Component */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .faq-item {
+      border: 1px solid var(--border);
+      background: var(--ink-alt);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+    }
+    .faq-q {
+      font-size: 19px;
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--ink-text);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .faq-a {
+      color: var(--ink-dim);
+      font-size: 16px;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+    .faq-placeholder {
+      display: inline-block;
+      border-left: 2px solid var(--gold);
+      padding-left: 12px;
+      color: var(--gold);
+      font-family: 'Space Grotesk', monospace;
+      font-weight: 500;
+    }
+
+    /* Contact Page & Form */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 64px;
+    }
+    @media (max-width: 860px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    .field {
+      margin-bottom: 22px;
+    }
+    .field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-dim);
+      margin-bottom: 8px;
+    }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      background: var(--ink-alt);
+      border: 1px solid var(--border-strong);
+      color: var(--ink-text);
+      padding: 13px 16px;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 15px;
+      border-radius: var(--radius);
+      transition: border-color 0.15s ease, outline 0.15s ease;
+    }
+    .field select option {
+      background: var(--ink-alt);
+      color: var(--ink-text);
+    }
+    .field textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: var(--turquoise);
+      outline: 2px solid var(--turquoise);
+      outline-offset: 1px;
+    }
+    .contact-info dt {
+      color: var(--ink-dim);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 26px;
+    }
+    .contact-info dd {
+      margin: 6px 0 0;
+      font-size: 16px;
+      color: var(--ink-text);
+    }
+    .contact-info dt:first-child {
+      margin-top: 0;
+    }
+    .form-status {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      display: none;
+    }
+    .form-status.success {
+      display: block;
+      background: rgba(58, 167, 156, 0.15);
+      border: 1px solid var(--turquoise);
+      color: var(--ink-text);
+    }
+    .form-status.error {
+      display: block;
+      background: rgba(185, 63, 46, 0.15);
+      border: 1px solid var(--chile);
+      color: #FFC0B8;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 56px 0;
+      background: var(--panel);
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 36px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .footer-cols {
+      display: flex;
+      gap: 64px;
+      flex-wrap: wrap;
+    }
+    .footer-col h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      margin-bottom: 14px;
+      color: var(--ink-dim);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .footer-col a, .footer-col button {
+      display: block;
+      font-size: 14px;
+      color: var(--ink-text);
+      padding: 5px 0;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Libre Franklin', sans-serif;
+    }
+    .footer-col a:hover, .footer-col button:hover {
+      color: var(--turquoise);
+    }
+    .footer-bottom {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--ink-dim);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header>
+    <div class="wrap header-row">
+      <a href="#home" class="brand-link" data-nav="home" aria-label="StudentSpace Home">
+        <span class="brand-name">StudentSpace</span>
+        <span class="brand-sep">/</span>
+        <span class="brand-product">edplan.ai</span>
+      </a>
+      
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+        Menu
+      </button>
+
+      <nav class="primary" id="primaryNav">
+        <button class="nav-btn" data-nav="home">Home</button>
+        <button class="nav-btn" data-nav="edplan">edplan.ai</button>
+        <button class="nav-btn" data-nav="giveback">Give-Back Program</button>
+        
+        <div class="dropdown" id="productsDropdown">
+          <button class="nav-btn dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Products ▾
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <button data-nav="fct" role="menuitem">Full Circle Tracking</button>
+            <button data-nav="schoolview" role="menuitem">SchoolView</button>
+            <button data-nav="asl" role="menuitem">Assessment (ASL)</button>
+          </div>
+        </div>
+
+        <div class="dropdown" id="aboutDropdown">
+          <button class="nav-btn dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            About ▾
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <button data-nav="story" role="menuitem">Our Story</button>
+            <button data-nav="team" role="menuitem">Leadership &amp; Team</button>
+          </div>
+        </div>
+
+        <button class="nav-btn" data-nav="faq">FAQ</button>
+        <button class="nav-btn nav-cta" data-nav="contact">Get in Touch</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Container for Main Viewports -->
+  <div id="main-content">
+
+    <!-- ========================================== -->
+    <!-- 1. HOME PAGE                               -->
+    <!-- ========================================== -->
+    <main id="view-home" class="page-section active" tabindex="-1">
+      <section class="hero">
+        <div class="wrap">
+          <p class="hero-eyebrow reveal">Santa Fe, New Mexico · Since 1998</p>
+          <h1 class="reveal reveal-2">Twenty-seven years building it.<br>Now we're giving it away — to New Mexico.</h1>
+          <p class="lede reveal reveal-3">StudentSpace has spent nearly three decades building student-tracking and retention software for colleges and universities across the country. Today we're opening our source code, our products, and everything we've learned about edtech — free, to any New Mexican ready to build something of their own.</p>
+          <div class="hero-actions reveal reveal-3">
+            <button class="btn btn-primary" data-nav="giveback">See the Give-Back Program</button>
+            <button class="btn btn-ghost" data-nav="edplan">Explore edplan.ai</button>
+          </div>
+        </div>
+        
+        <!-- Signature New Mexico Mesa Horizon Silhouette Motif -->
+        <div class="hero-figure">
+          <svg class="horizon" viewBox="0 0 1200 260" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a New Mexico mesa horizon at dusk">
+            <rect x="0" y="0" width="1200" height="260" fill="var(--ink)"/>
+            <circle cx="960" cy="90" r="56" fill="var(--gold)" opacity="0.85"/>
+            <polygon points="0,190 140,120 260,175 400,90 520,170 600,150 640,175 760,110 860,160 1000,130 1120,175 1200,150 1200,260 0,260" fill="var(--ink-alt)"/>
+            <polygon points="0,230 90,205 220,225 360,190 470,225 620,205 760,230 880,200 1020,225 1200,205 1200,260 0,260" fill="var(--panel)"/>
+          </svg>
+        </div>
+      </section>
+
+      <!-- Stat Strip -->
+      <div class="stat-strip">
+        <div class="wrap">
+          <div class="stat"><b>1998</b><span>Founded in Santa Fe</span></div>
+          <div class="stat"><b>250+</b><span>Institutions served nationwide</span></div>
+          <div class="stat"><b>3</b><span>Products now open to NM builders</span></div>
+          <div class="stat"><b>$0</b><span>Cost to eligible New Mexicans</span></div>
+        </div>
+      </div>
+
+      <!-- Two-up Summary Cards -->
+      <section>
+        <div class="wrap">
+          <div class="split">
+            <div class="card-block">
+              <h3>edplan.ai</h3>
+              <p>A free education-planning portal for every student in New Mexico — built with our CSR funds, for the state that made this company possible.</p>
+              <button class="btn btn-ghost" data-nav="edplan">Learn about edplan.ai</button>
+            </div>
+            <div class="card-block">
+              <h3>The Give-Back Program</h3>
+              <p>The code, product designs and business playbooks behind our tracking and assessment tools — handed to New Mexico entrepreneurs, at no cost, to build their own companies.</p>
+              <button class="btn btn-ghost" data-nav="giveback">See what's included</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pull Quote -->
+      <section class="surface">
+        <div class="wrap">
+          <div class="quote-box">
+            <p class="quote-text">"A company which is student-centric, extremely generous, and willing to share the source code — that's who we've always tried to be. Now we're making it official."</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 2. OUR STORY                               -->
+    <!-- ========================================== -->
+    <main id="view-story" class="page-section" tabindex="-1">
+      <section style="padding-top: 72px;">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Our Journey</p>
+            <h1>From a Santa Fe startup to a statewide give-back</h1>
+            <p>StudentSpace was built by people who believed small colleges deserved the same data tools as the big ones. Here's how a for-profit software company became a resource for New Mexico's next generation of edtech builders.</p>
+          </div>
+          
+          <!-- Timeline -->
+          <div class="timeline">
+            <div class="tl-row">
+              <div class="tl-year">1998</div>
+              <div>
+                <h3>Founded in Santa Fe</h3>
+                <p style="color:var(--ink-dim); margin:0;">StudentSpace opens its doors on the premise that small colleges (1,000 to 5,000 students) deserve high-touch, affordable data tools rather than enterprise systems built for massive research universities.</p>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-year">1998–2020s</div>
+              <div>
+                <h3>Built for 250+ institutions</h3>
+                <p style="color:var(--ink-dim); margin:0;">Full Circle Tracking, SchoolView, and our assessment tools go on to serve colleges and universities across the country — built in partnership with research grounded in work with the U.S. Department of Education.</p>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-year">Ongoing</div>
+              <div>
+                <h3>A give-back that started small</h3>
+                <p style="color:var(--ink-dim); margin:0;">Long before this relaunch, the StudentSpace Foundation was already providing free access to our tools for underfunded schools and low-income families across New Mexico and California.</p>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-year">2026</div>
+              <div>
+                <h3>The full transformation</h3>
+                <p style="color:var(--ink-dim); margin:0;">We're retiring the license fees and the sales pitch. edplan.ai launches as a free planning portal for New Mexico students, and every product we've built becomes free, open material for New Mexico entrepreneurs to build on.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Three Products Grid -->
+      <section class="surface">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>What we built — now open</h2>
+            <p>Three products, refined over two decades of real classroom and campus use, form the foundation of the Give-Back Program.</p>
+          </div>
+          <div class="prod-grid">
+            <div class="prod-cell">
+              <div>
+                <h3>Full Circle Tracking</h3>
+                <p>Connects a campus's student information system, CRM and LMS into one view, so advisors can see the whole student — not fragments spread across silos.</p>
+              </div>
+              <button class="prod-cell-link" data-nav="fct">View Full Circle Tracking details</button>
+            </div>
+            <div class="prod-cell">
+              <div>
+                <h3>SchoolView</h3>
+                <p>An institutional dashboard for enrollment, advancement and operations — built so small teams can run data-informed colleges without a large IT department.</p>
+              </div>
+              <button class="prod-cell-link" data-nav="schoolview">View SchoolView details</button>
+            </div>
+            <div class="prod-cell">
+              <div>
+                <h3>Assessment of Student Learning</h3>
+                <p>A framework and toolset for measuring competency-based learning outcomes at the course, program and department level.</p>
+              </div>
+              <button class="prod-cell-link" data-nav="asl">View ASL details</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 3. EDPLAN.AI                               -->
+    <!-- ========================================== -->
+    <main id="view-edplan" class="page-section" tabindex="-1">
+      <section style="padding-top: 72px;">
+        <div class="wrap">
+          <p class="hero-eyebrow">A StudentSpace CSR Initiative</p>
+          <h1 style="font-size:clamp(32px,4.5vw,52px); max-width:18ch;">A free planning portal for every student in New Mexico</h1>
+          <p class="lede" style="margin-top:18px;">edplan.ai is our answer to a simple question: what if every student in the state — not just the ones at well-resourced schools — had a clear, guided way to plan their path through education and into a career?</p>
+        </div>
+      </section>
+
+      <section class="surface">
+        <div class="wrap">
+          <div class="split">
+            <div>
+              <h3>Built with, not just for, New Mexico</h3>
+              <p class="dim">edplan.ai draws on the same student-tracking expertise StudentSpace has spent 27 years refining for colleges — turned toward helping individual students plan their own course, from middle school through career, with no cost to students, families or schools.</p>
+            </div>
+            <div>
+              <h3>Funded to stay free</h3>
+              <p class="dim">edplan.ai is funded through StudentSpace's corporate social responsibility program. There's no subscription, no ad model and no data sale behind it — it exists because the company that built it chose to fund it that way.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="section-head">
+            <h2>What students, families and schools get</h2>
+          </div>
+          <div class="prod-grid">
+            <div class="prod-cell" style="background:var(--ink-alt); border:1px solid var(--border);">
+              <h4 style="color:var(--ink-text);">For students</h4>
+              <p style="color:var(--ink-dim);">A guided view of coursework, milestones and options — built to make the next step visible, whatever grade a student is starting from.</p>
+            </div>
+            <div class="prod-cell" style="background:var(--ink-alt); border:1px solid var(--border);">
+              <h4 style="color:var(--ink-text);">For families</h4>
+              <p style="color:var(--ink-dim);">A plain-language way to follow a student's plan and understand what's coming next, without needing to decode a school system alone.</p>
+            </div>
+            <div class="prod-cell" style="background:var(--ink-alt); border:1px solid var(--border);">
+              <h4 style="color:var(--ink-text);">For schools &amp; districts</h4>
+              <p style="color:var(--ink-dim);">A tool built on the same tracking discipline StudentSpace has sold to colleges for decades — offered to New Mexico schools at no cost.</p>
+            </div>
+          </div>
+          <div style="margin-top:44px;">
+            <button class="btn btn-chile" data-nav="contact">Bring edplan.ai to your school</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 4. GIVE-BACK PROGRAM                       -->
+    <!-- ========================================== -->
+    <main id="view-giveback" class="page-section" tabindex="-1">
+      <section style="padding-top: 72px;">
+        <div class="wrap">
+          <p class="hero-eyebrow">For New Mexico builders</p>
+          <h1 style="font-size:clamp(32px,4.5vw,52px); max-width:18ch;">Take what we built. Build your own company with it.</h1>
+          <p class="lede" style="margin-top:18px;">We're giving away the ideas, product designs and source code behind StudentSpace's edtech products — free, to individuals and startups based in New Mexico. Develop them further, brand them your own way, and build a company around them. We won't charge for it, and we won't take a piece of what you build.</p>
+        </div>
+      </section>
+
+      <section class="surface" style="padding-top: 48px;">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>What's included</h2>
+            <p>Everything below is available to eligible New Mexico applicants at no cost.</p>
+          </div>
+          <ul class="checklist">
+            <li><span class="mark">✓</span><span>Full source code for Full Circle Tracking, SchoolView and our Assessment of Student Learning tools</span></li>
+            <li><span class="mark">✓</span><span>Product designs, technical architecture and documentation behind each tool</span></li>
+            <li><span class="mark">✓</span><span>The business playbooks we used to sell into 250+ colleges and universities</span></li>
+            <li><span class="mark">✓</span><span>Direct time with our founding team to walk through what worked, and what didn't</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="section-head">
+            <h2>How it works</h2>
+            <p>A transparent four-step sequence from initial conversation to company ownership.</p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <span class="step-num">1</span>
+              <div>
+                <h3>Apply</h3>
+                <p>Tell us who you are, that you're based in New Mexico, and what you want to build. Takes about ten minutes.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">2</span>
+              <div>
+                <h3>Talk it through</h3>
+                <p>We'll get on a call to understand your goals and match you with the product, code and documentation that fits best.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">3</span>
+              <div>
+                <h3>Transfer &amp; onboard</h3>
+                <p>We hand over the code and materials, and walk your team through the architecture so you're not starting from a cold read.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">4</span>
+              <div>
+                <h3>Build your company</h3>
+                <p>From there, it's yours — rebrand it, extend it, sell it. We're a resource you can keep coming back to, not a partner with a stake in the outcome.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="surface">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Who's eligible</h2>
+          </div>
+          <div class="split">
+            <div>
+              <ul class="checklist">
+                <li><span class="mark">✓</span><span>Individuals based in New Mexico with an idea they want to build</span></li>
+                <li><span class="mark">✓</span><span>Early-stage startups headquartered in New Mexico</span></li>
+                <li><span class="mark">✓</span><span>Students and recent graduates of New Mexico institutions</span></li>
+              </ul>
+            </div>
+            <div class="callout">
+              <p><strong>No cost. No equity. No catch.</strong> This program exists because StudentSpace has been supported by New Mexico since 1998, and we'd rather see that value turn into New Mexico jobs than sit in our own codebase.</p>
+            </div>
+          </div>
+          <div style="margin-top:44px; display:flex; gap:16px; flex-wrap:wrap;">
+            <button class="btn btn-chile" data-nav="contact">Start an application</button>
+            <button class="btn btn-on-surface" data-nav="faq">Read program FAQ</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 5. CONTACT / APPLY                         -->
+    <!-- ========================================== -->
+    <main id="view-contact" class="page-section" tabindex="-1">
+      <section style="padding-top: 72px;">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Connect with StudentSpace</p>
+            <h1>Get in touch</h1>
+            <p>Applying to the Give-Back Program, bringing edplan.ai to a school, or just have a question — tell us a bit about it below.</p>
+          </div>
+          <div class="contact-grid">
+            <div>
+              <form id="contactForm" novalidate>
+                <div class="field">
+                  <label for="f-name">Full name *</label>
+                  <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Your full name">
+                </div>
+                <div class="field">
+                  <label for="f-email">Email *</label>
+                  <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="name@example.com">
+                </div>
+                <div class="field">
+                  <label for="f-reason">I'm reaching out about *</label>
+                  <select id="f-reason" name="reason" required>
+                    <option value="Give-Back Program application">Give-Back Program application</option>
+                    <option value="Bringing edplan.ai to a school or district">Bringing edplan.ai to a school or district</option>
+                    <option value="Full Circle Tracking transfer inquiry">Full Circle Tracking transfer inquiry</option>
+                    <option value="SchoolView transfer inquiry">SchoolView transfer inquiry</option>
+                    <option value="Assessment of Student Learning inquiry">Assessment of Student Learning inquiry</option>
+                    <option value="Media or partnership inquiry">Media or partnership inquiry</option>
+                    <option value="Something else">Something else</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="f-city">City, New Mexico *</label>
+                  <input id="f-city" name="city" type="text" required placeholder="e.g. Santa Fe, Albuquerque, Las Cruces">
+                </div>
+                <div class="field">
+                  <label for="f-msg">Tell us what you're hoping to build *</label>
+                  <textarea id="f-msg" name="message" required placeholder="Describe your background, what you want to build, or your school's needs..."></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit" id="submitBtn">Send message</button>
+                
+                <div id="formStatus" class="form-status" role="alert" aria-live="polite"></div>
+              </form>
+            </div>
+            <div>
+              <dl class="contact-info">
+                <dt>Office</dt>
+                <dd>802 Early Street, Santa Fe, NM 87505</dd>
+                
+                <dt>Phone</dt>
+                <dd><a href="tel:+15054387192" style="color:inherit; text-decoration:none;">+1 (505) 438-7192</a></dd>
+                
+                <dt>Give-Back Program</dt>
+                <dd><a href="mailto:givingback@studentspace.com">givingback@studentspace.com</a></dd>
+                
+                <dt>General &amp; Support</dt>
+                <dd>
+                  <a href="mailto:sales@studentspace.com">sales@studentspace.com</a> · 
+                  <a href="mailto:support@studentspace.com">support@studentspace.com</a>
+                </dd>
+              </dl>
+              
+              <div style="margin-top: 36px; padding: 24px; border: 1px solid var(--border); background: var(--ink-alt); border-radius: var(--radius);">
+                <h4 style="font-size: 16px; margin-bottom: 8px;">Santa Fe Headquarters</h4>
+                <p style="font-size: 14px; color: var(--ink-dim); margin-bottom: 0;">Located in the historic rail and artisan corridor of Santa Fe. In-person meetings are available by appointment for Give-Back recipients.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 6. LEADERSHIP / TEAM (New - Briefed)       -->
+    <!-- ========================================== -->
+    <main id="view-team" class="page-section" tabindex="-1">
+      <section style="padding-top: 72px;">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Our Leadership</p>
+            <h1>The team behind 27 years of StudentSpace</h1>
+            <p>StudentSpace was built in Santa Fe by educators, systems engineers, and higher-education leaders committed to accessible campus data tools. As we transition our core intellectual property into a statewide public give-back, our leadership team is dedicating its focus to mentoring New Mexico founders and expanding edplan.ai access to every school district in the state.</p>
+          </div>
+          
+          <div class="team-grid">
+            <div class="team-card">
+              <span class="team-badge">Executive Leadership</span>
+              <h3>Executive Director &amp; Founder</h3>
+              <p style="color:var(--ink-dim); font-size:15px; margin-bottom:12px;">Founded StudentSpace in 1998, architecting retention and advising software for more than 250 higher education institutions across North America, now directing the corporate give-back transition.</p>
+              <div class="placeholder-tag">[Founder &amp; CEO, Executive Leadership — bio]</div>
+            </div>
+
+            <div class="team-card">
+              <span class="team-badge">Engineering &amp; Architecture</span>
+              <h3>Chief Technology Officer</h3>
+              <p style="color:var(--ink-dim); font-size:15px; margin-bottom:12px;">Oversees the multi-decade architectural codebase across Full Circle Tracking, SchoolView, and ASL, leading developer documentation and code handoffs for Give-Back participants.</p>
+              <div class="placeholder-tag">[Chief Technology Officer, Engineering Leadership — bio]</div>
+            </div>
+
+            <div class="team-card">
+              <span class="team-badge">Academic Solutions</span>
+              <h3>Director of Academic &amp; Assessment Solutions</h3>
+              <p style="color:var(--ink-dim); font-size:15px; margin-bottom:12px;">Curriculum design and accreditation expert who directed the implementation of competency-based outcomes at participating institutions nationwide.</p>
+              <div class="placeholder-tag">[Director of Assessment &amp; Academic Solutions — bio]</div>
+            </div>
+
+            <div class="team-card">
+              <span class="team-badge">Community Impact &amp; CSR</span>
+              <h3>Director of Community Partnerships &amp; edplan.ai</h3>
+              <p style="color:var(--ink-dim); font-size:15px; margin-bottom:12px;">Coordinates statewide school district engagement, student equity initiatives, and community mentorship for the next generation of New Mexico edtech founders.</p>
+              <div class="placeholder-tag">[Director of Community Impact &amp; edplan.ai — bio]</div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 36px;">
+            <p style="color:var(--ink-dim); font-size:15px;">Want to collaborate with our leadership team on a New Mexico edtech initiative? <button class="btn btn-ghost" data-nav="contact" style="margin-left:8px; padding:6px 14px; font-size:14px;">Contact leadership</button></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 7A. PRODUCT: FULL CIRCLE TRACKING          -->
+    <!-- ========================================== -->
+    <main id="view-fct" class="page-section" tabindex="-1">
+      <section style="padding-top: 72px;">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Available via Give-Back Program</p>
+            <h1>Full Circle Tracking</h1>
+            <p>Connects a campus's student information system, CRM, and LMS into one cohesive advising view, so student success teams see the whole student — not fragments spread across silos.</p>
+          </div>
+
+          <div class="split">
+            <div>
+              <h3>What the product does</h3>
+              <p style="color:var(--ink-dim);">In typical colleges and universities, critical student indicators are trapped in separate databases: grades in the SIS, interactions in a CRM, course engagement in the LMS, and financial holds in the bursar's system. Full Circle Tracking aggregates and normalizes these disparate streams in near real-time, giving retention specialists and advisors an early-warning radar for students at risk of dropping out.</p>
+              
+              <h3 style="margin-top: 32px;">Who on campus uses it</h3>
+              <ul class="checklist" style="border:none;">
+                <li style="border-color:var(--border);"><span class="mark">✓</span><span><strong>Academic Advisors:</strong> For holistic pre-session reviews, milestone tracking, and cross-department advising notes.</span></li>
+                <li style="border-color:var(--border);"><span class="mark">✓</span><span><strong>Deans of Retention &amp; Student Success:</strong> To identify institutional drop-off trends and manage cohort-based retention campaigns.</span></li>
+                <li style="border-color:var(--border);"><span class="mark">✓</span><span><strong>Registrars &amp; Financial Aid Officers:</strong> To track prerequisite verifications, course completion ratios, and satisfactory academic progress (SAP).</span></li>
+              </ul>
+            </div>
+
+            <div class="card-block">
+              <h3>What transfers to NM builders</h3>
+              <p>When you apply for Full Circle Tracking through the Give-Back Program, you receive the full commercial asset package:</p>
+              <table class="spec-table" style="margin: 16px 0;">
+                <tr>
+                  <th>Source Code</th>
+                  <td>Full application source repository, data synchronization daemons, and normalized schema.</td>
+                </tr>
+                <tr>
+                  <th>Architecture</th>
+                  <td>Technical specifications, SIS integration adapters (Banner, Colleague, PeopleSoft), and security docs.</td>
+                </tr>
+                <tr>
+                  <th>Playbook</th>
+                  <td>The exact commercial sales decks, RFP templates, pricing calculators, and contract frameworks used across 250+ campuses.</td>
+                </tr>
+                <tr>
+                  <th>Mentorship</th>
+                  <td>Direct code walkthrough and technical onboarding with StudentSpace's software engineers.</td>
+                </tr>
+              </table>
+              <div style="margin-top: 24px;">
+                <button class="btn btn-chile" data-nav="contact">Apply for Full Circle Tracking</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 7B. PRODUCT: SCHOOLVIEW                    -->
+    <!-- ========================================== -->
+    <main id="view-schoolview" class="page-section" tabindex="-1">
+      <section style="padding-top: 72px;">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Available via Give-Back Program</p>
+            <h1>SchoolView</h1>
+            <p>An enrollment, advancement, and operations dashboard engineered specifically for small colleges and specialized institutions without large IT departments.</p>
+          </div>
+
+          <div class="split">
+            <div>
+              <h3>What the product does</h3>
+              <p style="color:var(--ink-dim);">Small colleges often lack the seven-figure IT budgets and dedicated business intelligence teams required to build custom operational dashboards. SchoolView delivers an out-of-the-box command center that unifies admissions pipelines, tuition yield tracking, donor advancement, and daily institutional health metrics into accessible, executive-ready views.</p>
+              
+              <h3 style="margin-top: 32px;">Who on campus uses it</h3>
+              <ul class="checklist" style="border:none;">
+                <li style="border-color:var(--border);"><span class="mark">✓</span><span><strong>College Presidents &amp; Provosts:</strong> To monitor real-time enrollment numbers, net tuition revenue targets, and institutional vitality metrics.</span></li>
+                <li style="border-color:var(--border);"><span class="mark">✓</span><span><strong>Admissions Directors:</strong> For funnel conversion analysis, high-school territory performance, and yield forecasting.</span></li>
+                <li style="border-color:var(--border);"><span class="mark">✓</span><span><strong>Advancement &amp; Alumni Relations:</strong> To manage capital campaign progress, alumni giving velocity, and donor segment engagement.</span></li>
+              </ul>
+            </div>
+
+            <div class="card-block">
+              <h3>What transfers to NM builders</h3>
+              <p>Everything required to deploy, rebrand, and sell SchoolView to small colleges and regional universities:</p>
+              <table class="spec-table" style="margin: 16px 0;">
+                <tr>
+                  <th>Source Code</th>
+                  <td>Complete web dashboard application codebase, reporting queries, and role-based access control modules.</td>
+                </tr>
+                <tr>
+                  <th>Architecture</th>
+                  <td>Data warehouse schema, ETL scripts, and cloud deployment container configurations.</td>
+                </tr>
+                <tr>
+                  <th>Playbook</th>
+                  <td>Small-institution sales cycle playbooks, demo scripts, customer objection handling guides, and procurement roadmaps.</td>
+                </tr>
+                <tr>
+                  <th>Mentorship</th>
+                  <td>Orientation on higher-ed leadership purchasing dynamics and contract renewal structures.</td>
+                </tr>
+              </table>
+              <div style="margin-top: 24px;">
+                <button class="btn btn-chile" data-nav="contact">Apply for SchoolView</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 7C. PRODUCT: ASL (ASSESSMENT)              -->
+    <!-- ========================================== -->
+    <main id="view-asl" class="page-section" tabindex="-1">
+      <section style="padding-top: 72px;">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Available via Give-Back Program</p>
+            <h1>Assessment of Student Learning (ASL)</h1>
+            <p>A framework and toolset for measuring competency-based learning outcomes at the course, program, and department level.</p>
+          </div>
+
+          <div class="split">
+            <div>
+              <h3>What the product does</h3>
+              <p style="color:var(--ink-dim);">Accreditation agencies (HLC, SACSCOC, WSCUC, NECHE) mandate that higher education institutions demonstrate rigorous assessment of student learning outcomes. ASL bridges the gap between faculty rubrics and administrative compliance, automating the aggregation of assignment evaluations into department-level competency benchmarks without placing bureaucratic overhead on instructors.</p>
+              
+              <h3 style="margin-top: 32px;">Who on campus uses it</h3>
+              <ul class="checklist" style="border:none;">
+                <li style="border-color:var(--border);"><span class="mark">✓</span><span><strong>Assessment Coordinators &amp; Accreditation Liaisons:</strong> To generate audit-ready outcome evidence for regional and programmatic reviews.</span></li>
+                <li style="border-color:var(--border);"><span class="mark">✓</span><span><strong>Department Chairs &amp; Curriculum Committees:</strong> To identify curriculum gaps, adjust course sequences, and substantiate academic quality improvements.</span></li>
+                <li style="border-color:var(--border);"><span class="mark">✓</span><span><strong>Instructional Faculty:</strong> To apply standardized assessment rubrics directly to course assignments and final capstones.</span></li>
+              </ul>
+            </div>
+
+            <div class="card-block">
+              <h3>What transfers to NM builders</h3>
+              <p>A proven academic assessment framework with immense market demand across accredited institutions:</p>
+              <table class="spec-table" style="margin: 16px 0;">
+                <tr>
+                  <th>Source Code</th>
+                  <td>Outcome scoring engine, rubric aggregation software, and compliance reporting generators.</td>
+                </tr>
+                <tr>
+                  <th>Architecture</th>
+                  <td>Outcome-mapping taxonomies, LMS assignment hook specifications, and accreditation export schemas.</td>
+                </tr>
+                <tr>
+                  <th>Playbook</th>
+                  <td>Higher-ed accreditation marketing guides, provost presentation decks, and multi-year subscription pricing models.</td>
+                </tr>
+                <tr>
+                  <th>Mentorship</th>
+                  <td>Deep briefing on navigating faculty senate approvals and university assessment committee evaluations.</td>
+                </tr>
+              </table>
+              <div style="margin-top: 24px;">
+                <button class="btn btn-chile" data-nav="contact">Apply for ASL Codebase</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 8. FAQ                                     -->
+    <!-- ========================================== -->
+    <main id="view-faq" class="page-section" tabindex="-1">
+      <section style="padding-top: 72px;">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Frequently Asked Questions</p>
+            <h1>Give-Back Program FAQ</h1>
+            <p>Everything you need to know about receiving StudentSpace source code, product designs, and business playbooks.</p>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3 class="faq-q">Do I need an existing registered business to apply?</h3>
+              <p class="faq-a">No. Individuals, informal teams, students, and early-stage founders based in New Mexico are all fully eligible. If you haven't formed a legal entity yet, you can still apply and be accepted. Our business playbook materials even outline best practices for incorporating a technology company in New Mexico.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-q">Are non-technical applicants eligible?</h3>
+              <p class="faq-a">Yes. While maintaining and extending software ultimately requires software development skills, non-technical founders with deep educational, advising, or sales experience can apply. We provide comprehensive architectural documentation and technical onboarding sessions to help you or a technical partner understand the system architecture from day one.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-q">Is there an application deadline?</h3>
+              <p class="faq-a">No. The Give-Back Program operates on a rolling admissions basis. We review incoming applications continuously so that New Mexico builders can begin when they are ready, rather than waiting for an arbitrary calendar window.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-q">What license governs the transferred code?</h3>
+              <p class="faq-a">
+                <span class="faq-placeholder">[Legal to confirm exact license terms]</span><br>
+                The underlying principle of the transfer is to empower New Mexico recipients to commercialize, rebrand, adapt, and build viable independent businesses around the software without ongoing royalty fees or equity encumbrance from StudentSpace. The exact formal license agreement will be provided prior to repository transfer.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-q">Does StudentSpace take any equity or royalties from my company?</h3>
+              <p class="faq-a"><strong>No cost. No equity. No catch.</strong> StudentSpace takes zero percent equity in your venture and charges zero licensing or royalty fees. This initiative is funded through StudentSpace's CSR commitment as a tribute to the state that nurtured our company for 27 years.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="faq-q">Can I modify, rebrand, and resell the software?</h3>
+              <p class="faq-a">Yes. You are expected to rebrand the software, develop new features, adapt the user interface to modern expectations, and sell it under your own company's identity to colleges, universities, K-12 systems, or state agencies.</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 48px; text-align: center; padding: 40px; border: 1px solid var(--border); background: var(--ink-alt); border-radius: var(--radius);">
+            <h3 style="font-size: 22px; margin-bottom: 10px;">Have a question not listed here?</h3>
+            <p style="color:var(--ink-dim); max-width:50ch; margin: 0 auto 24px;">Our Santa Fe team is ready to talk through your idea, technical prerequisites, or institutional partnership.</p>
+            <button class="btn btn-chile" data-nav="contact">Start an application or reach out</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-row">
+        <div>
+          <div class="brand-link" style="margin-bottom: 12px;">
+            <span class="brand-name">StudentSpace</span>
+            <span class="brand-sep">/</span>
+            <span class="brand-product">edplan.ai</span>
+          </div>
+          <p style="color:var(--ink-dim); max-width:36ch; font-size:14px; line-height:1.5;">Santa Fe, New Mexico. In business since 1998 — now giving back our source code, tools, and experience to New Mexico builders.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Initiatives</h4>
+            <button data-nav="home">Home</button>
+            <button data-nav="edplan">edplan.ai Portal</button>
+            <button data-nav="giveback">Give-Back Program</button>
+            <button data-nav="faq">Program FAQ</button>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <button data-nav="fct">Full Circle Tracking</button>
+            <button data-nav="schoolview">SchoolView</button>
+            <button data-nav="asl">Assessment (ASL)</button>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <button data-nav="story">Our Story</button>
+            <button data-nav="team">Leadership &amp; Team</button>
+            <button data-nav="contact">Contact &amp; Apply</button>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="mailto:givingback@studentspace.com">givingback@studentspace.com</a>
+            <a href="mailto:sales@studentspace.com">sales@studentspace.com</a>
+            <a href="mailto:support@studentspace.com">support@studentspace.com</a>
+            <a href="tel:+15054387192">(505) 438-7192</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 1998–2026 StudentSpace. Santa Fe, New Mexico.</span>
+        <span>A corporate-sponsored give-back initiative for New Mexico builders and students.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Single Page Router & Form Handler Script -->
+  <script>
+    (function () {
+      'use strict';
+
+      // Registered page viewports & dynamic SEO page metadata
+      const PAGE_CONFIG = {
+        'home': {
+          title: 'StudentSpace — Twenty-Seven Years Building Edtech. Now Giving It Away to New Mexico.',
+          description: 'StudentSpace is opening 27 years of student-tracking software, source code, and business playbooks free to New Mexico builders, alongside edplan.ai, a free student planning portal.'
+        },
+        'story': {
+          title: 'Our Story — StudentSpace: From Santa Fe Startup to Statewide Give-Back',
+          description: 'Learn how StudentSpace grew from a 1998 Santa Fe startup to serving 250+ higher-ed institutions, and why we are now dedicating our tools to New Mexico.'
+        },
+        'edplan': {
+          title: 'edplan.ai — Free Education Planning Portal for Every Student in New Mexico',
+          description: 'A free education-planning portal funded through StudentSpace CSR to help every New Mexico student navigate their academic journey into a career.'
+        },
+        'giveback': {
+          title: 'Give-Back Program — Source Code, Playbooks & Mentorship for New Mexico Builders',
+          description: 'Take what we built. StudentSpace is giving away source code, product designs, and business playbooks free with no cost and no equity to New Mexico founders.'
+        },
+        'team': {
+          title: 'Leadership & Team — StudentSpace & edplan.ai',
+          description: 'Meet the executive and engineering leadership behind StudentSpace and the corporate give-back program in Santa Fe, New Mexico.'
+        },
+        'fct': {
+          title: 'Full Circle Tracking — SIS, CRM & LMS Unified Advising System',
+          description: 'Full Circle Tracking connects student records into one unified retention view. Source code and sales playbooks available free for eligible New Mexico builders.'
+        },
+        'schoolview': {
+          title: 'SchoolView — Enrollment & Advancement Dashboard for Small Colleges',
+          description: 'Turnkey institutional analytics for small colleges without large IT departments. Available free to New Mexico startups via the Give-Back Program.'
+        },
+        'asl': {
+          title: 'Assessment of Student Learning (ASL) — Competency-Based Outcome Framework',
+          description: 'Software and framework for tracking competency-based learning outcomes and regional accreditation reporting, open for transfer to New Mexico founders.'
+        },
+        'faq': {
+          title: 'Frequently Asked Questions — StudentSpace Give-Back Program',
+          description: 'Answers to key questions on business registration, non-technical founder eligibility, rolling deadlines, and licensing for the Give-Back Program.'
+        },
+        'contact': {
+          title: 'Contact & Apply — StudentSpace Give-Back Program & edplan.ai',
+          description: 'Apply to receive StudentSpace source code or bring edplan.ai to your school district. 802 Early Street, Santa Fe, New Mexico.'
+        }
+      };
+
+      const metaDesc = document.querySelector('meta[name="description"]');
+      const menuToggle = document.getElementById('menuToggle');
+      const primaryNav = document.getElementById('primaryNav');
+
+      // Routing logic
+      function navigateTo(targetPage, updateHistory = true) {
+        const pageKey = PAGE_CONFIG[targetPage] ? targetPage : 'home';
+
+        // 1. Toggle page sections
+        Object.keys(PAGE_CONFIG).forEach(key => {
+          const viewEl = document.getElementById('view-' + key);
+          if (viewEl) {
+            const isActive = (key === pageKey);
+            viewEl.classList.toggle('active', isActive);
+            if (isActive) {
+              viewEl.focus();
+            }
+          }
+        });
+
+        // 2. Update navigation active state
+        document.querySelectorAll('[data-nav]').forEach(btn => {
+          const navTarget = btn.getAttribute('data-nav');
+          if (navTarget === pageKey) {
+            btn.setAttribute('aria-current', 'page');
+          } else {
+            btn.removeAttribute('aria-current');
+          }
+        });
+
+        // 3. Update SEO metadata
+        const config = PAGE_CONFIG[pageKey];
+        if (config) {
+          document.title = config.title;
+          if (metaDesc) {
+            metaDesc.setAttribute('content', config.description);
+          }
+        }
+
+        // 4. Update URL hash
+        if (updateHistory) {
+          history.pushState(null, '', '#' + pageKey);
+        }
+
+        // 5. Scroll to top & close mobile menu
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        if (primaryNav) {
+          primaryNav.classList.remove('open');
+          if (menuToggle) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+          }
+        }
+      }
+
+      // Attach click handlers to all navigation triggers
+      document.addEventListener('click', function (e) {
+        const targetBtn = e.target.closest('[data-nav]');
+        if (targetBtn) {
+          e.preventDefault();
+          const targetPage = targetBtn.getAttribute('data-nav');
+          navigateTo(targetPage);
+        }
+      });
+
+      // Mobile Menu Toggle
+      if (menuToggle && primaryNav) {
+        menuToggle.addEventListener('click', function () {
+          const isExpanded = primaryNav.classList.toggle('open');
+          menuToggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        });
+      }
+
+      // Mobile dropdown toggles
+      document.querySelectorAll('.dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+          if (window.innerWidth <= 920) {
+            e.preventDefault();
+            const parent = this.closest('.dropdown');
+            if (parent) {
+              const isOpen = parent.classList.toggle('mobile-open');
+              this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+          }
+        });
+      });
+
+      // Handle Browser Back / Forward Buttons
+      window.addEventListener('popstate', function () {
+        const hash = (location.hash || '#home').replace('#', '');
+        navigateTo(hash, false);
+      });
+
+      // Initialize route from hash on load
+      const initialHash = (location.hash || '#home').replace('#', '');
+      navigateTo(initialHash, false);
+
+      // ==========================================
+      // BACKEND-WIRED CONTACT FORM
+      // ==========================================
+      const contactForm = document.getElementById('contactForm');
+      const formStatus = document.getElementById('formStatus');
+      const submitBtn = document.getElementById('submitBtn');
+
+      /**
+       * BACKEND CONFIGURATION:
+       * Replace 'YOUR_FORMSPREE_ID' with your real Formspree ID (e.g., 'mzzpkyvq')
+       * or your custom API endpoint URL.
+       * Example: const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyzgiveback';
+       */
+      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', async function (e) {
+          e.preventDefault();
+
+          // Client-side HTML5 validation
+          if (!contactForm.checkValidity()) {
+            contactForm.reportValidity();
+            return;
+          }
+
+          const formData = new FormData(contactForm);
+          const dataObj = Object.fromEntries(formData.entries());
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending message...';
+          formStatus.className = 'form-status';
+          formStatus.style.display = 'none';
+
+          // Check if placeholder is still set
+          const isDemoEndpoint = FORMSPREE_ENDPOINT.includes('YOUR_FORMSPREE_ID');
+
+          if (isDemoEndpoint) {
+            // Simulated live backend confirmation with configuration instructions
+            setTimeout(() => {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Send message';
+              formStatus.className = 'form-status success';
+              formStatus.innerHTML = `
+                <strong>Thank you, ${escapeHtml(dataObj.name)}!</strong><br>
+                Your inquiry regarding <em>"${escapeHtml(dataObj.reason)}"</em> in ${escapeHtml(dataObj.city)}, NM has been received.<br>
+                <small style="display:inline-block; margin-top:6px; opacity:0.9;">
+                  (Form is configured for Formspree. To route live submissions to your inbox, set <code>FORMSPREE_ENDPOINT</code> in <code>index.html</code> to your Formspree ID.)
+                </small>
+              `;
+              contactForm.reset();
+            }, 650);
+          } else {
+            // Live production fetch to Formspree or custom endpoint
+            try {
+              const response = await fetch(FORMSPREE_ENDPOINT, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+              });
+
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Send message';
+
+              if (response.ok) {
+                formStatus.className = 'form-status success';
+                formStatus.innerHTML = `<strong>Thank you, ${escapeHtml(dataObj.name)}!</strong> Your message has been sent directly to the StudentSpace team. We will review it shortly.`;
+                contactForm.reset();
+              } else {
+                const errorData = await response.json().catch(() => ({}));
+                formStatus.className = 'form-status error';
+                formStatus.textContent = errorData.error || 'There was a problem submitting your message. Please email us directly at givingback@studentspace.com.';
+              }
+            } catch (err) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Send message';
+              formStatus.className = 'form-status error';
+              formStatus.textContent = 'Network error connecting to submission endpoint. Please email us directly at givingback@studentspace.com.';
+            }
+          }
+        });
+      }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>'"]/g, tag => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          "'": '&#39;',
+          '"': '&quot;'
+        }[tag] || tag));
+      }
+
+    })();
+  </script>
+</body>
+</html>
