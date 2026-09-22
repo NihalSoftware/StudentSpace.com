@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="clients.css">
 </head>
 <body>
 
@@ -46,6 +47,8 @@
             <a href="/products/assessment-of-student-learning" data-route="/products/assessment-of-student-learning" role="menuitem">Assessment (ASL)</a>
           </div>
         </div>
+
+        <a href="/clients" class="nav-link" data-route="/clients">Clients</a>
 
         <div class="dropdown" id="aboutDropdown">
           <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
@@ -429,6 +432,62 @@
       </section>
     </main>
 
+    <!-- Clients and logo assets sourced from https://www.studentspace.com/clients -->
+    <main id="view-clients" class="page-view" tabindex="-1">
+      <section class="clients-hero">
+        <div class="wrap">
+          <p class="hero-eyebrow">Our clients</p>
+          <h1>Supporting the people<br>who support students.</h1>
+          <p class="lede">From colleges and universities to education organizations, StudentSpace helps teams connect student information, track progress, and make informed decisions.</p>
+        </div>
+      </section>
+      <section class="surface clients-directory" aria-labelledby="clients-heading">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="clients-heading">Some of our clients</h2>
+            <p>A selection of institutions and organizations from the StudentSpace community.</p>
+          </div>
+          <ul class="clients-grid">
+            <li class="client-card">
+              <div class="client-logo"><img src="assets/clients/rio-grande.jpg" alt="University of Rio Grande logo" width="280" height="140" loading="lazy"></div>
+              <h3>University of Rio Grande</h3>
+            </li>
+            <li class="client-card">
+              <div class="client-logo"><img src="assets/clients/timothy.png" alt="Timothy- Leadership Training Institute logo" width="280" height="140" loading="lazy"></div>
+              <h3>Timothy- Leadership Training Institute</h3>
+            </li>
+            <li class="client-card">
+              <div class="client-logo"><img src="assets/clients/ana-g-mendez.jpg" alt="Universidad Ana G. Mendez logo" width="280" height="140" loading="lazy"></div>
+              <h3>Universidad Ana G. Mendez</h3>
+            </li>
+            <li class="client-card">
+              <div class="client-logo"><img src="assets/clients/bharti.png" alt="Bharti Foundation logo" width="280" height="140" loading="lazy"></div>
+              <h3>Bharti Foundation</h3>
+            </li>
+            <li class="client-card">
+              <div class="client-logo"><img src="assets/clients/kodiak.jpg" alt="Kodiak College logo" width="280" height="140" loading="lazy"></div>
+              <h3>Kodiak College</h3>
+            </li>
+            <li class="client-card">
+              <div class="client-logo"><img src="assets/clients/howard.jpg" alt="Howard College logo" width="280" height="140" loading="lazy"></div>
+              <h3>Howard College</h3>
+            </li>
+          </ul>
+          <div class="clients-more">
+            <h3>Also part of our client community</h3>
+            <ul><li>Louisiana State University</li><li>Raise Up Global Ministries</li></ul>
+          </div>
+        </div>
+      </section>
+      <section class="clients-contact">
+        <div class="wrap">
+          <h2>Let's talk about your students.</h2>
+          <p class="dim">Connect with our team to explore StudentSpace's tools for your institution.</p>
+          <a href="/contact" class="btn btn-chile" data-route="/contact">Get in touch</a>
+        </div>
+      </section>
+    </main>
+
     <!-- ========================================== -->
     <!-- 6. LEADERSHIP / TEAM (Placeholders)        -->
     <!-- ========================================== -->
@@ -725,6 +784,7 @@
           </div>
           <div class="footer-col">
             <h4>Company</h4>
+            <a href="/clients" data-route="/clients">Clients</a>
             <a href="/our-story" data-route="/our-story">Our Story</a>
             <a href="/leadership" data-route="/leadership">Leadership &amp; Team</a>
             <a href="/contact" data-route="/contact">Contact &amp; Apply</a>

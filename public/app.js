@@ -32,6 +32,11 @@
       title: 'Give-Back Program — Source Code, Playbooks & Mentorship for New Mexico Builders',
       description: 'Take what we built. StudentSpace is giving away source code, product designs, and business playbooks free with no cost and no equity to New Mexico founders.'
     },
+    '/clients': {
+      viewId: 'view-clients',
+      title: 'Clients | StudentSpace',
+      description: 'Meet some of the colleges, universities, and education organizations in the StudentSpace client community.'
+    },
     '/leadership': {
       viewId: 'view-team',
       title: 'Leadership & Team — StudentSpace & edplan.ai',

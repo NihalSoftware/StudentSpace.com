@@ -892,6 +892,7 @@
       gap: 12px;
     }
   </style>
+  <link rel="stylesheet" href="public/clients.css">
 </head>
 <body>
 
@@ -924,6 +925,8 @@
             <button data-nav="asl" role="menuitem">Assessment (ASL)</button>
           </div>
         </div>
+
+        <button class="nav-btn" data-nav="clients">Clients</button>
 
         <div class="dropdown" id="aboutDropdown">
           <button class="nav-btn dropdown-toggle" aria-haspopup="true" aria-expanded="false">
@@ -1307,6 +1310,62 @@
       </section>
     </main>
 
+    <!-- Clients and logo assets sourced from https://www.studentspace.com/clients -->
+    <main id="view-clients" class="page-section" tabindex="-1">
+      <section class="clients-hero">
+        <div class="wrap">
+          <p class="hero-eyebrow">Our clients</p>
+          <h1>Supporting the people<br>who support students.</h1>
+          <p class="lede">From colleges and universities to education organizations, StudentSpace helps teams connect student information, track progress, and make informed decisions.</p>
+        </div>
+      </section>
+      <section class="surface clients-directory" aria-labelledby="clients-heading">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="clients-heading">Some of our clients</h2>
+            <p>A selection of institutions and organizations from the StudentSpace community.</p>
+          </div>
+          <ul class="clients-grid">
+            <li class="client-card">
+              <div class="client-logo"><img src="public/assets/clients/rio-grande.jpg" alt="University of Rio Grande logo" width="280" height="140" loading="lazy"></div>
+              <h3>University of Rio Grande</h3>
+            </li>
+            <li class="client-card">
+              <div class="client-logo"><img src="public/assets/clients/timothy.png" alt="Timothy- Leadership Training Institute logo" width="280" height="140" loading="lazy"></div>
+              <h3>Timothy- Leadership Training Institute</h3>
+            </li>
+            <li class="client-card">
+              <div class="client-logo"><img src="public/assets/clients/ana-g-mendez.jpg" alt="Universidad Ana G. Mendez logo" width="280" height="140" loading="lazy"></div>
+              <h3>Universidad Ana G. Mendez</h3>
+            </li>
+            <li class="client-card">
+              <div class="client-logo"><img src="public/assets/clients/bharti.png" alt="Bharti Foundation logo" width="280" height="140" loading="lazy"></div>
+              <h3>Bharti Foundation</h3>
+            </li>
+            <li class="client-card">
+              <div class="client-logo"><img src="public/assets/clients/kodiak.jpg" alt="Kodiak College logo" width="280" height="140" loading="lazy"></div>
+              <h3>Kodiak College</h3>
+            </li>
+            <li class="client-card">
+              <div class="client-logo"><img src="public/assets/clients/howard.jpg" alt="Howard College logo" width="280" height="140" loading="lazy"></div>
+              <h3>Howard College</h3>
+            </li>
+          </ul>
+          <div class="clients-more">
+            <h3>Also part of our client community</h3>
+            <ul><li>Louisiana State University</li><li>Raise Up Global Ministries</li></ul>
+          </div>
+        </div>
+      </section>
+      <section class="clients-contact">
+        <div class="wrap">
+          <h2>Let's talk about your students.</h2>
+          <p class="dim">Connect with our team to explore StudentSpace's tools for your institution.</p>
+          <button class="btn btn-chile" data-nav="contact">Get in touch</button>
+        </div>
+      </section>
+    </main>
+
     <!-- ========================================== -->
     <!-- 6. LEADERSHIP / TEAM (New - Briefed)       -->
     <!-- ========================================== -->
@@ -1607,6 +1666,7 @@
           </div>
           <div class="footer-col">
             <h4>Company</h4>
+            <button data-nav="clients">Clients</button>
             <button data-nav="story">Our Story</button>
             <button data-nav="team">Leadership &amp; Team</button>
             <button data-nav="contact">Contact &amp; Apply</button>
@@ -1649,6 +1709,10 @@
         'giveback': {
           title: 'Give-Back Program — Source Code, Playbooks & Mentorship for New Mexico Builders',
           description: 'Take what we built. StudentSpace is giving away source code, product designs, and business playbooks free with no cost and no equity to New Mexico founders.'
+        },
+        'clients': {
+          title: 'Clients | StudentSpace',
+          description: 'Meet some of the colleges, universities, and education organizations in the StudentSpace client community.'
         },
         'team': {
           title: 'Leadership & Team — StudentSpace & edplan.ai',

@@ -38,6 +38,7 @@ const APP_ROUTES = [
   '/give-back',
   '/contact',
   '/leadership',
+  '/clients',
   '/products/full-circle-tracking',
   '/products/school-view',
   '/products/assessment-of-student-learning',
