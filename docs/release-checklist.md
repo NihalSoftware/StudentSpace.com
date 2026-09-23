@@ -5,7 +5,7 @@ React/Vite migration, 23 September 2026. Latest instruction: no database service
 ## Verified locally
 
 - [x] React 19.3.0, React DOM 19.3.0, Vite 8.3.0 and Tailwind 4.3.3 installed with lockfile.
-- [ ] JavaScript/JSX conversion: syntax checks, 31 API/build tests and five browser scenarios pass after removing TypeScript source and tooling.
+- [x] JavaScript/JSX conversion [passed CI](https://github.com/NihalSoftware/StudentSpace.com/actions/runs/35825204482) on commit 9e18e56: syntax checks for 34 project files, 31 API/build tests and five browser scenarios after removing TypeScript source and tooling.
 - [x] 38 public routes plus 404 prerender as complete documents, preserving titles, descriptions, structured data, links and redirects.
 - [x] Production bundle inspected in browser: 39 routes x 7 widths = 273 checks, no horizontal overflow, missing h1 or hydration failures; no JavaScript errors.
 - [x] Required widths: 320, 375, 390, 768, 1024, 1280 and 1440.
