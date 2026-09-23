@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="580" viewBox="0 0 560 580">
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#b3b8a6" stroke-width=".5" opacity=".35"/></pattern><clipPath id="frame"><path d="M24 15H536V528H24Z"/></clipPath></defs>
+<path d="M24 15H536V528H24Z" fill="#e6e7d8"/><path d="M24 15H536V528H24Z" fill="url(#grid)"/>
+<g clip-path="url(#frame)"><circle cx="385" cy="174" r="66" fill="#d8a63c"/><circle cx="385" cy="174" r="88" fill="none" stroke="#c8c4a7"/>
+<path d="M-10 346 95 346 136 275 227 275 269 319 359 319 404 261 458 261 510 300 580 300V555H-10Z" fill="#adc0a8"/>
+<path d="M-10 395 52 361 126 377 191 350 256 393 328 369 406 397 495 358 580 389V560H-10Z" fill="#5f8d78"/>
+<path d="M-10 454 113 412 209 434 313 407 423 440 514 409 580 427V560H-10Z" fill="#216e67"/>
+<path d="M250 560C195 520 215 481 279 467S360 425 334 395" fill="none" stroke="#ede4ce" stroke-width="3"/>
+<path d="M279 467C384 492 389 519 478 561M279 467C220 446 138 483 93 444" fill="none" stroke="#ede4ce" stroke-width="1.5"/>
+<circle cx="279" cy="467" r="7" fill="#e9dfc7" stroke="#216e67" stroke-width="2"/><circle cx="334" cy="395" r="5" fill="#f3efe3"/><circle cx="93" cy="444" r="4" fill="#f3efe3"/></g>
+<g fill="none" stroke="#577b69"><path d="M13 40V4H50M510 4H547V40M13 503V540H50M510 540H547V503"/></g>
+<g font-family="Arial,sans-serif" fill="#40534b" font-size="10" letter-spacing="1.6"><text x="47" y="51">A NEW CHAPTER</text><text x="46" y="77" letter-spacing=".6" font-size="9">35.6870° N · 105.9378° W</text><text x="25" y="565" letter-spacing="1">EXPERIENCE / POSSIBILITY</text></g></svg>
