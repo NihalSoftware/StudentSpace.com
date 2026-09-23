@@ -60,7 +60,7 @@ Configure an edge Firewall rate-limit rule for **POST /api/apply**, keyed by cli
 
 Preview forms cannot fall back to a production inbox. Missing preview recipient, email key or abuse configuration gives 503. Previews always use noindex metadata, robots exclusion and X-Robots-Tag. A production test must separately verify provider acceptance and inbox receipt; readiness alone proves neither sender verification nor delivery.
 
-GitHub main protection: require pull requests and the `verify` CI status, require up-to-date checks, prevent force pushes and deletion. The connector returned 403 for branch-protection management; account administration is still required if no authorized CLI session is available. Do not merge until hosted preview verification succeeds. Git integration then deploys merged main automatically.
+GitHub main protection is configured: pull requests and the `verify` CI status are required, checks must be up to date, and force pushes/deletion are blocked, including for administrators. The migration is [draft PR #1](https://github.com/NihalSoftware/StudentSpace.com/pull/1). Do not merge until hosted preview verification succeeds. Once Vercel Git integration is connected, merged main deploys automatically.
 
 ## API and retries
 

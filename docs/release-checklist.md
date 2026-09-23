@@ -20,15 +20,16 @@ React/Vite migration, 23 September 2026. Latest instruction: no database service
 ## GitHub and Vercel
 
 - [x] Fetched repository history and created feature/react-vite-email-only from origin/main without replacing local work.
-- [ ] Commit/push migration and open draft PR; attach CI evidence.
-- [ ] Configure main protection: required PR and passing verify check, up-to-date checks, no force push/deletion.
+- [x] Commit/push migration and open [draft PR #1](https://github.com/NihalSoftware/StudentSpace.com/pull/1).
+- [x] Configure main protection: required PR and passing verify check, up-to-date checks, no force push/deletion, including administrators.
+- [ ] Complete GitHub CI; initial run passed type checks, 31 tests, build and four browser scenarios. Fix the ambiguous external-link test locator and rerun the full suite.
 - [ ] Connect Vercel project to the selected repository; verify PR previews and main deployment settings.
 - [ ] Configure edge POST /api/apply rate limiting (5/IP/10 minutes) and test before setting EDGE_RATE_LIMIT_CONFIGURED=true.
 - [ ] Configure verified sender, API key and a separate preview recipient. No secrets belong in public VITE_ settings.
 - [ ] Confirm preview health, submission acceptance, retries, origin rejection, 404, redirects, CSP and noindex on the hosted URL.
 - [ ] Verify preview requests cannot send to production recipients.
 
-The GitHub connector lacks branch-protection administration. The Vercel deployment connector reports its deployment tool unavailable, and the local CLI is logged out. Computer Use also failed to initialize on 23 September ("failed to write kernel assets"); the browser evidence above was collected before that runtime failure. Hosted configuration must use an authorized CLI/browser account; neither a database nor a paid-plan upgrade is required by the code. Confirm any platform billing before resource purchases.
+The GitHub connector lacked write permissions, so the existing authorized Git credential was used to create the PR and configure branch protection. The Vercel deployment connector reports its deployment tool unavailable, and the local CLI is logged out. Computer Use also failed to initialize on 23 September ("failed to write kernel assets"); the local browser evidence above was collected before that runtime failure. Hosted configuration must use an authorized CLI/browser account; neither a database nor a paid-plan upgrade is required by the code. Confirm any platform billing before resource purchases.
 
 ## Content and launch gates
 

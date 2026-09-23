@@ -27,6 +27,9 @@ test('navigation, filtering, mobile menu and reduced motion', async ({ page }) =
   await expect(page).toHaveURL(/\/technology\/school-view$/);
   await page.goBack();
   await expect(page).toHaveURL(/\/technology$/);
+  await page.goForward();
+  await expect(page).toHaveURL(/\/technology\/school-view$/);
+  await page.goBack();
   await page.setViewportSize({width:375,height:900});
   await page.getByRole('button',{name:/Menu/}).click();
   await expect(page.getByRole('navigation',{name:'Main navigation'})).toBeVisible();
@@ -37,6 +40,7 @@ test('navigation, filtering, mobile menu and reduced motion', async ({ page }) =
   await page.getByRole('button',{name:/Menu/}).click();
   await page.getByRole('navigation',{name:'Main navigation'}).getByRole('link',{name:'Mission',exact:true}).click();
   await expect(page).toHaveURL(/\/mission$/);
+  await expect(page.locator('main')).toBeFocused();
 });
 for (const scenario of ['FIXTURE_RETRY','FIXTURE_TIMEOUT']) test('form preserves entries and safely retries '+scenario, async ({ page }) => {
   await page.goto('/apply');
@@ -57,10 +61,16 @@ for (const scenario of ['FIXTURE_RETRY','FIXTURE_TIMEOUT']) test('form preserves
 test('prerendered content works without JavaScript; private files and unknown pages return 404', async ({ browser, request }) => {
   const context = await browser.newContext({javaScriptEnabled:false});
   const page = await context.newPage();
+  for (const route of content.pages) {
+    expect((await page.goto('http://127.0.0.1:5174' + route.path))?.status()).toBe(200);
+    await expect(page.locator('h1')).toBeVisible();
+    await expect(page.locator('main')).not.toBeEmpty();
+  }
   await page.goto('http://127.0.0.1:5174/edplan');
   await expect(page.locator('h1')).toBeVisible();
-  await expect(page.locator('a[href="https://edplan.vercel.app/home"]')).toBeVisible();
-  await expect(page.locator('a[href="https://www.studentspace.ai/NNMC"]')).toBeVisible();
+  await expect(page.getByRole('link', {name:'Open EdPlan.ai', exact:true})).toHaveAttribute('href','https://edplan.vercel.app/home');
+  await expect(page.getByRole('link', {name:'Open EdPlan.ai', exact:true})).toBeVisible();
+  await expect(page.locator('a[href="https://www.studentspace.ai/NNMC"]').first()).toBeVisible();
   for (const path of ['/not-a-route','/data/applications.json','/.env','/docs/release-checklist.md','/api/applications']) expect((await request.get(path)).status()).toBe(404);
   await context.close();
 });
