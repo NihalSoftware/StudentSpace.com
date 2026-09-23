@@ -82,6 +82,10 @@ for (const scenario of ["FIXTURE_RETRY", "FIXTURE_TIMEOUT"]) test("form preserve
 	expect(keys[0]).toBe(keys[1]);
 });
 test('Projects dropdown supports desktop, mobile, keyboard and product navigation', async ({ page }, testInfo) => {
+  const capture = async (name, fullPage = false) => {
+    await expect.poll(() => page.evaluate(() => document.getAnimations().filter(animation => animation.playState === 'running').length)).toBe(0);
+    await page.screenshot({path:testInfo.outputPath(name), fullPage});
+  };
   await page.goto('/Projects');
   await expect(page).toHaveURL(/\/projects$/);
   await expect(page.locator('.project-overview-card')).toHaveCount(3);
@@ -98,13 +102,14 @@ test('Projects dropdown supports desktop, mobile, keyboard and product navigatio
     await expect(menu.getByRole('link')).toHaveCount(5);
     await expect(menu.getByRole('link', {name:'Assessment (ASL)'})).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-    if ([375, 1007].includes(width)) await page.screenshot({path:testInfo.outputPath('projects-menu-' + width + '.png'), fullPage:true});
+    if ([375, 1007].includes(width)) await capture('projects-menu-' + width + '.png');
     await page.keyboard.press('Tab');
     await expect(menu.getByRole('link', {name:'All projects'})).toBeFocused();
     await page.keyboard.press('Escape');
     await expect(summary).toBeFocused();
     await expect(menu).not.toHaveAttribute('open');
     if (width <= 1000) await page.keyboard.press('Escape');
+    if (width === 375) await capture('projects-overview-mobile.png', true);
   }
   await summary.click();
   await menu.getByRole('link', {name:'SchoolView', exact:true}).click();
@@ -113,7 +118,7 @@ test('Projects dropdown supports desktop, mobile, keyboard and product navigatio
   await expect(menu).not.toHaveAttribute('open');
   await page.goBack();
   await expect(page).toHaveURL(/\/projects$/);
-  await page.screenshot({path:testInfo.outputPath('projects-overview.png'), fullPage:true});
+  await capture('projects-overview.png', true);
 });
 
 test("prerendered content works without JavaScript; private files and unknown pages return 404", async ({ browser, request }) => {

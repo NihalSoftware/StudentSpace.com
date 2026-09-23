@@ -41,7 +41,7 @@ The root HTML prototypes and older briefs are historical references, excluded fr
 
 ## Vercel setup
 
-Use repository NihalSoftware/StudentSpace.com and the feature branch feature/react-vite-email-only. Connect a Vercel project to GitHub, framework Vite, Node 24.x, install `npm ci`, output `dist`. The programmatic configuration selects `npm run build` for previews and `npm run check:release && npm run build` for production. Vercel manages Node minor/patch releases.
+Use repository NihalSoftware/StudentSpace.com and develop on a feature branch. Connect a Vercel project to GitHub, framework Vite, Node 24.x, install `npm ci`, output `dist`. The programmatic configuration selects `npm run build` for previews and `npm run check:release && npm run build` for production. Vercel manages Node minor/patch releases.
 
 | Server setting | Purpose |
 | --- | --- |
@@ -60,7 +60,7 @@ Configure an edge Firewall rate-limit rule for **POST /api/apply**, keyed by cli
 
 Preview forms cannot fall back to a production inbox. Missing preview recipient, email key or abuse configuration gives 503. Previews always use noindex metadata, robots exclusion and X-Robots-Tag. A production test must separately verify provider acceptance and inbox receipt; readiness alone proves neither sender verification nor delivery.
 
-GitHub main protection is configured: pull requests and the `verify` CI status are required, checks must be up to date, and force pushes/deletion are blocked, including for administrators. The migration is [draft PR #1](https://github.com/NihalSoftware/StudentSpace.com/pull/1). Do not merge until hosted preview verification succeeds. Once Vercel Git integration is connected, merged main deploys automatically.
+GitHub main protection is configured: pull requests and the `verify` CI status are required, checks must be up to date, and force pushes/deletion are blocked, including for administrators. Do not merge until hosted preview verification succeeds. Once Vercel Git integration is connected, merged main deploys automatically.
 
 ## API and retries
 
