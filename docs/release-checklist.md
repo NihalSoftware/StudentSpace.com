@@ -15,14 +15,15 @@ React/Vite migration, 23 September 2026. Latest instruction: no database service
 - [x] 31 automated API/build tests pass, including rejection of inherited-object contact reason names.
 - [x] Private legacy record is unchanged and untracked in the migration index; no persistence or public application endpoint.
 - [x] Reduced-motion CSS disables ordinary and View Transition animations.
-- [ ] Full screen-reader/real-device audit; automated reduced-motion and no-JavaScript scenarios are included in the browser regression suite.
+- [x] GitHub browser suite passes: all 39 documents at seven widths, all documents without JavaScript, back/forward navigation, mobile Escape/focus, reduced-motion navigation, provider failure/timeout retries and private-file 404 checks.
+- [ ] Full screen-reader/real-device audit.
 
 ## GitHub and Vercel
 
 - [x] Fetched repository history and created feature/react-vite-email-only from origin/main without replacing local work.
 - [x] Commit/push migration and open [draft PR #1](https://github.com/NihalSoftware/StudentSpace.com/pull/1).
 - [x] Configure main protection: required PR and passing verify check, up-to-date checks, no force push/deletion, including administrators.
-- [ ] Complete GitHub CI; initial run passed type checks, 31 tests, build and four browser scenarios. Fix the ambiguous external-link test locator and rerun the full suite.
+- [x] [GitHub CI passed](https://github.com/NihalSoftware/StudentSpace.com/actions/runs/35823699487) on code commit 41e1050: clean install, TypeScript, 31 tests, production build and all five browser scenarios.
 - [ ] Connect Vercel project to the selected repository; verify PR previews and main deployment settings.
 - [ ] Configure edge POST /api/apply rate limiting (5/IP/10 minutes) and test before setting EDGE_RATE_LIMIT_CONFIGURED=true.
 - [ ] Configure verified sender, API key and a separate preview recipient. No secrets belong in public VITE_ settings.
@@ -36,7 +37,7 @@ The GitHub connector lacked write permissions, so the existing authorized Git cr
 - [ ] Approve privacy/retention notice, website terms and privacy-request procedure.
 - [ ] Confirm historical claims and all contact details. Keep current leadership, licenses, dates and release links unpublished until confirmed.
 - [ ] Record existing domain configuration and last known-good deployment for rollback.
-- [ ] Run npm ci, npm run check, npm test, npm run build and npm run test:browser.
+- [x] Run npm ci, npm run check, npm test, npm run build and npm run test:browser in GitHub CI.
 - [ ] Set production SITE_URL, Resend configuration, edge-protection acknowledgement and CONTENT_APPROVED=true after review.
 - [ ] Complete an authorized hosted preview submission before merging to main.
 - [ ] After release, verify production indexing and separately inspect provider delivery events/inbox receipt.
