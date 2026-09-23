@@ -1,6 +1,6 @@
 # StudentSpace
 
-React 19.3, Vite 8.3, TypeScript and Tailwind 4.3. Vercel hosts prerendered pages and the email-only Node API. **No database, queue, scheduled worker or applicant dashboard.** Resend acceptance is required before the form reports success.
+React 19.3, Vite 8.3, JavaScript/JSX and Tailwind 4.3. Vercel hosts prerendered pages and the email-only Node API. **No database, queue, scheduled worker or applicant dashboard.** Resend acceptance is required before the form reports success.
 
 ## Run locally
 
@@ -17,7 +17,7 @@ Copy .env.example to .env and configure Resend to send real messages. The sender
 
 | Command | Purpose |
 | --- | --- |
-| npm run check | Generate approved content and run TypeScript checks |
+| npm run check | Generate approved content and validate JavaScript/JSX syntax |
 | npm test | API, prerendering, routing, SEO and privacy boundary tests |
 | npm run build | Vite bundle and 39 complete HTML documents in dist |
 | npm run preview | Serve the production build and real API locally on 5173 |
@@ -29,11 +29,11 @@ Browser tests require `npx playwright install chromium`; CI installs the browser
 
 ## Architecture
 
-- app: React document, client hydration, prerender entry and CSS-first Tailwind tokens.
+- app: React JSX document, client hydration, prerender entry and CSS-first Tailwind tokens. Application code, API functions, configuration and tests use JavaScript; no TypeScript compiler or tsconfig is required.
 - components: navigation, footer, transitions, library filtering and useActionState/useOptimistic form.
 - src/content.js: reusable published content, history, sources and redirects. src/pages.js composes reviewed editorial markup; shared prose helpers remain in src/templates.js.
 - scripts/prepare.cjs: publishes only public page content into generated data. PageContent converts editorial markup into React elements and replaces interactive regions with components. It does not inject whole-page HTML.
-- lib/api.cjs: shared email-only API implementation; api/apply.ts and api/healthz.ts are Vercel adapters. server.js is a local compatibility entry.
+- lib/api.cjs: shared email-only API implementation; api/apply.js and api/healthz.js are Vercel adapters. server.js is a local compatibility entry.
 - scripts/build.mjs: Vite assets and React server rendering for every route. All page content is present without JavaScript; React Router enhances navigation.
 - vercel.cjs and src/hosting.js: clean URLs, legacy redirects, headers and API configuration. There is no catch-all SPA rewrite.
 

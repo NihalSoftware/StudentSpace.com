@@ -4,7 +4,8 @@ React/Vite migration, 23 September 2026. Latest instruction: no database service
 
 ## Verified locally
 
-- [x] React 19.3.0, React DOM 19.3.0, Vite 8.3.0 and Tailwind 4.3.3 installed with lockfile; TypeScript passes.
+- [x] React 19.3.0, React DOM 19.3.0, Vite 8.3.0 and Tailwind 4.3.3 installed with lockfile.
+- [ ] JavaScript/JSX conversion: syntax checks, 31 API/build tests and five browser scenarios pass after removing TypeScript source and tooling.
 - [x] 38 public routes plus 404 prerender as complete documents, preserving titles, descriptions, structured data, links and redirects.
 - [x] Production bundle inspected in browser: 39 routes x 7 widths = 273 checks, no horizontal overflow, missing h1 or hydration failures; no JavaScript errors.
 - [x] Required widths: 320, 375, 390, 768, 1024, 1280 and 1440.
@@ -23,7 +24,7 @@ React/Vite migration, 23 September 2026. Latest instruction: no database service
 - [x] Fetched repository history and created feature/react-vite-email-only from origin/main without replacing local work.
 - [x] Commit/push migration and open [draft PR #1](https://github.com/NihalSoftware/StudentSpace.com/pull/1).
 - [x] Configure main protection: required PR and passing verify check, up-to-date checks, no force push/deletion, including administrators.
-- [x] [GitHub CI passed](https://github.com/NihalSoftware/StudentSpace.com/actions/runs/35823699487) on code commit 41e1050: clean install, TypeScript, 31 tests, production build and all five browser scenarios.
+- [x] Previous migration baseline: [GitHub CI passed](https://github.com/NihalSoftware/StudentSpace.com/actions/runs/35823699487) on commit 41e1050, before the JavaScript-only conversion. Reverify the conversion separately.
 - [ ] Connect Vercel project to the selected repository; verify PR previews and main deployment settings.
 - [ ] Configure edge POST /api/apply rate limiting (5/IP/10 minutes) and test before setting EDGE_RATE_LIMIT_CONFIGURED=true.
 - [ ] Configure verified sender, API key and a separate preview recipient. No secrets belong in public VITE_ settings.

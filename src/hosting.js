@@ -19,7 +19,7 @@ function hostingConfig(env = process.env) {
     buildCommand: env.VERCEL_ENV === 'production' ? 'npm run check:release && npm run build' : 'npm run build',
     outputDirectory: 'dist',
     installCommand: 'npm ci', cleanUrls: true, trailingSlash: false,
-    functions: { 'api/*.ts': { maxDuration: 20, excludeFiles: '{data,docs,test,artifacts}/**' } },
+    functions: { 'api/*.js': { maxDuration: 20, excludeFiles: '{data,docs,test,artifacts}/**' } },
     rewrites: [{ source: '/healthz', destination: '/api/healthz' }],
     redirects: Object.entries(redirects).map(([source, destination]) => ({ source, destination, permanent: true })),
     headers

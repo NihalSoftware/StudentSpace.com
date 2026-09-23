@@ -58,3 +58,5 @@ When a release launches, update links, license, status, scope and FAQ together. 
 
 ## Migration clarification, 22 September 2026
 The current implementation remains email-only on Vercel. Default sender and recipient: advisor@studentspace.com. Do not claim database storage, durable queues, automatic background retries or inbox delivery. Provider failures retain form values for an explicit retry. Preview messages require a separate test recipient. Leadership, licensing, releases and policy approvals remain in the internal register.
+
+The application now uses React with JavaScript/JSX. This language change does not alter approved editorial copy, source evidence or publication status.

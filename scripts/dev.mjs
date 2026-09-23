@@ -15,7 +15,7 @@ preparation.prepare();
 const handler = api.createHandler();
 const staticServer = productionPreview ? preview.createPreview() : null;
 const vite = productionPreview ? null : await createViteServer({ server: { middlewareMode: true }, appType: 'custom' });
-const config = { ...settings.publicConfig(), scripts: ['/app/entry-client.tsx'], styles: [] };
+const config = { ...settings.publicConfig(), scripts: ['/app/entry-client.jsx'], styles: [] };
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
   if (url.pathname.startsWith('/api/') || url.pathname === '/healthz') { handler(req, res); return; }
@@ -31,7 +31,7 @@ const server = http.createServer(async (req, res) => {
   }
   vite.middlewares(req, res, async () => {
     try {
-      const app = await vite.ssrLoadModule('/app/entry-server.tsx');
+      const app = await vite.ssrLoadModule('/app/entry-server.jsx');
       const status = app.pages.some(page => page.path === url.pathname) ? 200 : 404;
       const transformed = await vite.transformIndexHtml(req.url, app.render(req.url, config));
       // Vite injects development scripts with whitespace text nodes into <head>.

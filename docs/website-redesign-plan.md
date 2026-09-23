@@ -91,3 +91,7 @@ The 19 September audit above is historical. This workspace is now linked to Niha
 Implementation order: React document/build and shared components; form/actions and Vercel adapters; API regression and seven-width browser checks; deployment guards and documentation; draft PR and hosted preview verification. Production rollout remains gated on configured email, edge abuse protection, approved content and a successful hosted preview.
 
 Editorial page HTML is retained as reviewed source material and parsed into React elements. Interactions are React components; the build serializes only published page content. Tailwind theme tokens and existing design rules live together in app/globals.css.
+
+## JavaScript language update, 23 September 2026
+
+The latest instruction replaces TypeScript with JavaScript throughout the React application, API functions, build configuration and browser tests. React components use JSX; Node helpers use JavaScript modules. The TypeScript compiler, direct type-only development dependencies and tsconfig are removed. `npm run check` now validates JavaScript/JSX syntax with Vite's parser. Build and behavior tests remain required.

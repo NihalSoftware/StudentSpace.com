@@ -13,13 +13,13 @@ export async function build(options = {}) {
   preparation.prepare();
   await viteBuild({ root: ROOT, build: { outDir: output, emptyOutDir: output === path.join(ROOT, 'dist') } });
   const manifest = JSON.parse(fs.readFileSync(path.join(output, '.vite/manifest.json'), 'utf8'));
-  const entry = manifest['app/entry-client.tsx'];
+  const entry = manifest['app/entry-client.jsx'];
   config.scripts = ['/' + entry.file];
   config.styles = entry.css.map(file => '/' + file);
   const renderer = await createServer({ root: ROOT, server: { middlewareMode: true, ws: false }, appType: 'custom', logLevel: 'error' });
   let pages;
   try {
-    const app = await renderer.ssrLoadModule('/app/entry-server.tsx');
+    const app = await renderer.ssrLoadModule('/app/entry-server.jsx');
     pages = app.pages;
     for (const page of pages) {
       const file = path.join(output, page.path === '/' ? 'index.html' : page.path.slice(1) + '.html');

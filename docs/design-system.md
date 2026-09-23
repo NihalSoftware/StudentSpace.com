@@ -58,6 +58,6 @@ Reduced-motion CSS removes smooth scrolling and transitions. Verify 320px reflow
 
 ## Extending the design
 
-Edit tokens and shared rules in `app/globals.css` (@theme with the PostCSS integration) and shared React UI in `components`. Prefer an existing section, column layout or card before adding a component. Use one clear primary action per decision. Keep hosting details out of public journeys.
+Edit tokens and shared rules in `app/globals.css` (@theme with the PostCSS integration) and shared React JSX components in `components`. Use JavaScript and JSX rather than TypeScript. Prefer an existing section, column layout or card before adding a component. Use one clear primary action per decision. Keep hosting details out of public journeys.
 
 React ViewTransition boundaries animate navigation and the mobile menu with addTransitionType. Motion is short and optional; reduced-motion disables pseudo-element animations. Native links, disclosures, visible focus and full prerendered content remain the foundation.

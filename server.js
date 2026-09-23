@@ -1,4 +1,4 @@
-// Local compatibility entry point. Vercel uses api/apply.ts and api/healthz.ts.
+// Local compatibility entry point. Vercel uses api/apply.js and api/healthz.js.
 const api = require('./lib/api.cjs');
 if (require.main === module) {
   try { process.loadEnvFile(); } catch (error) { if (error.code !== 'ENOENT') throw error; }
