@@ -6,6 +6,7 @@ module.exports = defineConfig({
 	use: {
 		baseURL: "http://127.0.0.1:5174",
 		browserName: "chromium"
+		,screenshot: "only-on-failure"
 	},
 	webServer: {
 		command: "node scripts/browser-fixture.cjs",

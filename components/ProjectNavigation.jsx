@@ -9,7 +9,10 @@ export function ProjectNavigation({ onNavigate, menuOpen }) {
   const trigger = useRef(null);
   const active = pathname === '/projects' || pathname.startsWith('/products/') || pathname.startsWith('/technology');
 
-  useEffect(() => { disclosure.current.open = false; }, [pathname, menuOpen]);
+  useEffect(() => { disclosure.current.open = false; }, [pathname]);
+  useEffect(() => {
+    if (!menuOpen) disclosure.current.open = false;
+  }, [menuOpen]);
   useEffect(() => {
     const dismiss = event => {
       if (!disclosure.current.contains(event.target)) disclosure.current.open = false;

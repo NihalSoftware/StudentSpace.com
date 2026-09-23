@@ -90,9 +90,11 @@ test('Projects dropdown supports desktop, mobile, keyboard and product navigatio
   for (const width of [320, 375, 390, 768, 1007, 1024, 1280, 1440]) {
     await page.setViewportSize({ width, height: 888 });
     if (width <= 1000) await page.getByRole('button', {name:/Menu/}).click();
+    await expect(summary).toBeVisible();
     await summary.focus();
+    await expect(summary).toBeFocused();
     await page.keyboard.press('Enter');
-    await expect(menu).toHaveAttribute('open', '');
+    await expect(menu, 'Projects opens at width ' + width).toHaveAttribute('open', '');
     await expect(menu.getByRole('link')).toHaveCount(5);
     await expect(menu.getByRole('link', {name:'Assessment (ASL)'})).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
