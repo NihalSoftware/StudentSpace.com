@@ -61,3 +61,5 @@ Reduced-motion CSS removes smooth scrolling and transitions. Verify 320px reflow
 Edit tokens and shared rules in `app/globals.css` (@theme with the PostCSS integration) and shared React JSX components in `components`. Use JavaScript and JSX rather than TypeScript. Prefer an existing section, column layout or card before adding a component. Use one clear primary action per decision. Keep hosting details out of public journeys.
 
 React ViewTransition boundaries animate navigation and the mobile menu with addTransitionType. Motion is short and optional; reduced-motion disables pseudo-element animations. Native links, disclosures, visible focus and full prerendered content remain the foundation.
+
+The Projects menu follows the reference site's product grouping: EdPlan.ai, Full Circle Tracking, SchoolView and ASL, plus an overview link. A native details/summary disclosure works without JavaScript; Escape restores focus and an outside click dismisses it when enhanced. The overview uses a featured planning project and three flat product columns with dividers, retaining the light palette and accurate release status.

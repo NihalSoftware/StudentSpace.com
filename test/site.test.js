@@ -82,6 +82,22 @@ test('legacy redirects preserve queries and end at existing pages without loops'
     assert.equal(response.headers.get('location'), to + '?ref=legacy');
   }
 });
+test('Projects overview and native navigation preserve product destinations', async () => {
+  const page = built.pages.find(p => p.path === '/projects');
+  assert.ok(page);
+  const { document } = parseHTML(html(page));
+  const menu = document.querySelector('details.nav-projects');
+  assert.equal(menu.querySelector('summary').textContent.trim(), 'Projects');
+  assert.deepEqual([...menu.querySelectorAll('a')].map(a => a.getAttribute('href')), [
+    '/projects', '/edplan', '/products/full-circle-tracking', '/products/school-view', '/products/assessment-of-student-learning'
+  ]);
+  assert.equal(document.querySelectorAll('.project-overview-card').length, 3);
+  assert.match(document.querySelector('main').textContent, /code access and licensing are not available/);
+  const response = await fetch(base + '/Projects', { redirect: 'manual' });
+  assert.equal(response.status, 308);
+  assert.equal(response.headers.get('location'), '/projects');
+});
+
 test('forms are labeled and point only to the configured public API', () => {
   for (const route of ['/contact', '/apply']) {
     const { document } = parseHTML(html(built.pages.find(p => p.path === route)));

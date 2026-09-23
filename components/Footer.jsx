@@ -4,7 +4,7 @@ const groups = [
 	["Explore", [
 		["/edplan", "EdPlan.ai"],
 		["/build", "Build With Us"],
-		["/technology", "Technology"],
+		["/projects", "Projects"],
 		["/ideas", "Ideas"],
 		["/our-work", "Our Work"]
 	]],

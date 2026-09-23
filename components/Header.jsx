@@ -2,6 +2,7 @@ import { addTransitionType, startTransition, useEffect, useRef, useState, ViewTr
 import { useLocation } from "react-router";
 import { nav } from "../lib/site";
 import { SiteLink } from "./SiteLink";
+import { ProjectNavigation } from "./ProjectNavigation";
 export function Header() {
 	const { pathname } = useLocation();
 	const [open, setOpen] = useState(false);
@@ -25,7 +26,9 @@ export function Header() {
 		setOpen(!open);
 	})}>Menu <span aria-hidden="true">☰</span></button>
       <ViewTransition><nav id="primary-navigation" className={open ? "open" : ""} aria-label="Main navigation">
-        {nav.map(([href, label]) => <SiteLink key={href} href={href} onClick={close} aria-current={pathname === href || pathname.startsWith(href + "/") ? "page" : undefined}>{label}</SiteLink>)}
+        {nav.map(([href, label]) => href === '/projects'
+          ? <ProjectNavigation key={href} onNavigate={close} menuOpen={open}/>
+          : <SiteLink key={href} href={href} onClick={close} aria-current={pathname === href || pathname.startsWith(href + "/") ? "page" : undefined}>{label}</SiteLink>)}
         <SiteLink className="nav-cta" href="/build" onClick={close}>Explore Opportunities</SiteLink>
       </nav></ViewTransition>
     </div></header></>;

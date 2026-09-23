@@ -81,6 +81,39 @@ for (const scenario of ["FIXTURE_RETRY", "FIXTURE_TIMEOUT"]) test("form preserve
 	expect(keys).toHaveLength(2);
 	expect(keys[0]).toBe(keys[1]);
 });
+test('Projects dropdown supports desktop, mobile, keyboard and product navigation', async ({ page }, testInfo) => {
+  await page.goto('/Projects');
+  await expect(page).toHaveURL(/\/projects$/);
+  await expect(page.locator('.project-overview-card')).toHaveCount(3);
+  const menu = page.locator('.nav-projects');
+  const summary = menu.locator('summary');
+  for (const width of [320, 375, 390, 768, 1007, 1024, 1280, 1440]) {
+    await page.setViewportSize({ width, height: 888 });
+    if (width <= 1000) await page.getByRole('button', {name:/Menu/}).click();
+    await summary.focus();
+    await page.keyboard.press('Enter');
+    await expect(menu).toHaveAttribute('open', '');
+    await expect(menu.getByRole('link')).toHaveCount(5);
+    await expect(menu.getByRole('link', {name:'Assessment (ASL)'})).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+    if ([375, 1007].includes(width)) await page.screenshot({path:testInfo.outputPath('projects-menu-' + width + '.png'), fullPage:true});
+    await page.keyboard.press('Tab');
+    await expect(menu.getByRole('link', {name:'All projects'})).toBeFocused();
+    await page.keyboard.press('Escape');
+    await expect(summary).toBeFocused();
+    await expect(menu).not.toHaveAttribute('open');
+    if (width <= 1000) await page.keyboard.press('Escape');
+  }
+  await summary.click();
+  await menu.getByRole('link', {name:'SchoolView', exact:true}).click();
+  await expect(page).toHaveURL(/\/products\/school-view$/);
+  await expect(page.locator('main')).toBeFocused();
+  await expect(menu).not.toHaveAttribute('open');
+  await page.goBack();
+  await expect(page).toHaveURL(/\/projects$/);
+  await page.screenshot({path:testInfo.outputPath('projects-overview.png'), fullPage:true});
+});
+
 test("prerendered content works without JavaScript; private files and unknown pages return 404", async ({ browser, request }) => {
 	const context = await browser.newContext({ javaScriptEnabled: false });
 	const page = await context.newPage();
@@ -89,6 +122,10 @@ test("prerendered content works without JavaScript; private files and unknown pa
 		await expect(page.locator("h1")).toBeVisible();
 		await expect(page.locator("main")).not.toBeEmpty();
 	}
+	await page.goto('http://127.0.0.1:5174/projects');
+  await page.locator('.nav-projects summary').click();
+  await page.locator('.projects-dropdown').getByRole('link', {name:'Full Circle Tracking'}).click();
+  await expect(page).toHaveURL(/\/products\/full-circle-tracking$/);
 	await page.goto("http://127.0.0.1:5174/edplan");
 	await expect(page.locator("h1")).toBeVisible();
 	await expect(page.getByRole("link", {

@@ -19,7 +19,7 @@ Copy .env.example to .env and configure Resend to send real messages. The sender
 | --- | --- |
 | npm run check | Generate approved content and validate JavaScript/JSX syntax |
 | npm test | API, prerendering, routing, SEO and privacy boundary tests |
-| npm run build | Vite bundle and 39 complete HTML documents in dist |
+| npm run build | Vite bundle and 40 complete HTML documents in dist |
 | npm run preview | Serve the production build and real API locally on 5173 |
 | npm run test:browser | Playwright regression suite using only a local mock provider |
 | npm run check:release | Validate production configuration and content approval |

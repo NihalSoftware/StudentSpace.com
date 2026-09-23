@@ -149,6 +149,7 @@ const intents = [
 ];
 
 const redirects = {
+  '/Projects': '/projects',
   '/home': '/', '/our-story': '/story', '/edplan-ai': '/edplan', '/give-back': '/build',
   '/full-tracking': '/products/full-circle-tracking', '/school-view-2020': '/products/school-view',
   '/assess': '/products/assessment-of-student-learning', '/products': '/our-work',
