@@ -83,6 +83,7 @@ for (const scenario of ["FIXTURE_RETRY", "FIXTURE_TIMEOUT"]) test("form preserve
 });
 test('Projects dropdown supports desktop, mobile, keyboard and product navigation', async ({ page }, testInfo) => {
   const capture = async (name, fullPage = false) => {
+    await expect.poll(() => page.evaluate(() => document.documentElement.matches(':active-view-transition'))).toBe(false);
     await expect.poll(() => page.evaluate(() => document.getAnimations().filter(animation => animation.playState === 'running').length)).toBe(0);
     await page.screenshot({path:testInfo.outputPath(name), fullPage});
   };
@@ -108,7 +109,11 @@ test('Projects dropdown supports desktop, mobile, keyboard and product navigatio
     await page.keyboard.press('Escape');
     await expect(summary).toBeFocused();
     await expect(menu).not.toHaveAttribute('open');
-    if (width <= 1000) await page.keyboard.press('Escape');
+    if (width <= 1000) {
+      await page.keyboard.press('Escape');
+      await expect(page.getByRole('button', {name:/Menu/})).toHaveAttribute('aria-expanded', 'false');
+      await expect(page.locator('#primary-navigation')).not.toBeVisible();
+    }
     if (width === 375) await capture('projects-overview-mobile.png', true);
   }
   await summary.click();
