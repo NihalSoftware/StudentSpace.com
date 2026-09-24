@@ -25,6 +25,7 @@ const MIME_TYPES = {
   '.json': 'application/json; charset=UTF-8',
   '.svg': 'image/svg+xml',
   '.png': 'image/png',
+  '.gif': 'image/gif',
   '.jpg': 'image/jpeg',
   '.ico': 'image/x-icon'
 };
@@ -38,6 +39,7 @@ const APP_ROUTES = [
   '/give-back',
   '/contact',
   '/leadership',
+  '/nihal-foundation',
   '/clients',
   '/products/full-circle-tracking',
   '/products/school-view',

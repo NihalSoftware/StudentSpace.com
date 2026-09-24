@@ -37,6 +37,11 @@
       title: 'Clients | StudentSpace',
       description: 'Meet some of the colleges, universities, and education organizations in the StudentSpace client community.'
     },
+    '/nihal-foundation': {
+      viewId: 'view-foundation',
+      title: 'Nihal Foundation — StudentSpace',
+      description: 'Explore the Nihal Foundation story: youth skills, Simbarashi Creche, Sunshine Van, and the community initiatives of StudentSpace.'
+    },
     '/leadership': {
       viewId: 'view-team',
       title: 'Leadership Team — StudentSpace',
