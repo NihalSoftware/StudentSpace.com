@@ -285,12 +285,10 @@ const server = http.createServer((req, res) => {
   }
 
   // -------------------------------------------------------------
-  // Application Routes: Serve public/index.html (or root index.html)
+  // Application Routes: Serve public/index.html
   // -------------------------------------------------------------
   if (APP_ROUTES.includes(pathname) || method === 'GET') {
-    const htmlFile = fs.existsSync(path.join(PUBLIC_DIR, 'index.html'))
-      ? path.join(PUBLIC_DIR, 'index.html')
-      : path.join(__dirname, 'index.html');
+    const htmlFile = path.join(PUBLIC_DIR, 'index.html');
 
     if (fs.existsSync(htmlFile)) {
       res.writeHead(200, { 'Content-Type': 'text/html; charset=UTF-8' });
