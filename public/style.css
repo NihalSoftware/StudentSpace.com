@@ -692,9 +692,23 @@ nav.primary {
 }
 
 /* Leadership Team Cards */
+.leadership-section { padding-top: 72px; }
+
+.team-portrait {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 24px;
+  border: 2px solid var(--border-strong);
+}
+
+.team-card h2 { font-size: 24px; line-height: 1.25; }
+.team-card p { color: var(--color-ink-dim); font-size: 16px; margin-bottom: 0; }
+
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
 }
 

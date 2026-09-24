@@ -39,8 +39,8 @@
     },
     '/leadership': {
       viewId: 'view-team',
-      title: 'Leadership & Team — StudentSpace & edplan.ai',
-      description: 'Meet the executive and engineering leadership behind StudentSpace and the corporate give-back program in Santa Fe, New Mexico.'
+      title: 'Leadership Team — StudentSpace',
+      description: 'Meet Prof. S.N.S Nagra, Dr. Stephen Cox, Dr. Frances Levine, and Mr. Deep Bhangoo, the people behind StudentSpace.'
     },
     '/products/full-circle-tracking': {
       viewId: 'view-fct',
