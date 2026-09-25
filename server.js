@@ -7,14 +7,18 @@ const https = require('https');
 const PORT = process.env.PORT || 3000;
 const DATA_DIR = path.join(__dirname, 'data');
 const DB_FILE = path.join(DATA_DIR, 'applications.json');
+const STARTUP_ACCESS_DB_FILE = path.join(DATA_DIR, 'startup_access_applications.json');
 const PUBLIC_DIR = path.join(__dirname, 'public');
 
-// Ensure data directory and storage file exist
+// Ensure data directory and storage files exist
 if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 if (!fs.existsSync(DB_FILE)) {
   fs.writeFileSync(DB_FILE, JSON.stringify([], null, 2), 'utf-8');
+}
+if (!fs.existsSync(STARTUP_ACCESS_DB_FILE)) {
+  fs.writeFileSync(STARTUP_ACCESS_DB_FILE, JSON.stringify([], null, 2), 'utf-8');
 }
 
 // MIME types for static assets
@@ -44,7 +48,11 @@ const APP_ROUTES = [
   '/products/full-circle-tracking',
   '/products/school-view',
   '/products/assessment-of-student-learning',
-  '/faq'
+  '/faq',
+  '/press-release',
+  '/playground',
+  '/projects',
+  '/startup-access'
 ];
 
 /**
@@ -273,6 +281,146 @@ const server = http.createServer((req, res) => {
   }
 
   // -------------------------------------------------------------
+  // API: POST /api/startup-access
+  // -------------------------------------------------------------
+  if (pathname === '/api/startup-access' && method === 'POST') {
+    let rawBody = '';
+    req.on('data', chunk => {
+      rawBody += chunk;
+      if (rawBody.length > 2e6) {
+        req.destroy();
+      }
+    });
+
+    req.on('end', async () => {
+      try {
+        let data = {};
+        const contentType = req.headers['content-type'] || '';
+        if (contentType.includes('application/json')) {
+          data = JSON.parse(rawBody || '{}');
+        } else if (contentType.includes('application/x-www-form-urlencoded')) {
+          const params = new URLSearchParams(rawBody);
+          data = Object.fromEntries(params.entries());
+        } else {
+          data = JSON.parse(rawBody || '{}');
+        }
+
+        const fullName = (data.fullName || data.name || '').trim();
+        const email = (data.email || '').trim();
+        const companyName = (data.companyName || '').trim();
+        const nmConnection = (data.nmConnection || '').trim();
+        const problem = (data.problem || '').trim();
+        const customer = (data.customer || '').trim();
+        const product = (data.product || '').trim();
+        const techFit = (data.techFit || '').trim();
+
+        // Validation
+        const errors = {};
+        if (!fullName) errors.fullName = 'Full name is required.';
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          errors.email = 'Valid email is required.';
+        }
+        if (!companyName) errors.companyName = 'Company name is required.';
+        if (!nmConnection) errors.nmConnection = 'New Mexico connection is required.';
+        if (!problem) errors.problem = 'Problem statement is required.';
+        if (!customer) errors.customer = 'Customer target is required.';
+        if (!product) errors.product = 'Product description is required.';
+        if (!techFit) errors.techFit = 'Technology fit explanation is required.';
+
+        if (Object.keys(errors).length > 0) {
+          res.writeHead(400, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({
+            success: false,
+            message: 'Validation failed.',
+            errors
+          }));
+          return;
+        }
+
+        const startupApplication = {
+          id: crypto.randomUUID(),
+          fullName,
+          email,
+          phone: (data.phone || '').trim(),
+          linkedin: (data.linkedin || '').trim(),
+          city: (data.city || '').trim(),
+          state: (data.state || '').trim(),
+          companyName,
+          website: (data.website || '').trim(),
+          stage: data.stage || 'Idea',
+          incorporated: data.incorporated || 'No',
+          incorporatedWhere: (data.incorporatedWhere || '').trim(),
+          nmConnection,
+          problem,
+          customer,
+          product,
+          technologies: Array.isArray(data.technologies) ? data.technologies : [data.technologies].filter(Boolean),
+          techFit,
+          commitment: data.commitment || 'Exploring',
+          team: (data.team || '').trim(),
+          progress: (data.progress || '').trim(),
+          nmImpact: (data.nmImpact || '').trim(),
+          pitchDeckUrl: (data.pitchDeckUrl || '').trim(),
+          screenshotsUrl: (data.screenshotsUrl || '').trim(),
+          demoUrl: (data.demoUrl || '').trim(),
+          githubUrl: (data.githubUrl || '').trim(),
+          otherUrl: (data.otherUrl || '').trim(),
+          created_at: new Date().toISOString()
+        };
+
+        // Persist to local JSON database
+        let applications = [];
+        try {
+          const fileContent = fs.readFileSync(STARTUP_ACCESS_DB_FILE, 'utf-8');
+          applications = JSON.parse(fileContent || '[]');
+        } catch (readErr) {
+          applications = [];
+        }
+
+        applications.push(startupApplication);
+        fs.writeFileSync(STARTUP_ACCESS_DB_FILE, JSON.stringify(applications, null, 2), 'utf-8');
+        console.log(`[Startup Access] Saved new application ${startupApplication.id} for "${startupApplication.companyName}" by ${startupApplication.fullName}`);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({
+          success: true,
+          id: startupApplication.id,
+          message: 'Application received. Thank you for telling us what you want to build. The StudentSpace team will review your application and contact you using the information you provided.'
+        }));
+
+      } catch (err) {
+        console.error('[Startup Access API Error]', err);
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({
+          success: false,
+          error: 'An internal server error occurred. Please try again or email us directly.'
+        }));
+      }
+    });
+    return;
+  }
+
+  // -------------------------------------------------------------
+  // API: GET /api/startup-access (View submitted startup applications)
+  // -------------------------------------------------------------
+  if (pathname === '/api/startup-access' && method === 'GET') {
+    try {
+      const fileContent = fs.readFileSync(STARTUP_ACCESS_DB_FILE, 'utf-8');
+      const applications = JSON.parse(fileContent || '[]');
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({
+        success: true,
+        count: applications.length,
+        applications
+      }));
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ success: false, error: err.message }));
+    }
+    return;
+  }
+
+  // -------------------------------------------------------------
   // Static Files in public/
   // -------------------------------------------------------------
   let filePath = path.join(PUBLIC_DIR, pathname);
@@ -293,7 +441,10 @@ const server = http.createServer((req, res) => {
     const htmlFile = path.join(PUBLIC_DIR, 'index.html');
 
     if (fs.existsSync(htmlFile)) {
-      res.writeHead(200, { 'Content-Type': 'text/html; charset=UTF-8' });
+      res.writeHead(200, {
+        'Content-Type': 'text/html; charset=UTF-8',
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      });
       fs.createReadStream(htmlFile).pipe(res);
       return;
     }

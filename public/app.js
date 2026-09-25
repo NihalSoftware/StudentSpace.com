@@ -71,6 +71,26 @@
       viewId: 'view-contact',
       title: 'Contact & Apply — StudentSpace Give-Back Program & edplan.ai',
       description: 'Apply to receive StudentSpace source code or bring edplan.ai to your school district. 802 Early Street, Santa Fe, New Mexico.'
+    },
+    '/press-release': {
+      viewId: 'view-press-release',
+      title: 'Press Release — Nihal Software Awarded Contract for NGO SEWA',
+      description: 'Nihal Software awarded contract funded by USAID to develop custom mobile application solution for NGO SEWA (Self Employed Women\'s Association).'
+    },
+    '/playground': {
+      viewId: 'view-playground',
+      title: 'Dashboard Playground — Data Storytelling & Analytics | StudentSpace',
+      description: 'Explore interactive student data dashboards: Admission Dashboard, Advising Log, Early Alert, and Retention insights.'
+    },
+    '/projects': {
+      viewId: 'view-playground',
+      title: 'Projects & Dashboards — StudentSpace Playground',
+      description: 'Explore StudentSpace project dashboards: Admission Dashboard, Advising Log, Early Alert, and Retention insights.'
+    },
+    '/startup-access': {
+      viewId: 'view-startup-access',
+      title: 'Startup Access | StudentSpace',
+      description: 'Startup Access gives qualified New Mexico entrepreneurs access to selected StudentSpace technology, code, AI architecture, and technical knowledge to help turn ambitious ideas into new companies.'
     }
   };
 
@@ -79,9 +99,31 @@
   const primaryNav = document.getElementById('primaryNav');
 
   /**
+   * Playground Dashboard Tab Switching
+   */
+  function switchPlaygroundTab(tabId) {
+    const validTabs = ['admission', 'advising', 'early-alert', 'retention'];
+    if (!validTabs.includes(tabId)) return;
+
+    document.querySelectorAll('.playground-tab-btn').forEach(btn => {
+      const isMatch = btn.getAttribute('data-tab') === tabId;
+      btn.classList.toggle('active', isMatch);
+      btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('.playground-tab-panel').forEach(panel => {
+      const isMatch = panel.id === `tab-panel-${tabId}`;
+      panel.classList.toggle('active', isMatch);
+    });
+  }
+
+  /**
    * Router: Navigates to given path, toggles DOM views, updates SEO and history
    */
   function navigate(path, pushState = true) {
+    // Extract hash if present
+    const hash = path.includes('#') ? path.split('#')[1] : (window.location.hash ? window.location.hash.replace(/^#/, '') : '');
+
     // Normalize path
     let normalized = path.split('?')[0].split('#')[0].replace(/\/+$/, '') || '/';
     
@@ -103,7 +145,8 @@
     // 2. Update active states on nav links
     document.querySelectorAll('[data-route]').forEach(link => {
       const linkTarget = link.getAttribute('data-route');
-      if (linkTarget === normalized) {
+      const linkBase = linkTarget ? linkTarget.split('#')[0] : '';
+      if (linkTarget === path || linkBase === normalized) {
         link.setAttribute('aria-current', 'page');
       } else {
         link.removeAttribute('aria-current');
@@ -118,11 +161,25 @@
 
     // 4. Update Browser History
     if (pushState) {
-      history.pushState(null, '', normalized);
+      const fullUrl = normalized + (hash ? '#' + hash : '');
+      history.pushState(null, '', fullUrl);
     }
 
-    // 5. Scroll to top & close mobile drawer
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    // 5. Handle Tab Activation if on Playground
+    if (normalized === '/playground' || normalized === '/projects') {
+      const validTabs = ['admission', 'advising', 'early-alert', 'retention'];
+      if (validTabs.includes(hash)) {
+        switchPlaygroundTab(hash);
+      }
+    }
+
+    // 6. Scroll to top or element & close mobile drawer
+    if (hash && document.getElementById(hash)) {
+      document.getElementById(hash).scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
     if (primaryNav) {
       primaryNav.classList.remove('open');
       if (menuToggle) {
@@ -139,11 +196,26 @@
       const targetPath = link.getAttribute('data-route');
       navigate(targetPath);
     }
+
+    const tabBtn = e.target.closest('.playground-tab-btn');
+    if (tabBtn) {
+      const tabId = tabBtn.getAttribute('data-tab');
+      switchPlaygroundTab(tabId);
+      history.replaceState(null, '', `/playground#${tabId}`);
+    }
   });
 
   // Handle Browser Back / Forward buttons
   window.addEventListener('popstate', function () {
-    navigate(window.location.pathname, false);
+    navigate(window.location.pathname + window.location.hash, false);
+  });
+
+  // Handle hash changes
+  window.addEventListener('hashchange', function () {
+    const hash = window.location.hash.replace(/^#/, '');
+    if (hash) {
+      switchPlaygroundTab(hash);
+    }
   });
 
   // Mobile navigation drawer toggle
@@ -169,7 +241,7 @@
   });
 
   // Initialize view from current browser URL
-  navigate(window.location.pathname, false);
+  navigate(window.location.pathname + window.location.hash, false);
 
   // ============================================================
   // FULL-STACK APPLICATION FORM: POST /api/apply
@@ -263,6 +335,160 @@
     });
   }
 
+  // ============================================================
+  // FAQ ACCORDION HANDLER
+  // ============================================================
+  document.addEventListener('click', function (e) {
+    const faqBtn = e.target.closest('.faq-accordion-trigger');
+    if (faqBtn) {
+      const isExpanded = faqBtn.getAttribute('aria-expanded') === 'true';
+      const panelId = faqBtn.getAttribute('aria-controls');
+      const panel = document.getElementById(panelId);
+
+      faqBtn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+      if (panel) {
+        panel.classList.toggle('open', !isExpanded);
+        panel.hidden = isExpanded;
+      }
+    }
+  });
+
+  // ============================================================
+  // STARTUP ACCESS FORM HANDLER: POST /api/startup-access
+  // ============================================================
+  const startupForm = document.getElementById('startupAccessForm');
+  const startupStatus = document.getElementById('startupFormStatus');
+  const startupSubmitBtn = document.getElementById('startupSubmitBtn');
+  const startupSuccessBox = document.getElementById('startupSuccessBox');
+
+  if (startupForm) {
+    startupForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Reset previous error messages
+      startupForm.querySelectorAll('.field-error').forEach(el => {
+        el.style.display = 'none';
+        el.textContent = '';
+      });
+      if (startupStatus) {
+        startupStatus.className = 'form-status';
+        startupStatus.style.display = 'none';
+      }
+
+      const formData = new FormData(startupForm);
+      const techList = [];
+      startupForm.querySelectorAll('input[name="technologies"]:checked').forEach(cb => {
+        techList.push(cb.value);
+      });
+
+      const payload = {
+        fullName: (formData.get('fullName') || '').trim(),
+        email: (formData.get('email') || '').trim(),
+        phone: (formData.get('phone') || '').trim(),
+        linkedin: (formData.get('linkedin') || '').trim(),
+        city: (formData.get('city') || '').trim(),
+        state: (formData.get('state') || '').trim(),
+        companyName: (formData.get('companyName') || '').trim(),
+        website: (formData.get('website') || '').trim(),
+        stage: formData.get('stage') || 'Idea',
+        incorporated: formData.get('incorporated') || 'No',
+        incorporatedWhere: (formData.get('incorporatedWhere') || '').trim(),
+        nmConnection: (formData.get('nmConnection') || '').trim(),
+        problem: (formData.get('problem') || '').trim(),
+        customer: (formData.get('customer') || '').trim(),
+        product: (formData.get('product') || '').trim(),
+        technologies: techList,
+        techFit: (formData.get('techFit') || '').trim(),
+        commitment: formData.get('commitment') || 'Exploring',
+        team: (formData.get('team') || '').trim(),
+        progress: (formData.get('progress') || '').trim(),
+        nmImpact: (formData.get('nmImpact') || '').trim(),
+        pitchDeckUrl: (formData.get('pitchDeckUrl') || '').trim(),
+        screenshotsUrl: (formData.get('screenshotsUrl') || '').trim(),
+        demoUrl: (formData.get('demoUrl') || '').trim(),
+        githubUrl: (formData.get('githubUrl') || '').trim(),
+        otherUrl: (formData.get('otherUrl') || '').trim(),
+        agreeNoGuarantee: formData.get('agreeNoGuarantee') === 'on',
+        agreeContact: formData.get('agreeContact') === 'on'
+      };
+
+      let hasError = false;
+      function showSaError(fieldId, msg) {
+        const el = document.getElementById(fieldId + '-error');
+        if (el) {
+          el.textContent = msg;
+          el.style.display = 'block';
+        }
+        hasError = true;
+      }
+
+      if (!payload.fullName) showSaError('sa-name', 'Full name is required.');
+      if (!payload.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
+        showSaError('sa-email', 'Please provide a valid email address.');
+      }
+      if (!payload.companyName) showSaError('sa-company', 'Company or startup name is required.');
+      if (!payload.nmConnection) showSaError('sa-nmConnection', 'Please describe your connection or commitment to New Mexico.');
+      if (!payload.problem) showSaError('sa-problem', 'Please describe the problem you are solving.');
+      if (!payload.customer) showSaError('sa-customer', 'Please specify who has this problem.');
+      if (!payload.product) showSaError('sa-product', 'Please describe what you want to build.');
+      if (!payload.techFit) showSaError('sa-techFit', 'Please describe how StudentSpace technology would accelerate your company.');
+      if (!payload.agreeNoGuarantee) showSaError('sa-agreeNoGuarantee', 'You must acknowledge this item to submit your application.');
+      if (!payload.agreeContact) showSaError('sa-agreeContact', 'You must agree to be contacted regarding your application.');
+
+      if (hasError) {
+        if (startupStatus) {
+          startupStatus.className = 'form-status error';
+          startupStatus.textContent = 'Please complete all required fields highlighted above.';
+          startupStatus.style.display = 'block';
+          startupStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+
+      // Pending state
+      startupSubmitBtn.disabled = true;
+      startupSubmitBtn.textContent = 'Submitting application...';
+
+      try {
+        const res = await fetch('/api/startup-access', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        startupSubmitBtn.disabled = false;
+        startupSubmitBtn.textContent = 'Submit Startup Access Application';
+
+        if (res.ok && data.success) {
+          startupForm.style.display = 'none';
+          if (startupStatus) startupStatus.style.display = 'none';
+          if (startupSuccessBox) {
+            startupSuccessBox.style.display = 'block';
+            startupSuccessBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } else {
+          if (startupStatus) {
+            startupStatus.className = 'form-status error';
+            startupStatus.textContent = data.message || 'There was an issue submitting your application. Please check your inputs.';
+            startupStatus.style.display = 'block';
+          }
+        }
+      } catch (err) {
+        startupSubmitBtn.disabled = false;
+        startupSubmitBtn.textContent = 'Submit Startup Access Application';
+        if (startupStatus) {
+          startupStatus.className = 'form-status error';
+          startupStatus.textContent = 'Network or server error connecting to application server. Please try again.';
+          startupStatus.style.display = 'block';
+        }
+      }
+    });
+  }
+
   function showFieldError(fieldId, message) {
     const fieldInput = document.getElementById(fieldId);
     if (!fieldInput) return;
@@ -291,3 +517,4 @@
   }
 
 })();
+

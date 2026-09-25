@@ -21,9 +21,9 @@
 
   <!-- Global Header -->
   <header>
-    <div class="wrap header-row">
+    <div class="header-row">
       <a href="/" class="brand-link" data-route="/" aria-label="StudentSpace Home">
-        <span class="brand-name">StudentSpace</span>
+        <img src="/assets/studentspace-logo.png" alt="StudentSpace — Tracking Performance, Measuring Success &amp; Evaluating Impact" class="brand-logo" width="240" height="39">
       </a>
 
       <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
@@ -33,16 +33,24 @@
       <nav class="primary" id="primaryNav">
         <a href="/" class="nav-link" data-route="/">Home</a>
         <a href="/give-back" class="nav-link" data-route="/give-back">Give-Back Program</a>
+        <a href="/startup-access" class="nav-link" data-route="/startup-access">Startup Access</a>
 
-        <div class="dropdown" id="productsDropdown">
+        <div class="dropdown" id="projectsDropdown">
           <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-            Products ▾
+            Projects &amp; Products ▾
           </button>
           <div class="dropdown-menu" role="menu">
             <a href="/edplan-ai" data-route="/edplan-ai" role="menuitem">edplan.ai</a>
+            <div style="border-top:1px solid var(--border-hairline); margin:6px 0;"></div>
             <a href="/products/full-circle-tracking" data-route="/products/full-circle-tracking" role="menuitem">Full Circle Tracking</a>
             <a href="/products/school-view" data-route="/products/school-view" role="menuitem">SchoolView</a>
             <a href="/products/assessment-of-student-learning" data-route="/products/assessment-of-student-learning" role="menuitem">Assessment (ASL)</a>
+            <div style="border-top:1px solid var(--border-hairline); margin:6px 0;"></div>
+            <a href="/playground" data-route="/playground" role="menuitem" style="font-weight:700;">Dashboard Playground</a>
+            <a href="/playground#admission" data-route="/playground#admission" role="menuitem" style="padding-left: 24px; font-size: 13.5px; opacity: 0.95;">↳ Admission Dashboard</a>
+            <a href="/playground#advising" data-route="/playground#advising" role="menuitem" style="padding-left: 24px; font-size: 13.5px; opacity: 0.95;">↳ Advising Log</a>
+            <a href="/playground#early-alert" data-route="/playground#early-alert" role="menuitem" style="padding-left: 24px; font-size: 13.5px; opacity: 0.95;">↳ Early Alert</a>
+            <a href="/playground#retention" data-route="/playground#retention" role="menuitem" style="padding-left: 24px; font-size: 13.5px; opacity: 0.95;">↳ Retention</a>
           </div>
         </div>
 
@@ -56,11 +64,12 @@
             <a href="/our-story" data-route="/our-story" role="menuitem">Our Story</a>
             <a href="/leadership" data-route="/leadership" role="menuitem">Leadership &amp; Team</a>
             <a href="/nihal-foundation" data-route="/nihal-foundation" role="menuitem">Nihal Foundation</a>
+            <a href="/press-release" data-route="/press-release" role="menuitem">Press Release</a>
           </div>
         </div>
 
         <a href="/faq" class="nav-link" data-route="/faq">FAQ</a>
-        <a href="/contact" class="nav-link nav-cta" data-route="/contact">Get in Touch</a>
+        <a href="/startup-access#apply" class="nav-link nav-cta" data-route="/startup-access#apply">Apply</a>
       </nav>
     </div>
   </header>
@@ -354,6 +363,892 @@
         </div>
       </section>
     </main>
+
+    <!-- ========================================== -->
+    <!-- 4B. STARTUP ACCESS                         -->
+    <!-- ========================================== -->
+    <main id="view-startup-access" class="page-view" tabindex="-1">
+
+      <!-- Hero Section -->
+      <section class="startup-hero">
+        <div class="wrap">
+          <div class="startup-hero-grid">
+            <div>
+              <p class="hero-eyebrow">A StudentSpace Technology Initiative · Santa Fe, New Mexico</p>
+              <h1>Build the next generation of education, workforce, and talent technology in New Mexico.</h1>
+              <p class="lede">Startup Access gives qualified New Mexico entrepreneurs free access to selected StudentSpace technology, including EdPlan.ai, source code, technical architecture, and decades of EdTech experience. We do not take equity. We do not charge fees. We provide technology so you can build.</p>
+              <div class="startup-hero-actions">
+                <a href="#apply" class="btn btn-primary">Apply for Startup Access</a>
+                <a href="#offer" class="btn btn-secondary">Explore Technology &amp; Architecture</a>
+              </div>
+              <div class="trust-statement">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                <span>Built on 27+ years of education technology serving 250+ institutions nationwide.</span>
+              </div>
+            </div>
+            <div>
+              <svg class="hero-abstract-art" viewBox="0 0 540 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract system architecture diagram showing AI components, data pipelines, and core student platforms">
+                <!-- Background & Grid -->
+                <rect width="540" height="380" rx="8" fill="#0F1620"/>
+                <defs>
+                  <pattern id="archGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+                    <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1B2733" stroke-width="1"/>
+                  </pattern>
+                  <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#3AA79C" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="#1B2733" stop-opacity="0.9"/>
+                  </linearGradient>
+                  <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#D8A63C" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="#1B2733" stop-opacity="0.9"/>
+                  </linearGradient>
+                  <linearGradient id="lineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#3AA79C" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="#D8A63C" stop-opacity="0.8"/>
+                  </linearGradient>
+                </defs>
+                <rect width="540" height="380" rx="8" fill="url(#archGrid)"/>
+
+                <!-- Header Indicator Bar -->
+                <rect x="24" y="24" width="492" height="32" rx="4" fill="#141D26" stroke="#2B3A4A" stroke-width="1"/>
+                <circle cx="42" cy="40" r="5" fill="#3AA79C"/>
+                <circle cx="58" cy="40" r="5" fill="#D8A63C"/>
+                <circle cx="74" cy="40" r="5" fill="#2B3A4A"/>
+                <text x="96" y="44" fill="#8FA4B8" font-family="'Space Grotesk', monospace" font-size="11" letter-spacing="1">STUDENTSPACE // STACK ARCHITECTURE &amp; ACCESS MATRIX</text>
+                <rect x="440" y="32" width="64" height="16" rx="2" fill="#3AA79C" fill-opacity="0.2"/>
+                <text x="472" y="44" text-anchor="middle" fill="#3AA79C" font-family="'Space Grotesk', monospace" font-size="10" font-weight="bold">ACTIVE</text>
+
+                <!-- Layer 1: Client & Product Workflows -->
+                <g transform="translate(36, 76)">
+                  <rect width="468" height="64" rx="6" fill="#141D26" stroke="#2B3A4A" stroke-width="1"/>
+                  <text x="16" y="22" fill="#D8A63C" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="bold" letter-spacing="0.5">PRESENTATION &amp; WORKFLOW LAYER</text>
+                  <!-- Sub modules -->
+                  <rect x="16" y="30" width="134" height="24" rx="3" fill="#1B2733" stroke="#3AA79C" stroke-width="0.8"/>
+                  <text x="83" y="46" text-anchor="middle" fill="#F3EFE3" font-family="'Space Grotesk', sans-serif" font-size="11">EdPlan.ai Portal</text>
+                  <rect x="160" y="30" width="144" height="24" rx="3" fill="#1B2733" stroke="#2B3A4A" stroke-width="0.8"/>
+                  <text x="232" y="46" text-anchor="middle" fill="#F3EFE3" font-family="'Space Grotesk', sans-serif" font-size="11">Founder Microservices</text>
+                  <rect x="314" y="30" width="138" height="24" rx="3" fill="#1B2733" stroke="#2B3A4A" stroke-width="0.8"/>
+                  <text x="383" y="46" text-anchor="middle" fill="#F3EFE3" font-family="'Space Grotesk', sans-serif" font-size="11">Advising &amp; Alerts UI</text>
+                </g>
+
+                <!-- Data Flow Connectors -->
+                <path d="M 120 140 L 120 162 M 270 140 L 270 162 M 420 140 L 420 162" stroke="#3AA79C" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <circle cx="120" cy="151" r="3" fill="#3AA79C"/>
+                <circle cx="270" cy="151" r="3" fill="#3AA79C"/>
+                <circle cx="420" cy="151" r="3" fill="#3AA79C"/>
+
+                <!-- Layer 2: AI Orchestrator & RAG Engine -->
+                <g transform="translate(36, 162)">
+                  <rect width="468" height="66" rx="6" fill="#141D26" stroke="#3AA79C" stroke-width="1.2"/>
+                  <text x="16" y="22" fill="#3AA79C" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="bold" letter-spacing="0.5">AI ENGINE &amp; RAG ARCHITECTURE</text>
+                  <!-- Sub modules -->
+                  <rect x="16" y="30" width="138" height="26" rx="3" fill="#0F1620" stroke="#3AA79C" stroke-width="0.8"/>
+                  <text x="85" y="47" text-anchor="middle" fill="#3AA79C" font-family="'Space Grotesk', monospace" font-size="11">RAG Context Engine</text>
+                  <rect x="164" y="30" width="140" height="26" rx="3" fill="#0F1620" stroke="#3AA79C" stroke-width="0.8"/>
+                  <text x="234" y="47" text-anchor="middle" fill="#F3EFE3" font-family="'Space Grotesk', monospace" font-size="11">Vector Index &amp; Embed</text>
+                  <rect x="314" y="30" width="138" height="26" rx="3" fill="#0F1620" stroke="#D8A63C" stroke-width="0.8"/>
+                  <text x="383" y="47" text-anchor="middle" fill="#D8A63C" font-family="'Space Grotesk', monospace" font-size="11">Curriculum LLM Models</text>
+                </g>
+
+                <!-- Data Flow Connectors -->
+                <path d="M 160 228 L 160 250 M 380 228 L 380 250" stroke="#D8A63C" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <circle cx="160" cy="239" r="3" fill="#D8A63C"/>
+                <circle cx="380" cy="239" r="3" fill="#D8A63C"/>
+
+                <!-- Layer 3: Core Enterprise Platforms & Codebases -->
+                <g transform="translate(36, 250)">
+                  <rect width="468" height="66" rx="6" fill="#141D26" stroke="#2B3A4A" stroke-width="1"/>
+                  <text x="16" y="22" fill="#D8A63C" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="bold" letter-spacing="0.5">STUDENTSPACE CORE CODEBASE (27 YRS PRODUCTION)</text>
+                  <!-- Sub modules -->
+                  <rect x="16" y="30" width="134" height="26" rx="3" fill="#1B2733" stroke="#2B3A4A" stroke-width="0.8"/>
+                  <text x="83" y="47" text-anchor="middle" fill="#F3EFE3" font-family="'Space Grotesk', sans-serif" font-size="11">Full Circle Tracking</text>
+                  <rect x="160" y="30" width="144" height="26" rx="3" fill="#1B2733" stroke="#2B3A4A" stroke-width="0.8"/>
+                  <text x="232" y="47" text-anchor="middle" fill="#F3EFE3" font-family="'Space Grotesk', sans-serif" font-size="11">SchoolView Engine</text>
+                  <rect x="314" y="30" width="138" height="26" rx="3" fill="#1B2733" stroke="#2B3A4A" stroke-width="0.8"/>
+                  <text x="383" y="47" text-anchor="middle" fill="#F3EFE3" font-family="'Space Grotesk', sans-serif" font-size="11">ASL Competency System</text>
+                </g>
+
+                <!-- Layer 4: Foundation Integration Fabric -->
+                <g transform="translate(36, 332)">
+                  <rect width="468" height="32" rx="4" fill="#0B1017" stroke="#1B2733" stroke-width="1"/>
+                  <text x="234" y="20" text-anchor="middle" fill="#8FA4B8" font-family="'Space Grotesk', sans-serif" font-size="11">DATA FABRIC: SIS Bridges · Banner · Colleague · Workday · FERPA Governance</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Core Message Section -->
+      <section class="core-message-section">
+        <div class="wrap">
+          <div class="core-statement-box">
+            <p class="hero-eyebrow" style="color:var(--color-turquoise);">The Program Definition</p>
+            <h2>This is not a grant program, accelerator, investment fund, or government program.</h2>
+            <p>StudentSpace is providing production-tested technology, enterprise architecture, and decades of domain knowledge to qualified founders so they can build new companies and products in New Mexico.</p>
+            <p class="highlight">We provide the technical foundation so New Mexico founders can move faster, engineer with confidence, and build lasting technology businesses here at home.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- What is Startup Access (2-Column Sticky Section) -->
+      <section class="surface">
+        <div class="wrap">
+          <div class="two-col-layout">
+            <div class="sticky-column">
+              <p class="hero-eyebrow">Enterprise Assets</p>
+              <h2>What is Startup Access?</h2>
+              <p>Startup Access is an engineering-first transfer of proven technology, systems architecture, and EdTech domain mastery. Instead of starting from a blank text editor, qualified founders build on platforms tested across hundreds of campuses.</p>
+              <div style="margin-top:28px;">
+                <a href="#apply" class="btn btn-primary">Apply to Access Code</a>
+              </div>
+            </div>
+            <div>
+              <div class="tech-cards-grid">
+                <div class="tech-card">
+                  <div class="tech-card-icon">01</div>
+                  <h3>EdPlan.ai Platform &amp; AI Architecture</h3>
+                  <p>Next-generation educational planning portal, multi-step career pathway mapping, intelligent course recommendation logic, and modular student navigation workflows.</p>
+                </div>
+                <div class="tech-card">
+                  <div class="tech-card-icon">02</div>
+                  <h3>Retrieval-Augmented Generation (RAG) &amp; AI Components</h3>
+                  <p>Production RAG pipelines, vector embedding workflows, institutional knowledge retrieval, and LLM-assisted advising/student success automation engines.</p>
+                </div>
+                <div class="tech-card">
+                  <div class="tech-card-icon">03</div>
+                  <h3>Student Success &amp; Retention Technology</h3>
+                  <p>Decades of proven retention modeling, early-alert triggers, advising logs, student milestone tracking, and intervention frameworks tested across 250+ campuses.</p>
+                </div>
+                <div class="tech-card">
+                  <div class="tech-card-icon">04</div>
+                  <h3>SIS &amp; Higher Ed Data Architecture</h3>
+                  <p>Comprehensive higher education data schemas, student information system (SIS) integration bridges, registrar data pipelines, and transcript/degree audit structures.</p>
+                </div>
+                <div class="tech-card">
+                  <div class="tech-card-icon">05</div>
+                  <h3>Full Circle Tracking Source Code</h3>
+                  <p>Complete core source code, unifying CRM, SIS, and LMS data into a single pane of glass for real-time institutional advising and student journey mapping.</p>
+                </div>
+                <div class="tech-card">
+                  <div class="tech-card-icon">06</div>
+                  <h3>SchoolView Institutional Analytics Engine</h3>
+                  <p>Turnkey institutional intelligence dashboards for enrollment, financial aid forecasting, advancement, and operational efficiency without overhead.</p>
+                </div>
+                <div class="tech-card">
+                  <div class="tech-card-icon">07</div>
+                  <h3>Technical Architecture &amp; System Documentation</h3>
+                  <p>Extensive architectural diagrams, API contracts, deployment specifications, database schemas, security configurations, and enterprise engineering guides.</p>
+                </div>
+                <div class="tech-card">
+                  <div class="tech-card-icon">08</div>
+                  <h3>Product Strategy &amp; EdTech Domain Knowledge</h3>
+                  <p>27 years of enterprise EdTech go-to-market insights, FERPA compliance models, university procurement navigation, and student data privacy practices.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Offer Section -->
+      <section class="offer-section" id="offer">
+        <div class="wrap">
+          <div class="section-head text-center" style="max-width:760px; margin:0 auto 40px; text-align:center;">
+            <p class="hero-eyebrow">The Transfer</p>
+            <h2>What Qualified Founders Receive</h2>
+            <p>We are opening our technology vault to accelerate New Mexico ventures with unfair technical advantages.</p>
+          </div>
+          <div class="offer-cards-grid">
+            <div class="offer-card">
+              <div class="offer-stat">01</div>
+              <h3>Production-Ready Source Code &amp; Repositories</h3>
+              <p>Direct access to audited codebases, battle-tested backend services, and modular UI component libraries built for higher education and workforce systems.</p>
+            </div>
+            <div class="offer-card">
+              <div class="offer-stat">02</div>
+              <h3>Architectural Blueprints &amp; Schemas</h3>
+              <p>Enterprise relational database schemas, integration pipelines, API definitions, and state-of-the-art RAG/AI pipeline system designs.</p>
+            </div>
+            <div class="offer-card">
+              <div class="offer-stat">03</div>
+              <h3>Founder-to-Engineer Technical Onboarding</h3>
+              <p>Direct architectural walkthroughs and system code deep-dives with the engineering leaders who designed and maintained the software.</p>
+            </div>
+            <div class="offer-card">
+              <div class="offer-stat">04</div>
+              <h3>Zero Cost &amp; Zero Equity</h3>
+              <p>No licensing fees, no royalties, no warrant coverage, and no equity clawback. You own your company and 100% of the value you create.</p>
+            </div>
+          </div>
+          <div class="clarification-note">
+            <strong>Program Terms &amp; Intellectual Property Notice:</strong> Access to proprietary source code and architecture is granted subject to program qualification, approval, and standard intellectual property licensing agreements. Startup Access is designed for committed founders building commercial products in New Mexico.
+          </div>
+        </div>
+      </section>
+
+      <!-- Who Should Apply (6 Criteria) -->
+      <section>
+        <div class="wrap">
+          <div class="section-head text-center" style="max-width:760px; margin:0 auto 36px; text-align:center;">
+            <p class="hero-eyebrow">Founder Profile</p>
+            <h2>Who Should Apply</h2>
+            <p>We look for serious builders ready to leverage battle-tested technology to solve real-world problems.</p>
+          </div>
+          <div class="criteria-grid">
+            <div class="criteria-card">
+              <div class="criteria-check">✓</div>
+              <div class="criteria-content">
+                <h3>New Mexico Connection</h3>
+                <p>Based in New Mexico, building in New Mexico, or committed to establishing core engineering operations and hiring talent in the state.</p>
+              </div>
+            </div>
+            <div class="criteria-card">
+              <div class="criteria-check">✓</div>
+              <div class="criteria-content">
+                <h3>Ambitious Problem Space</h3>
+                <p>Solving critical problems across education, workforce development, skill credentialing, talent pipelines, or institutional efficiency.</p>
+              </div>
+            </div>
+            <div class="criteria-card">
+              <div class="criteria-check">✓</div>
+              <div class="criteria-content">
+                <h3>Technical or Domain Readiness</h3>
+                <p>Founders or founding teams with domain insight, engineering capabilities, or the capacity to deploy, adapt, and extend enterprise software.</p>
+              </div>
+            </div>
+            <div class="criteria-card">
+              <div class="criteria-check">✓</div>
+              <div class="criteria-content">
+                <h3>Commercial Intent</h3>
+                <p>Building a scalable, sustainable business with real commercial customers, not a hobby project or speculative research grant.</p>
+              </div>
+            </div>
+            <div class="criteria-card">
+              <div class="criteria-check">✓</div>
+              <div class="criteria-content">
+                <h3>Clear Technology Leverage</h3>
+                <p>A concrete, articulate rationale for how StudentSpace technology, AI architecture, or source code will accelerate your product roadmap.</p>
+              </div>
+            </div>
+            <div class="criteria-card">
+              <div class="criteria-check">✓</div>
+              <div class="criteria-content">
+                <h3>Execution Velocity</h3>
+                <p>High agency, urgency to ship, and commitment to taking a functional product to initial users and pilots within 90 days.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Who Can Apply & Freedom Note -->
+      <section class="surface">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Ecosystem Focus</p>
+            <h2>Who Can Apply</h2>
+            <p>Startup Access welcomes founders building across diverse verticals and problem spaces.</p>
+          </div>
+          <div class="tags-cloud-wrap">
+            <span class="audience-tag">✦ Education Tech Founders</span>
+            <span class="audience-tag">✦ AI &amp; ML Engineers</span>
+            <span class="audience-tag">✦ Workforce &amp; Career Tech Startups</span>
+            <span class="audience-tag">✦ Student Success Innovators</span>
+            <span class="audience-tag">✦ College &amp; University Spinouts</span>
+            <span class="audience-tag">✦ High School / Career Pathway Builders</span>
+            <span class="audience-tag">✦ Community College Tech Teams</span>
+            <span class="audience-tag">✦ Data Analytics &amp; Assessment Startups</span>
+            <span class="audience-tag">✦ Healthcare &amp; Clinical Training Platforms</span>
+            <span class="audience-tag">✦ Rural &amp; Tribal Education Tech Builders</span>
+          </div>
+
+          <div class="prominent-quote-banner">
+            <p class="main-quote">"You do not have to build another StudentSpace product."</p>
+            <p class="sub-quote">You can adapt, re-architect, transform, or build completely novel applications on top of our technology foundation. Whether you are building an AI career coach for high schoolers, a nursing clinical tracking platform, a workforce credential exchange, or an enterprise campus analytics tool — our architecture is your accelerant.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works (6-Step Timeline) -->
+      <section>
+        <div class="wrap">
+          <div class="section-head text-center" style="max-width:760px; margin:0 auto; text-align:center;">
+            <p class="hero-eyebrow">Structured Process</p>
+            <h2>How It Works</h2>
+            <p>From initial application review to active repository access and deployment.</p>
+          </div>
+          <div class="timeline-horizontal">
+            <div class="timeline-step">
+              <div class="timeline-step-num">STEP 01</div>
+              <h3>Application Submission</h3>
+              <p>Submit your founder application detailing your startup vision, technical requirements, and New Mexico connection.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-step-num">STEP 02</div>
+              <h3>Technical Review &amp; Interview</h3>
+              <p>Our team evaluates problem fit, technical architecture alignment, and founder commitment in a direct technical interview.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-step-num">STEP 03</div>
+              <h3>Access Level Determination</h3>
+              <p>Qualified founders are matched to one of three access tiers based on stage, technical maturity, and product roadmap.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-step-num">STEP 04</div>
+              <h3>Agreements &amp; Onboarding</h3>
+              <p>Sign standard licensing agreements and receive access to codebase repositories, API documentation, and architecture diagrams.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-step-num">STEP 05</div>
+              <h3>Architecture Walkthrough</h3>
+              <p>Dedicated onboarding session with StudentSpace engineering to review code structure, schemas, and AI pipelines.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-step-num">STEP 06</div>
+              <h3>90-Day Build &amp; Deployment</h3>
+              <p>Build, adapt, and launch your product with continuous milestone check-ins and community connection.</p>
+            </div>
+          </div>
+          <p class="timeline-conclusion">Focused on getting software into the hands of real users as fast as possible.</p>
+        </div>
+      </section>
+
+      <!-- Access Levels (Tiers) -->
+      <section class="surface">
+        <div class="wrap">
+          <div class="section-head text-center" style="max-width:760px; margin:0 auto; text-align:center;">
+            <p class="hero-eyebrow">Tiers of Support</p>
+            <h2>Access Levels</h2>
+            <p>Structured tiers tailored to your company's stage and technical needs.</p>
+          </div>
+          <div class="access-tiers-grid">
+            <!-- Tier 1 -->
+            <div class="access-tier-card">
+              <div>
+                <h3>Open Access</h3>
+                <p class="tier-subtitle">For early-stage ideation, student developers, and aspiring founders exploring concepts.</p>
+                <ul class="tier-features-list">
+                  <li>Architectural whitepapers &amp; system blueprints</li>
+                  <li>edplan.ai public design system &amp; workflows</li>
+                  <li>Public API specifications &amp; data schemas</li>
+                  <li>Self-paced exploration &amp; developer documentation</li>
+                  <li>Community forum &amp; asynchronous Q&amp;A access</li>
+                </ul>
+              </div>
+              <a href="#apply" class="btn btn-secondary" style="width:100%; text-align:center;">Apply for Open Access</a>
+            </div>
+
+            <!-- Tier 2 (Featured) -->
+            <div class="access-tier-card featured-tier">
+              <div class="tier-badge">CORE PROGRAM</div>
+              <div>
+                <h3>Startup Access</h3>
+                <p class="tier-subtitle">For incorporated or forming New Mexico startups with dedicated founders and clear product scope.</p>
+                <ul class="tier-features-list">
+                  <li>Direct access to selected StudentSpace source code repositories</li>
+                  <li>Production RAG &amp; AI pipeline architecture</li>
+                  <li>Enterprise SIS integration bridges &amp; database schemas</li>
+                  <li>Founder-to-engineer technical architecture onboarding</li>
+                  <li>Full Circle Tracking &amp; SchoolView codebase access</li>
+                  <li>90-day build sprint milestone reviews</li>
+                </ul>
+              </div>
+              <a href="#apply" class="btn btn-primary" style="width:100%; text-align:center;">Apply for Startup Access</a>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="access-tier-card">
+              <div>
+                <h3>Technology Fellowship</h3>
+                <p class="tier-subtitle">For high-potential teams tackling critical statewide workforce or education challenges.</p>
+                <ul class="tier-features-list">
+                  <li>Deep architectural pair-programming &amp; code reviews</li>
+                  <li>Direct mentorship from senior engineering leadership</li>
+                  <li>Higher education &amp; institutional pilot introductions</li>
+                  <li>Co-development &amp; technical review sessions</li>
+                  <li>Long-term ecosystem support in New Mexico</li>
+                </ul>
+              </div>
+              <a href="#apply" class="btn btn-secondary" style="width:100%; text-align:center;">Apply for Fellowship</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 90-Day Build Path -->
+      <section>
+        <div class="wrap">
+          <div class="section-head text-center" style="max-width:760px; margin:0 auto; text-align:center;">
+            <p class="hero-eyebrow">Sprint Roadmap</p>
+            <h2>90-Day Build Path</h2>
+            <p>A suggested acceleration roadmap to go from repository access to live customer deployment.</p>
+          </div>
+          <div class="pathway-grid">
+            <div class="pathway-card">
+              <div class="pathway-phase">Phase 01</div>
+              <div class="pathway-days">Days 1 – 15</div>
+              <h4>Ingestion &amp; Architecture</h4>
+              <p>Repository setup, local environment containerization, database schema migration, and architecture alignment with StudentSpace engineering.</p>
+            </div>
+            <div class="pathway-card">
+              <div class="pathway-phase">Phase 02</div>
+              <div class="pathway-days">Days 16 – 45</div>
+              <h4>Customization &amp; AI Integration</h4>
+              <p>Modifying core modules, configuring RAG pipelines and vector embeddings, integrating custom data feeds, and branding the user interface.</p>
+            </div>
+            <div class="pathway-card">
+              <div class="pathway-phase">Phase 03</div>
+              <div class="pathway-days">Days 46 – 75</div>
+              <h4>Integration &amp; Alpha Testing</h4>
+              <p>End-to-end user workflow testing, institutional SIS integration verification, security auditing, and alpha user feedback iteration.</p>
+            </div>
+            <div class="pathway-card">
+              <div class="pathway-phase">Phase 04</div>
+              <div class="pathway-days">Days 76 – 90</div>
+              <h4>Deployment &amp; Market Launch</h4>
+              <p>Production cloud deployment, institutional data governance review, and public launch with initial pilot customers in New Mexico.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why StudentSpace (14 Domain Badges) -->
+      <section class="surface">
+        <div class="wrap">
+          <div class="section-head text-center" style="max-width:760px; margin:0 auto; text-align:center;">
+            <p class="hero-eyebrow">Domain Expertise</p>
+            <h2>Why StudentSpace</h2>
+            <p>Nearly three decades of engineering, enterprise stability, and deep institutional trust.</p>
+          </div>
+          <div class="knowledge-badges-grid">
+            <div class="knowledge-badge-item">27 Years in EdTech (Est. 1998)</div>
+            <div class="knowledge-badge-item">250+ Campuses Served</div>
+            <div class="knowledge-badge-item">SIS Architecture &amp; Data Integration</div>
+            <div class="knowledge-badge-item">FERPA &amp; Higher Ed Governance</div>
+            <div class="knowledge-badge-item">Longitudinal Retention Modeling</div>
+            <div class="knowledge-badge-item">Competency Assessment (ASL)</div>
+            <div class="knowledge-badge-item">Production RAG Pipelines</div>
+            <div class="knowledge-badge-item">Multi-Tenant SaaS Architecture</div>
+            <div class="knowledge-badge-item">Degree Audit &amp; Path Mapping</div>
+            <div class="knowledge-badge-item">Accreditation Reporting Systems</div>
+            <div class="knowledge-badge-item">Financial Aid &amp; Enrollment Analytics</div>
+            <div class="knowledge-badge-item">Academic Advising Case Logs</div>
+            <div class="knowledge-badge-item">Early Warning &amp; Alert Engines</div>
+            <div class="knowledge-badge-item">Enterprise Procurement Navigation</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why New Mexico -->
+      <section>
+        <div class="wrap">
+          <div style="background:var(--color-ink-alt); border:1px solid var(--border-hairline); border-radius:var(--radius); padding:48px 40px; max-width:860px; margin:0 auto;">
+            <p class="hero-eyebrow" style="color:var(--color-turquoise);">Rooted in the Southwest</p>
+            <h2 style="font-size:clamp(26px, 3.5vw, 36px); margin-bottom:18px;">Why New Mexico</h2>
+            <p style="font-size:17px; line-height:1.68; color:var(--color-ink-dim); margin-bottom:18px;">Santa Fe and New Mexico have supported StudentSpace for over a quarter-century. New Mexico is home to world-class national laboratories, emerging tech hubs from Albuquerque to Las Cruces and Santa Fe, vibrant tribal and rural communities, and extraordinary student potential.</p>
+            <p style="font-size:17px; line-height:1.68; color:var(--color-ink-dim); margin-bottom:0;">Startup Access exists to anchor technology creation, high-wage jobs, and founder wealth right here in New Mexico. By equipping local entrepreneurs with enterprise-grade technology, we help build an indigenous technology economy that endures.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Application Form Section -->
+      <section class="surface" id="apply">
+        <div class="wrap">
+          <div class="section-head text-center" style="max-width:760px; margin:0 auto; text-align:center;">
+            <p class="hero-eyebrow">Apply for Startup Access</p>
+            <h2>Tell us what you want to build.</h2>
+            <p>Applications are reviewed on a rolling basis by the StudentSpace engineering and leadership team in Santa Fe.</p>
+          </div>
+
+          <div class="application-wrapper">
+            <form id="startupAccessForm" class="contact-form" novalidate>
+
+              <!-- Section 1: Founder Information -->
+              <h3 class="form-section-title">1. Founder Information</h3>
+              <div class="form-grid-2">
+                <div class="field">
+                  <label for="sa-name">Full Name <span style="color:var(--color-turquoise);">*</span></label>
+                  <input type="text" id="sa-name" name="fullName" placeholder="Jane Doe" required>
+                  <div class="field-error" id="sa-name-error"></div>
+                </div>
+                <div class="field">
+                  <label for="sa-email">Email Address <span style="color:var(--color-turquoise);">*</span></label>
+                  <input type="email" id="sa-email" name="email" placeholder="jane@mystartup.com" required>
+                  <div class="field-error" id="sa-email-error"></div>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="field">
+                  <label for="sa-phone">Phone Number</label>
+                  <input type="tel" id="sa-phone" name="phone" placeholder="(505) 555-0123">
+                </div>
+                <div class="field">
+                  <label for="sa-linkedin">LinkedIn / Founder Profile URL</label>
+                  <input type="url" id="sa-linkedin" name="linkedin" placeholder="https://linkedin.com/in/janedoe">
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="field">
+                  <label for="sa-city">City</label>
+                  <input type="text" id="sa-city" name="city" placeholder="Santa Fe / Albuquerque / Las Cruces">
+                </div>
+                <div class="field">
+                  <label for="sa-state">State</label>
+                  <input type="text" id="sa-state" name="state" value="New Mexico">
+                </div>
+              </div>
+
+              <!-- Section 2: Startup & Company Details -->
+              <h3 class="form-section-title">2. Startup &amp; Company Details</h3>
+              <div class="form-grid-2">
+                <div class="field">
+                  <label for="sa-company">Startup / Company Name <span style="color:var(--color-turquoise);">*</span></label>
+                  <input type="text" id="sa-company" name="companyName" placeholder="Acme Technologies" required>
+                  <div class="field-error" id="sa-company-error"></div>
+                </div>
+                <div class="field">
+                  <label for="sa-website">Company Website (if applicable)</label>
+                  <input type="url" id="sa-website" name="website" placeholder="https://acme.ai">
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="field">
+                  <label for="sa-stage">Current Stage</label>
+                  <select id="sa-stage" name="stage">
+                    <option value="Idea">Idea / Concept Stage</option>
+                    <option value="Prototype">Prototype / Technical Mockup</option>
+                    <option value="MVP Built">MVP Built</option>
+                    <option value="Live Product">Live Product / Initial Pilot Users</option>
+                    <option value="Generating Revenue">Generating Revenue</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="sa-incorporated">Is the business incorporated?</label>
+                  <select id="sa-incorporated" name="incorporated">
+                    <option value="No">No / Not Yet</option>
+                    <option value="Yes - New Mexico LLC/Corp">Yes — New Mexico LLC / Corporation</option>
+                    <option value="Yes - Delaware C-Corp">Yes — Delaware C-Corp</option>
+                    <option value="Other">Other Jurisdiction</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="sa-incorporatedWhere">If incorporated, where and when?</label>
+                <input type="text" id="sa-incorporatedWhere" name="incorporatedWhere" placeholder="e.g., NM LLC formed March 2025 (or leave blank if not incorporated)">
+              </div>
+
+              <!-- Section 3: New Mexico Connection -->
+              <h3 class="form-section-title">3. New Mexico Connection</h3>
+              <div class="field">
+                <label for="sa-nmConnection">Describe your connection or commitment to New Mexico <span style="color:var(--color-turquoise);">*</span></label>
+                <textarea id="sa-nmConnection" name="nmConnection" rows="3" placeholder="Tell us if you live here, went to school here, or are committed to hiring and building operations in New Mexico." required></textarea>
+                <div class="field-error" id="sa-nmConnection-error"></div>
+              </div>
+
+              <!-- Section 4: The Problem & Customer -->
+              <h3 class="form-section-title">4. Problem &amp; Target Customer</h3>
+              <div class="field">
+                <label for="sa-problem">What problem are you solving? <span style="color:var(--color-turquoise);">*</span></label>
+                <textarea id="sa-problem" name="problem" rows="3" placeholder="Describe the pain point, inefficiency, or gap in education, workforce, skill training, or talent development." required></textarea>
+                <div class="field-error" id="sa-problem-error"></div>
+              </div>
+
+              <div class="field">
+                <label for="sa-customer">Who is the customer / who experiences this problem? <span style="color:var(--color-turquoise);">*</span></label>
+                <textarea id="sa-customer" name="customer" rows="2" placeholder="e.g., High school counselors, community college students, clinical nursing directors, state agencies..." required></textarea>
+                <div class="field-error" id="sa-customer-error"></div>
+              </div>
+
+              <!-- Section 5: The Product & Vision -->
+              <h3 class="form-section-title">5. Product &amp; Technical Vision</h3>
+              <div class="field">
+                <label for="sa-product">What do you want to build? <span style="color:var(--color-turquoise);">*</span></label>
+                <textarea id="sa-product" name="product" rows="4" placeholder="Detail your solution, key features, architecture vision, and how end users will interact with it." required></textarea>
+                <div class="field-error" id="sa-product-error"></div>
+              </div>
+
+              <!-- Section 6: StudentSpace Technology Fit -->
+              <h3 class="form-section-title">6. StudentSpace Technology Fit</h3>
+              <p style="font-size:14px; color:var(--color-ink-dim); margin-bottom:12px;">Select the technologies, codebases, or architectures relevant to your startup:</p>
+              <div class="checkbox-grid">
+                <label class="checkbox-card-label">
+                  <input type="checkbox" name="technologies" value="EdPlan.ai Platform">
+                  <span>EdPlan.ai Platform</span>
+                </label>
+                <label class="checkbox-card-label">
+                  <input type="checkbox" name="technologies" value="RAG & AI Pipelines">
+                  <span>RAG &amp; AI Pipelines</span>
+                </label>
+                <label class="checkbox-card-label">
+                  <input type="checkbox" name="technologies" value="Retention & Success Tech">
+                  <span>Student Success Tech</span>
+                </label>
+                <label class="checkbox-card-label">
+                  <input type="checkbox" name="technologies" value="SIS & Data Architecture">
+                  <span>SIS Data Architecture</span>
+                </label>
+                <label class="checkbox-card-label">
+                  <input type="checkbox" name="technologies" value="Full Circle Tracking Code">
+                  <span>Full Circle Tracking Code</span>
+                </label>
+                <label class="checkbox-card-label">
+                  <input type="checkbox" name="technologies" value="SchoolView Analytics Engine">
+                  <span>SchoolView Analytics</span>
+                </label>
+                <label class="checkbox-card-label">
+                  <input type="checkbox" name="technologies" value="Architecture Documentation">
+                  <span>Architecture Docs</span>
+                </label>
+                <label class="checkbox-card-label">
+                  <input type="checkbox" name="technologies" value="Domain Mentorship">
+                  <span>Domain Mentorship</span>
+                </label>
+              </div>
+
+              <div class="field">
+                <label for="sa-techFit">How would StudentSpace technology accelerate your company? <span style="color:var(--color-turquoise);">*</span></label>
+                <textarea id="sa-techFit" name="techFit" rows="3" placeholder="Explain which modules or architectures you want to build upon and how they compress your engineering timeline." required></textarea>
+                <div class="field-error" id="sa-techFit-error"></div>
+              </div>
+
+              <!-- Section 7: Traction, Team & Commitment -->
+              <h3 class="form-section-title">7. Traction, Team &amp; Commitment</h3>
+              <div class="field">
+                <label for="sa-commitment">Current Commitment Level</label>
+                <select id="sa-commitment" name="commitment">
+                  <option value="Full-Time">Full-Time on this startup</option>
+                  <option value="Part-Time Transitioning">Part-Time (transitioning to Full-Time)</option>
+                  <option value="Nights & Weekends">Nights &amp; Weekends</option>
+                  <option value="Exploring">Exploring / Student</option>
+                </select>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="field">
+                  <label for="sa-team">Team Background</label>
+                  <textarea id="sa-team" name="team" rows="2" placeholder="Briefly describe your team members, technical skills, and domain experience."></textarea>
+                </div>
+                <div class="field">
+                  <label for="sa-progress">Traction / Progress to Date</label>
+                  <textarea id="sa-progress" name="progress" rows="2" placeholder="User interviews conducted, mockups completed, letters of intent, pilot commitments..."></textarea>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="sa-nmImpact">Anticipated Impact on New Mexico</label>
+                <textarea id="sa-nmImpact" name="nmImpact" rows="2" placeholder="Potential jobs created, New Mexico students/workers served, or local institutional partnerships."></textarea>
+              </div>
+
+              <!-- Section 8: Supporting Links -->
+              <h3 class="form-section-title">8. Supporting Links (Optional)</h3>
+              <div class="form-grid-2">
+                <div class="field">
+                  <label for="sa-pitchDeckUrl">Pitch Deck URL</label>
+                  <input type="url" id="sa-pitchDeckUrl" name="pitchDeckUrl" placeholder="https://docsend.com/... or Google Drive link">
+                </div>
+                <div class="field">
+                  <label for="sa-screenshotsUrl">Figma / Screenshots URL</label>
+                  <input type="url" id="sa-screenshotsUrl" name="screenshotsUrl" placeholder="https://figma.com/file/...">
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="field">
+                  <label for="sa-demoUrl">Product Demo / Loom URL</label>
+                  <input type="url" id="sa-demoUrl" name="demoUrl" placeholder="https://loom.com/share/...">
+                </div>
+                <div class="field">
+                  <label for="sa-githubUrl">GitHub / Repository URL</label>
+                  <input type="url" id="sa-githubUrl" name="githubUrl" placeholder="https://github.com/...">
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="sa-otherUrl">Other Link / Document URL</label>
+                <input type="url" id="sa-otherUrl" name="otherUrl" placeholder="https://...">
+              </div>
+
+              <!-- Section 9: Program Terms & Acknowledgments -->
+              <h3 class="form-section-title">9. Program Terms &amp; Acknowledgments</h3>
+              <div class="field">
+                <label class="legal-checkbox-label" for="sa-agreeNoGuarantee">
+                  <input type="checkbox" id="sa-agreeNoGuarantee" name="agreeNoGuarantee" required>
+                  <span><strong>No Investment or Grant Guarantee:</strong> I understand that Startup Access is not a grant program, accelerator, or venture fund. Acceptance into the program and access to specific technology, code repositories, and architecture is provided at StudentSpace's sole discretion and is subject to standard intellectual property and licensing agreements. <span style="color:var(--color-turquoise);">*</span></span>
+                </label>
+                <div class="field-error" id="sa-agreeNoGuarantee-error"></div>
+              </div>
+
+              <div class="field">
+                <label class="legal-checkbox-label" for="sa-agreeContact">
+                  <input type="checkbox" id="sa-agreeContact" name="agreeContact" required>
+                  <span><strong>Contact Authorization:</strong> I agree to be contacted by StudentSpace leadership and engineering regarding this application and my proposed venture. <span style="color:var(--color-turquoise);">*</span></span>
+                </label>
+                <div class="field-error" id="sa-agreeContact-error"></div>
+              </div>
+
+              <!-- Submission Status Banner -->
+              <div id="startupFormStatus" class="form-status" style="display:none; margin:20px 0;"></div>
+
+              <div style="margin-top:28px;">
+                <button type="submit" id="startupSubmitBtn" class="btn btn-primary" style="width:100%; font-size:17px; padding:16px;">Submit Startup Access Application</button>
+              </div>
+            </form>
+
+            <!-- Success Box -->
+            <div id="startupSuccessBox" class="startup-success-box" style="display:none;">
+              <div style="font-size: 42px; margin-bottom: 12px; color:var(--color-turquoise);">✓</div>
+              <h3>Application Received</h3>
+              <p>Application received. Thank you for telling us what you want to build. The StudentSpace team will review your application and contact you using the information you provided.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Accordion FAQ Section -->
+      <section>
+        <div class="wrap">
+          <div class="section-head text-center" style="max-width:760px; margin:0 auto; text-align:center;">
+            <p class="hero-eyebrow">Frequently Asked Questions</p>
+            <h2>Startup Access FAQ</h2>
+            <p>Clear answers to key questions about technology access, intellectual property, and eligibility.</p>
+          </div>
+
+          <div class="faq-accordion-list">
+            <!-- Q1 -->
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-trigger" aria-expanded="false" aria-controls="faq-sa-1">
+                <span>What is Startup Access?</span>
+                <span class="faq-chevron" aria-hidden="true">▾</span>
+              </button>
+              <div id="faq-sa-1" class="faq-accordion-body" hidden>
+                Startup Access is a founder-focused initiative through which qualified New Mexico startups and entrepreneurs receive free access to selected StudentSpace technology, including EdPlan.ai, source code, technical architecture, documentation, AI components, technical knowledge, and decades of EdTech experience.
+              </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-trigger" aria-expanded="false" aria-controls="faq-sa-2">
+                <span>Is Startup Access a grant program, accelerator, or investment fund?</span>
+                <span class="faq-chevron" aria-hidden="true">▾</span>
+              </button>
+              <div id="faq-sa-2" class="faq-accordion-body" hidden>
+                No. Startup Access is not a grant program, accelerator, investment fund, or government program. StudentSpace does not provide cash grants or seed capital. Instead, we provide substantial enterprise technology, production source code, and systems engineering that would otherwise require hundreds of thousands of dollars and years to build.
+              </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-trigger" aria-expanded="false" aria-controls="faq-sa-3">
+                <span>Does StudentSpace take equity, warrants, or royalties?</span>
+                <span class="faq-chevron" aria-hidden="true">▾</span>
+              </button>
+              <div id="faq-sa-3" class="faq-accordion-body" hidden>
+                No. StudentSpace takes zero percent equity in your venture and charges zero royalties or licensing fees. You retain complete ownership of your company and the intellectual property you develop.
+              </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-trigger" aria-expanded="false" aria-controls="faq-sa-4">
+                <span>What specific technology and source code is included?</span>
+                <span class="faq-chevron" aria-hidden="true">▾</span>
+              </button>
+              <div id="faq-sa-4" class="faq-accordion-body" hidden>
+                Depending on your access level and product focus, technology includes: EdPlan.ai educational planning platform modules, RAG pipelines and vector embedding workflows, Full Circle Tracking student retention source code, SchoolView institutional analytics engine, enterprise SIS integration models (Banner, Colleague, Workday), and comprehensive architectural documentation.
+              </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-trigger" aria-expanded="false" aria-controls="faq-sa-5">
+                <span>Do I have to build another StudentSpace product?</span>
+                <span class="faq-chevron" aria-hidden="true">▾</span>
+              </button>
+              <div id="faq-sa-5" class="faq-accordion-body" hidden>
+                No. You do not have to build an exact clone or direct replica of StudentSpace products. Founders are encouraged to adapt, transform, and build novel applications across workforce development, clinical training, AI career coaching, credential tracking, or institutional operations.
+              </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-trigger" aria-expanded="false" aria-controls="faq-sa-6">
+                <span>Who is eligible to apply? Do I need to be located in New Mexico?</span>
+                <span class="faq-chevron" aria-hidden="true">▾</span>
+              </button>
+              <div id="faq-sa-6" class="faq-accordion-body" hidden>
+                Startup Access is dedicated to New Mexico. Applicants must be based in New Mexico, building their business in the state, or actively committed to creating operations and hiring employees in New Mexico.
+              </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-trigger" aria-expanded="false" aria-controls="faq-sa-7">
+                <span>Can solo founders or non-technical founders apply?</span>
+                <span class="faq-chevron" aria-hidden="true">▾</span>
+              </button>
+              <div id="faq-sa-7" class="faq-accordion-body" hidden>
+                Yes. While deploying and extending software codebases requires software development competency, domain-focused founders with deep education, advising, healthcare, or workforce expertise are encouraged to apply. We provide comprehensive architectural documentation and technical walkthroughs to assist you or your technical team.
+              </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-trigger" aria-expanded="false" aria-controls="faq-sa-8">
+                <span>What is the application review timeline?</span>
+                <span class="faq-chevron" aria-hidden="true">▾</span>
+              </button>
+              <div id="faq-sa-8" class="faq-accordion-body" hidden>
+                Applications are reviewed on a rolling basis. Our Santa Fe team reviews incoming submissions regularly and typically responds within 10 to 14 business days to schedule an initial technical conversation.
+              </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-trigger" aria-expanded="false" aria-controls="faq-sa-9">
+                <span>What intellectual property terms apply to the transferred software?</span>
+                <span class="faq-chevron" aria-hidden="true">▾</span>
+              </button>
+              <div id="faq-sa-9" class="faq-accordion-body" hidden>
+                Access to technology and repositories is granted through formal software licensing agreements designed to empower commercialization without royalty obligations or equity encumbrances, while preserving StudentSpace's underlying rights. Specific licensing terms are provided and executed prior to repository transfer.
+              </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-trigger" aria-expanded="false" aria-controls="faq-sa-10">
+                <span>How is Startup Access funded, and why is StudentSpace doing this?</span>
+                <span class="faq-chevron" aria-hidden="true">▾</span>
+              </button>
+              <div id="faq-sa-10" class="faq-accordion-body" hidden>
+                Startup Access is funded as a corporate give-back and CSR initiative by StudentSpace. Having operated successfully in Santa Fe for over 27 years, we believe the best way to support New Mexico's future is by empowering entrepreneurs with the technical building blocks needed to build independent, high-growth technology companies in our state.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA Section -->
+      <section class="final-cta-section">
+        <div class="wrap">
+          <div class="final-cta-box">
+            <h2>Ready to build something transformative in New Mexico?</h2>
+            <p class="cta-lines">Join Startup Access to build on 27 years of proven education technology, AI architecture, and enterprise software foundations.</p>
+            <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+              <a href="#apply" class="btn btn-primary" style="font-size:18px; padding:16px 36px;">Apply for Startup Access</a>
+              <a href="/give-back" class="btn btn-secondary" style="font-size:18px; padding:16px 36px;">Explore Give-Back Program</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    
 
     <!-- ========================================== -->
     <!-- 5. CONTACT / APPLY                         -->
@@ -676,6 +1571,648 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
     </main>
 
     <!-- ========================================== -->
+    <!-- 6B. ABOUT: PRESS RELEASE                   -->
+    <!-- Content from https://www.nihalsoftware.com/press-release -->
+    <!-- ========================================== -->
+    <main id="view-press-release" class="page-view" tabindex="-1">
+      <section class="press-hero">
+        <div class="wrap">
+          <p class="hero-eyebrow">About · Press Release</p>
+          <h1>Nihal Software Awarded Contract to Develop Custom Solution for NGO SEWA (Self Employed Women's Association)</h1>
+          <p class="press-lede">A mobile reporting and tracking solution for volunteer implementation activities across seven states, funded by the United States Agency for International Development (USAID).</p>
+          
+          <div class="press-meta-bar">
+            <span class="press-badge">Official Press Release</span>
+            <span class="press-meta-item">Organization: <strong>Nihal Software</strong></span>
+            <span class="press-meta-divider">·</span>
+            <span class="press-meta-item">Project: <strong>Sewa Bharat Project</strong></span>
+            <span class="press-meta-divider">·</span>
+            <span class="press-meta-item">Funding Agency: <strong>USAID</strong></span>
+            <span class="press-meta-divider">·</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Announcement & Dedication -->
+      <section class="press-section">
+        <div class="wrap">
+          <div class="press-announcement-panel">
+            <p>We are honoured to announce that we have received an order for the Sewa Bharat Project, which has been made possible through the blessings and guidance of our esteemed Big Sir and your support. We deeply value the teachings of honesty and truthfulness imparted by Big Sir and you, and we are committed to upholding these principles throughout this project.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- About SEWA -->
+      <section class="press-section">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Organization Background</p>
+            <h2>What does the SEWA organisation do?</h2>
+            <p>SEWA is an NGO, across seven states, which provides support and services for under privileged women, with the objective of providing all types of support to women so that they can progress in their chosen fields.</p>
+          </div>
+
+          <div class="press-cards-grid">
+            <div class="press-card">
+              <div class="press-card-icon" aria-hidden="true">1</div>
+              <h3>Skill Development &amp; Training</h3>
+              <p>Skill development and training of women to build sustainable capabilities and economic independence.</p>
+            </div>
+            <div class="press-card">
+              <div class="press-card-icon" aria-hidden="true">2</div>
+              <h3>Government Schemes &amp; Documentation</h3>
+              <p>Providing women knowledge of government schemes and helping women to get all government documents.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Objectives -->
+      <section class="press-section">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Solution &amp; Purpose</p>
+            <h2>Project Objectives</h2>
+            <p>We require the development of a mobile application that enables the recording of all implementation activities conducted by the SEWA volunteer helping underprivileged women. The primary objective of the app is to capture data for reporting continuous basis.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Scope -->
+      <section class="press-section">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Implementation Details</p>
+            <h2>Project Scope</h2>
+            <p>The application should be able to capture details of:</p>
+          </div>
+
+          <div class="press-cards-grid">
+            <div class="press-card">
+              <div class="press-card-icon" aria-hidden="true">✓</div>
+              <h3>Skill Development Trainings</h3>
+              <p>Capturing session milestones, attendance, syllabus completion, and trainee skill development progress.</p>
+            </div>
+            <div class="press-card">
+              <div class="press-card-icon" aria-hidden="true">✓</div>
+              <h3>Community Meetings</h3>
+              <p>Documenting grassroots community outreach meetings, participant feedback, and localized initiatives.</p>
+            </div>
+            <div class="press-card">
+              <div class="press-card-icon" aria-hidden="true">✓</div>
+              <h3>Government Schemes &amp; Identity Documents</h3>
+              <p>Recording benefits facilitation, identity documentation assistance, and government welfare scheme enrollment.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- USAID Recognition -->
+      <section class="press-section">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Funding &amp; Partner Recognition</p>
+            <h2>USAID Support &amp; Developer Selection</h2>
+          </div>
+
+          <div class="press-announcement-panel" style="border-left-color: var(--color-gold);">
+            <p style="font-size: 20px; font-weight: 500; margin-bottom: 16px;">Above all, the funding is being provided to SEWA by USAID. And it is a matter of pride that Nihal Software was chosen out of many software developers.</p>
+            <p style="color: var(--color-ink-dim); font-size: 16px;">USAID (United States Agency for International Development) is an independent agency of the United States federal government. It is primarily responsible for administering civilian foreign aid and development assistance worldwide.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Press & Corporate Contact -->
+      <section class="press-section">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="hero-eyebrow">Official Inquiries</p>
+            <h2>Contact &amp; Press Information</h2>
+            <p>For inquiries regarding this press release and software development solutions:</p>
+          </div>
+
+          <div class="press-contact-panel">
+            <div class="press-contact-item">
+              <dt>Email</dt>
+              <dd><a href="mailto:support@studentspace.com">support@studentspace.com</a></dd>
+            </div>
+            <div class="press-contact-item">
+              <dt>Landline</dt>
+              <dd><a href="tel:01244043414">0124-4043414</a></dd>
+            </div>
+            <div class="press-contact-item">
+              <dt>Corporate Office</dt>
+              <dd>227, Vashisht Complex, Mehrauli-Gurgaon Rd, Sikanderpur, Sector 26, Gurugram, Haryana 122002</dd>
+            </div>
+            <div class="press-contact-item">
+              <dt>Copyright &amp; Source</dt>
+              <dd>© 2025 Nihal Software · <a href="https://www.nihalsoftware.com/press-release" target="_blank" rel="noopener noreferrer">nihalsoftware.com</a></dd>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 7. PROJECTS: DASHBOARD PLAYGROUND          -->
+    <!-- Content from https://www.studentspace.com/playground -->
+    <!-- ========================================== -->
+    <main id="view-playground" class="page-view" tabindex="-1">
+      <section class="playground-hero">
+        <div class="wrap">
+          <p class="hero-eyebrow">Projects · Interactive Dashboard Playground</p>
+          <h1>Explore the Magic of Data Storytelling | Dashboard Playground</h1>
+          <p class="playground-lede">Student data insights: Graduates, freshmen, dropouts, continuing students, admission % by program, and dropout reasons. Explore how student retention, early alerts, and advising dashboards transform institutional performance.</p>
+          
+          <div class="playground-meta-bar">
+            <span class="press-badge">Interactive Project Suite</span>
+            <span class="press-meta-item">Reports: <strong>Admission · Advising · Early Alert · Retention</strong></span>
+            <span class="press-meta-divider">·</span>
+          </div>
+
+          <!-- Playground Tutorial -->
+          <div class="playground-tutorial-box">
+            <h3><span>💡</span> Playground Page Tutorial:</h3>
+            <div class="tutorial-steps-grid">
+              <div class="tutorial-step-card">
+                <div class="tutorial-step-num">Step 1</div>
+                <h4>Arrive on Playground Page</h4>
+                <p>See interactive buttons with report names for each project dashboard.</p>
+              </div>
+              <div class="tutorial-step-card">
+                <div class="tutorial-step-num">Step 2</div>
+                <h4>Choose a Report</h4>
+                <p>Click on a report name, like &quot;Admission Dashboard&quot; or &quot;Early Alert.&quot;</p>
+              </div>
+              <div class="tutorial-step-card">
+                <div class="tutorial-step-num">Step 3</div>
+                <h4>Explore Data</h4>
+                <p>Interact with multi-year graphs, cohort charts, and demographic tables.</p>
+              </div>
+              <div class="tutorial-step-card">
+                <div class="tutorial-step-num">Step 4</div>
+                <h4>Switch Reports</h4>
+                <p>Click on another report button, e.g., &quot;Retention Insights&quot; or &quot;Advising Log.&quot;</p>
+              </div>
+              <div class="tutorial-step-card">
+                <div class="tutorial-step-num">Step 5</div>
+                <h4>Interact with Insights</h4>
+                <p>Explore data points, attrition factors, and appointment volumes.</p>
+              </div>
+              <div class="tutorial-step-card">
+                <div class="tutorial-step-num">Step 6</div>
+                <h4>Customize Views</h4>
+                <p>Review metrics across campuses, programs, and student demographics.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Report Tabs Bar -->
+          <div class="playground-tabs-bar" role="tablist" aria-label="Dashboard Playground Reports">
+            <button class="playground-tab-btn active" data-tab="admission" role="tab" aria-selected="true" aria-controls="tab-panel-admission" id="admission">
+              🎓 Admission Dashboard
+            </button>
+            <button class="playground-tab-btn" data-tab="advising" role="tab" aria-selected="false" aria-controls="tab-panel-advising" id="advising">
+              📋 Advising Log
+            </button>
+            <button class="playground-tab-btn" data-tab="early-alert" role="tab" aria-selected="false" aria-controls="tab-panel-early-alert" id="early-alert">
+              🚨 Early Alert
+            </button>
+            <button class="playground-tab-btn" data-tab="retention" role="tab" aria-selected="false" aria-controls="tab-panel-retention" id="retention">
+              📈 Retention
+            </button>
+          </div>
+
+          <!-- TAB 1: ADMISSION DASHBOARD -->
+          <div id="tab-panel-admission" class="playground-tab-panel active" role="tabpanel" aria-labelledby="admission">
+            <div class="dashboard-head-banner">
+              <h2>🎓 Admission Dashboard Overview 📊</h2>
+              <p class="sub">Dive into student admission data insights with our student admission dashboard.</p>
+            </div>
+
+            <div class="metric-stats-row">
+              <div class="metric-stat-box">
+                <div class="metric-stat-number">9 Years</div>
+                <div class="metric-stat-label">Historical Tracking</div>
+              </div>
+              <div class="metric-stat-box">
+                <div class="metric-stat-number">68.4%</div>
+                <div class="metric-stat-label">Avg Admission %</div>
+              </div>
+              <div class="metric-stat-box">
+                <div class="metric-stat-number">4,280</div>
+                <div class="metric-stat-label">Freshmen Enrolled</div>
+              </div>
+              <div class="metric-stat-box">
+                <div class="metric-stat-number">3,120</div>
+                <div class="metric-stat-label">Annual Graduates</div>
+              </div>
+            </div>
+
+            <div class="dashboard-grid-2col">
+              <!-- Visualizations Breakdown -->
+              <div class="dashboard-card">
+                <h3>9-Year Cohort Counts (Bar Graph)</h3>
+                <p>Counts over nine years for graduates, freshmen, dropouts, and continuing students.</p>
+                
+                <div class="css-bar-chart">
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Freshmen</span>
+                    <div class="chart-bar-track">
+                      <div class="chart-bar-fill fill-turquoise" style="width: 82%;"></div>
+                    </div>
+                    <span class="chart-bar-val">4,280</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Continuing</span>
+                    <div class="chart-bar-track">
+                      <div class="chart-bar-fill fill-blue" style="width: 74%;"></div>
+                    </div>
+                    <span class="chart-bar-val">3,850</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Graduates</span>
+                    <div class="chart-bar-track">
+                      <div class="chart-bar-fill fill-gold" style="width: 60%;"></div>
+                    </div>
+                    <span class="chart-bar-val">3,120</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Dropouts</span>
+                    <div class="chart-bar-track">
+                      <div class="chart-bar-fill fill-chile" style="width: 22%;"></div>
+                    </div>
+                    <span class="chart-bar-val">890</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scope & Program Breakdown -->
+              <div class="dashboard-card-alt">
+                <h3>Data Scope &amp; Visualizations</h3>
+                <p><strong>Data Included:</strong> Graduates, freshmen, dropouts, continuing students, student admission percentage by program, and dropout reasons.</p>
+                
+                <h4 style="font-size:15px; margin: 18px 0 10px; color: var(--color-ink-text);">Program Admission Percentage (Pie Chart):</h4>
+                <div class="css-bar-chart">
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Engineering &amp; Tech</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-turquoise" style="width: 34%;"></div></div>
+                    <span class="chart-bar-val">34%</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Business &amp; Finance</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-blue" style="width: 26%;"></div></div>
+                    <span class="chart-bar-val">26%</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Health Sciences</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-gold" style="width: 22%;"></div></div>
+                    <span class="chart-bar-val">22%</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Arts &amp; Humanities</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-purple" style="width: 18%;"></div></div>
+                    <span class="chart-bar-val">18%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shaded Graph Reasons for Student Dropouts -->
+            <div class="dashboard-card">
+              <h3>Dropout Reasons Breakdown (Shaded Area Graph)</h3>
+              <p>Reasons for student dropouts (Tuition Cost, Personal, Failing Grade, Academic Inadequacy) tracked over time to implement proactive institutional remedies.</p>
+
+              <div class="dashboard-grid-3col" style="margin-top: 20px; margin-bottom: 0;">
+                <div style="background: rgba(243, 239, 227, 0.03); border:1px solid var(--border-hairline); padding: 18px; border-radius: var(--radius);">
+                  <strong style="color: var(--color-chile); font-size: 20px; display:block; margin-bottom: 4px;">38%</strong>
+                  <span style="color: var(--color-ink-text); font-weight:600;">Tuition &amp; Financial Cost</span>
+                  <p style="font-size: 13px; color:var(--color-ink-dim); margin-top: 6px;">Unmet financial need, cost of living, and tuition payment hardships.</p>
+                </div>
+                <div style="background: rgba(243, 239, 227, 0.03); border:1px solid var(--border-hairline); padding: 18px; border-radius: var(--radius);">
+                  <strong style="color: var(--color-gold); font-size: 20px; display:block; margin-bottom: 4px;">26%</strong>
+                  <span style="color: var(--color-ink-text); font-weight:600;">Personal &amp; Family Reasons</span>
+                  <p style="font-size: 13px; color:var(--color-ink-dim); margin-top: 6px;">Caregiving responsibilities, relocation, and personal health circumstances.</p>
+                </div>
+                <div style="background: rgba(243, 239, 227, 0.03); border:1px solid var(--border-hairline); padding: 18px; border-radius: var(--radius);">
+                  <strong style="color: var(--color-turquoise); font-size: 20px; display:block; margin-bottom: 4px;">21%</strong>
+                  <span style="color: var(--color-ink-text); font-weight:600;">Failing Grade &amp; GPA</span>
+                  <p style="font-size: 13px; color:var(--color-ink-dim); margin-top: 6px;">Academic probation, prerequisite failures, and unsatisfactory progress.</p>
+                </div>
+                <div style="background: rgba(243, 239, 227, 0.03); border:1px solid var(--border-hairline); padding: 18px; border-radius: var(--radius);">
+                  <strong style="color: #9B51E0; font-size: 20px; display:block; margin-bottom: 4px;">15%</strong>
+                  <span style="color: var(--color-ink-text); font-weight:600;">Academic Inadequacy</span>
+                  <p style="font-size: 13px; color:var(--color-ink-dim); margin-top: 6px;">Underpreparedness from high school and remedial course dropouts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: ADVISING LOG -->
+          <div id="tab-panel-advising" class="playground-tab-panel" role="tabpanel" aria-labelledby="advising">
+            <div class="dashboard-head-banner">
+              <h2>📊 Insights from the Advising Log 📈</h2>
+              <p class="sub">Dive into student data insights with our Advising Log.</p>
+            </div>
+
+            <div class="press-announcement-panel">
+              <h3 style="font-size: 18px; margin-bottom: 8px;">Collaborative Relationship</h3>
+              <p>Academic advising fosters collaboration between students and advisors, aligning educational goals with personal interests and abilities.</p>
+            </div>
+
+            <div class="dashboard-grid-2col">
+              <div class="dashboard-card">
+                <h3>Speedy Advisement by Appointment Type</h3>
+                <p>The bar graph shows the count of students receiving speedy advisement under specific appointment types for the chosen semester (selected from the dropdown).</p>
+
+                <div class="css-bar-chart">
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Course Planning</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-turquoise" style="width: 88%;"></div></div>
+                    <span class="chart-bar-val">560</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Drop-in Consultations</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-blue" style="width: 66%;"></div></div>
+                    <span class="chart-bar-val">420</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Degree Audit Check</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-gold" style="width: 48%;"></div></div>
+                    <span class="chart-bar-val">310</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Career Mentoring</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-purple" style="width: 36%;"></div></div>
+                    <span class="chart-bar-val">230</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card-alt">
+                <h3>Demographic Overview (Campus-Wise)</h3>
+                <p>The table and pie chart display the gender distribution of students on each campus in the selected semester.</p>
+
+                <div class="dashboard-table-wrap">
+                  <table class="dashboard-table">
+                    <thead>
+                      <tr>
+                        <th>Campus</th>
+                        <th>Female %</th>
+                        <th>Male %</th>
+                        <th>Total Advised</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Main Campus</strong></td>
+                        <td>54%</td>
+                        <td>46%</td>
+                        <td>1,420</td>
+                      </tr>
+                      <tr>
+                        <td><strong>North Campus</strong></td>
+                        <td>52%</td>
+                        <td>48%</td>
+                        <td>890</td>
+                      </tr>
+                      <tr>
+                        <td><strong>West Campus</strong></td>
+                        <td>58%</td>
+                        <td>42%</td>
+                        <td>640</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Online Division</strong></td>
+                        <td>61%</td>
+                        <td>39%</td>
+                        <td>980</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: EARLY ALERT -->
+          <div id="tab-panel-early-alert" class="playground-tab-panel" role="tabpanel" aria-labelledby="early-alert">
+            <div class="dashboard-head-banner">
+              <h2>🚨 Early Alert Insights 📊</h2>
+              <p class="sub">Dive into student data insights with our Early Alert Insights.</p>
+            </div>
+
+            <div class="press-announcement-panel" style="border-left-color: var(--color-chile);">
+              <h3 style="font-size: 18px; margin-bottom: 8px;">System Purpose</h3>
+              <p>Early Alert is an online tool facilitating timely interventions for at-risk students, aiming to enhance student success through proactive support.</p>
+            </div>
+
+            <div class="dashboard-grid-2col">
+              <div class="dashboard-card">
+                <h3>Alert Intervention by Course</h3>
+                <p>The bar graph shows the count of students receiving alerts in specific courses under various alert types for the chosen semester (selected from the dropdown).</p>
+
+                <div class="css-bar-chart">
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Calculus I (MATH 101)</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-chile" style="width: 78%;"></div></div>
+                    <span class="chart-bar-val">142</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Intro CS (CS 105)</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-gold" style="width: 64%;"></div></div>
+                    <span class="chart-bar-val">118</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">General Chemistry</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-blue" style="width: 52%;"></div></div>
+                    <span class="chart-bar-val">96</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">English Composition</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-turquoise" style="width: 38%;"></div></div>
+                    <span class="chart-bar-val">71</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card-alt">
+                <h3>Demographic &amp; Alert Distribution</h3>
+                <p>The table and pie chart display the gender distribution of students on each campus in the selected semester receiving alerts.</p>
+
+                <div class="dashboard-table-wrap">
+                  <table class="dashboard-table">
+                    <thead>
+                      <tr>
+                        <th>Alert Type</th>
+                        <th>Students</th>
+                        <th>Resolved %</th>
+                        <th>Avg Response</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span style="color:#FFA599;">●</span> Attendance Warning</td>
+                        <td>184</td>
+                        <td>88%</td>
+                        <td>1.8 days</td>
+                      </tr>
+                      <tr>
+                        <td><span style="color:var(--color-gold);">●</span> Midterm Deficiency</td>
+                        <td>146</td>
+                        <td>81%</td>
+                        <td>2.4 days</td>
+                      </tr>
+                      <tr>
+                        <td><span style="color:var(--color-turquoise);">●</span> Missing Assignments</td>
+                        <td>112</td>
+                        <td>86%</td>
+                        <td>1.2 days</td>
+                      </tr>
+                      <tr>
+                        <td><span style="color:#B9C1C9;">●</span> Prerequisite Gaps</td>
+                        <td>64</td>
+                        <td>79%</td>
+                        <td>3.1 days</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div style="margin-top: 20px; padding: 12px 16px; background: rgba(58, 167, 156, 0.12); border-left: 3px solid var(--color-turquoise); border-radius: 2px;">
+                  <strong style="color:var(--color-turquoise); font-size:13px;">Intervention Impact:</strong>
+                  <p style="margin:4px 0 0; font-size:13.5px; color:var(--color-ink-text);">84% of students who received an early alert intervention in the first 4 weeks remained enrolled and passed the course.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: RETENTION -->
+          <div id="tab-panel-retention" class="playground-tab-panel" role="tabpanel" aria-labelledby="retention">
+            <div class="dashboard-head-banner">
+              <h2>📊 Retention Insights 🎓</h2>
+              <p class="sub">Dive into student data insights with our Retention Insights.</p>
+            </div>
+
+            <div class="press-announcement-panel" style="border-left-color: var(--color-gold);">
+              <h3 style="font-size: 18px; margin-bottom: 8px;">Definition &amp; Critical Metric</h3>
+              <p>The retention rate measures the percentage of first-year students continuing at the same college into their sophomore year, a critical metric for assessing student success.</p>
+            </div>
+
+            <div class="dashboard-grid-2col">
+              <div class="dashboard-card">
+                <h3>Retention Analysis by Program</h3>
+                <p>The bar graph displays the count of students retained in specific programs for the selected semester. It also highlights dropped out and withdrawn students, providing a comprehensive view of retention challenges.</p>
+
+                <div class="css-bar-chart">
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Engineering</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-turquoise" style="width: 84%;"></div></div>
+                    <span class="chart-bar-val">84%</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Health Sciences</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-blue" style="width: 81%;"></div></div>
+                    <span class="chart-bar-val">81%</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Business</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-gold" style="width: 76%;"></div></div>
+                    <span class="chart-bar-val">76%</span>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Liberal Arts</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill fill-purple" style="width: 72%;"></div></div>
+                    <span class="chart-bar-val">72%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card-alt">
+                <h3>8-Year Historical Retention Trends</h3>
+                <p>The table and pie chart illustrate the gender distribution and multi-year retention rates for the last 8 years, campus-wise.</p>
+
+                <div class="dashboard-table-wrap">
+                  <table class="dashboard-table">
+                    <thead>
+                      <tr>
+                        <th>Cohort Year</th>
+                        <th>Retained</th>
+                        <th>Withdrawn</th>
+                        <th>Rate %</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>2025–2026</strong></td>
+                        <td>3,380</td>
+                        <td>420</td>
+                        <td><span style="color:var(--color-turquoise); font-weight:700;">80.2%</span></td>
+                      </tr>
+                      <tr>
+                        <td><strong>2024–2025</strong></td>
+                        <td>3,240</td>
+                        <td>480</td>
+                        <td><span style="color:var(--color-turquoise); font-weight:700;">78.8%</span></td>
+                      </tr>
+                      <tr>
+                        <td><strong>2023–2024</strong></td>
+                        <td>3,110</td>
+                        <td>530</td>
+                        <td><span style="color:var(--color-turquoise); font-weight:700;">77.5%</span></td>
+                      </tr>
+                      <tr>
+                        <td><strong>8-Year Avg</strong></td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td><span style="color:var(--color-gold); font-weight:700;">78.4%</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cross-links to Related Products / Dashboards -->
+          <div style="margin-top: 48px; padding-top: 36px; border-top: 1px solid var(--border-hairline);">
+            <div class="section-head" style="margin-bottom: 24px;">
+              <p class="hero-eyebrow">Related Institutional Solutions</p>
+              <h2>Integrated Institutional Systems</h2>
+              <p>Explore the full suite of software and reporting engines available free to New Mexico builders through the Give-Back Program.</p>
+            </div>
+
+            <div class="press-cards-grid">
+              <div class="press-card">
+                <h3>🏫 SchoolView 2020 Insights</h3>
+                <p>Turnkey institutional analytics for small colleges without large IT departments. Provides tabular data presentation, enrollment tracking, and degrees awarded at-a-glance.</p>
+                <div style="margin-top: 16px;">
+                  <a href="/products/school-view" data-route="/products/school-view" class="btn btn-ghost" style="font-size: 14px; padding: 6px 14px;">Explore SchoolView →</a>
+                </div>
+              </div>
+
+              <div class="press-card">
+                <h3>📊 Assessment of Student Learning (ASL)</h3>
+                <p>Competency-based outcome tracking framework. Displays skill levels mastered by gender, cohort, and course for regional accreditation reporting.</p>
+                <div style="margin-top: 16px;">
+                  <a href="/products/assessment-of-student-learning" data-route="/products/assessment-of-student-learning" class="btn btn-ghost" style="font-size: 14px; padding: 6px 14px;">Explore ASL →</a>
+                </div>
+              </div>
+
+              <div class="press-card">
+                <h3>🔄 Full Circle Tracking</h3>
+                <p>SIS, CRM, and LMS unified advising radar connecting campus silos into a single retention view for academic counselors and faculty.</p>
+                <div style="margin-top: 16px;">
+                  <a href="/products/full-circle-tracking" data-route="/products/full-circle-tracking" class="btn btn-ghost" style="font-size: 14px; padding: 6px 14px;">Explore Full Circle →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
     <!-- 7A. PRODUCT: FULL CIRCLE TRACKING          -->
     <!-- ========================================== -->
     <main id="view-fct" class="page-view" tabindex="-1">
@@ -903,8 +2440,8 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
     <div class="wrap">
       <div class="footer-row">
         <div>
-          <div class="brand-link" style="margin-bottom: 12px;">
-            <span class="brand-name">StudentSpace</span>
+          <div class="brand-link" style="margin-bottom: 14px;">
+            <img src="/assets/studentspace-logo.png" alt="StudentSpace" class="brand-logo" width="220" height="36" style="height:36px; max-width:220px;">
           </div>
           <p style="color:var(--color-ink-dim); max-width:36ch; font-size:14px; line-height:1.5;">Santa Fe, New Mexico. In business since 1998 — now giving back our source code, tools, and experience to New Mexico builders.</p>
         </div>
@@ -913,14 +2450,20 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
             <h4>Initiatives</h4>
             <a href="/" data-route="/">Home</a>
             <a href="/give-back" data-route="/give-back">Give-Back Program</a>
+            <a href="/startup-access" data-route="/startup-access">Startup Access</a>
             <a href="/faq" data-route="/faq">Program FAQ</a>
           </div>
           <div class="footer-col">
-            <h4>Products</h4>
+            <h4>Projects &amp; Products</h4>
             <a href="/edplan-ai" data-route="/edplan-ai">edplan.ai Portal</a>
             <a href="/products/full-circle-tracking" data-route="/products/full-circle-tracking">Full Circle Tracking</a>
             <a href="/products/school-view" data-route="/products/school-view">SchoolView</a>
             <a href="/products/assessment-of-student-learning" data-route="/products/assessment-of-student-learning">Assessment (ASL)</a>
+            <a href="/playground" data-route="/playground">Dashboard Playground</a>
+            <a href="/playground#admission" data-route="/playground#admission">Admission Dashboard</a>
+            <a href="/playground#advising" data-route="/playground#advising">Advising Log</a>
+            <a href="/playground#early-alert" data-route="/playground#early-alert">Early Alert</a>
+            <a href="/playground#retention" data-route="/playground#retention">Retention</a>
           </div>
           <div class="footer-col">
             <h4>Company</h4>
@@ -928,6 +2471,7 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
             <a href="/our-story" data-route="/our-story">Our Story</a>
             <a href="/leadership" data-route="/leadership">Leadership &amp; Team</a>
             <a href="/nihal-foundation" data-route="/nihal-foundation">Nihal Foundation</a>
+            <a href="/press-release" data-route="/press-release">Press Release</a>
             <a href="/contact" data-route="/contact">Contact &amp; Apply</a>
           </div>
           <div class="footer-col">
@@ -938,6 +2482,9 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
             <a href="tel:+15054387192">(505)</a>
           </div>
         </div>
+      </div>
+      <div style="margin-top:24px; padding-top:16px; border-top:1px solid var(--border-hairline); font-size:13px; color:var(--color-ink-dim); text-align:center;">
+        Startup Access is a StudentSpace initiative for qualified entrepreneurs. Participation and access are subject to approval and applicable agreements.
       </div>
       <div class="footer-bottom">
         <span>© 1998–2026 StudentSpace. Santa Fe, New Mexico.</span>
