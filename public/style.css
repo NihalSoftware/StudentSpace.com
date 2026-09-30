@@ -314,6 +314,7 @@ nav.primary {
     border-bottom: 1px solid var(--border-hairline);
     gap: 8px;
   }
+  nav.primary { max-height: calc(100dvh - 78px); overflow-y: auto; overscroll-behavior: contain; }
   nav.primary.open { display: flex; }
   .nav-link { text-align: left; width: 100%; padding: 12px 14px; }
   .dropdown-menu {
@@ -691,21 +692,24 @@ nav.primary {
   display: flex;
   gap: 16px;
   padding: 16px 0;
-  border-top: 1px solid var(--border-surface);
+  border-top: 1px solid var(--border-hairline);
   font-size: 16px;
-  color: var(--color-on-surface);
+  color: var(--color-ink-text);
 }
 
 .checklist li:last-child {
-  border-bottom: 1px solid var(--border-surface);
+  border-bottom: 1px solid var(--border-hairline);
 }
 
 .checklist .mark {
-  color: var(--color-turquoise-dim);
+  color: var(--color-turquoise);
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 18px;
 }
+
+.surface .checklist li { color: var(--color-on-surface); border-color: var(--border-surface); }
+.surface .checklist .mark { color: var(--color-turquoise-dim); }
 
 /* Callout */
 .callout {
@@ -1131,7 +1135,7 @@ footer {
 }
 .press-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 24px;
   margin-top: 24px;
 }
@@ -1182,7 +1186,7 @@ footer {
 }
 .press-contact-panel {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 24px;
   padding: 32px;
   border: 1px solid var(--border-hairline);
@@ -1262,7 +1266,7 @@ footer {
 }
 .tutorial-steps-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 18px;
 }
 .tutorial-step-card {
@@ -1366,7 +1370,7 @@ footer {
 }
 .dashboard-grid-3col {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 24px;
   margin-bottom: 36px;
 }
@@ -1477,7 +1481,7 @@ footer {
 /* Metric Stats Row */
 .metric-stats-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
   gap: 16px;
   margin: 20px 0;
 }
@@ -1623,7 +1627,7 @@ footer {
 }
 .tech-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 20px;
 }
 .tech-card {
@@ -1673,7 +1677,7 @@ footer {
 }
 .offer-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 24px;
   margin: 40px 0 32px;
 }
@@ -1717,7 +1721,7 @@ footer {
 /* Criteria Grid (Who Should Apply) */
 .criteria-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 24px;
   margin-top: 36px;
 }
@@ -1839,7 +1843,7 @@ footer {
 /* Access Levels (Tiers) */
 .access-tiers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 28px;
   margin-top: 40px;
 }
@@ -1904,7 +1908,7 @@ footer {
 /* 90-Day Build Path */
 .pathway-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 20px;
   margin-top: 36px;
 }
@@ -1940,7 +1944,7 @@ footer {
 /* Knowledge Badges */
 .knowledge-badges-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
   gap: 14px;
   margin: 32px 0;
 }
@@ -1987,12 +1991,12 @@ footer {
 }
 .form-grid-2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 20px;
 }
 .checkbox-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
   gap: 12px;
   margin: 12px 0 20px;
 }
@@ -2148,6 +2152,38 @@ footer {
   .core-message-section { padding: 60px 0; }
   .offer-section { padding: 56px 0; }
   .final-cta-section { padding: 64px 0; }
+}
+
+/* Reported text alignment and Startup Access page length. */
+.founder-profile { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 36px; align-items: start; }
+.founder-profile img { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; }
+.action-links { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+.source-link { margin-top: 28px; }
+.contact-info dd { overflow-wrap: anywhere; }
+#view-startup-access > section { padding-block: 48px; }
+#view-startup-access > section[data-startup-support] { padding-block: 16px; }
+.startup-details { border: 1px solid var(--border-hairline); border-radius: var(--radius); }
+.surface .startup-details { border-color: var(--border-surface); }
+.startup-details summary { padding: 20px 24px; cursor: pointer; }
+.startup-details summary h2 { display: inline; font-size: 24px; line-height: 1.35; }
+.startup-details summary:focus-visible { outline: 2px solid var(--color-turquoise); outline-offset: 4px; }
+.startup-details-body { padding: 8px 24px 24px; }
+.startup-details-body .sticky-column { position: static; }
+.surface .startup-details .sticky-column p { color: var(--color-on-surface-dim); }
+.surface .startup-details .sticky-column .hero-eyebrow { color: var(--color-on-surface); }
+.startup-details-body .section-head { text-align: left !important; margin-inline: 0 !important; }
+#view-startup-access .section-head { text-align: left !important; margin-inline: 0 !important; }
+.split > *, .contact-grid > *, .startup-hero-grid > * { min-width: 0; }
+@media (max-width: 600px) {
+  .founder-profile { grid-template-columns: 1fr; gap: 24px; }
+  #view-startup-access > section { padding-block: 32px; }
+  .startup-details summary { padding: 18px; }
+  .startup-details-body { padding: 8px 18px 18px; }
+  #view-startup-access .application-wrapper { padding: 20px; }
+  #view-startup-access .criteria-card { padding: 20px; }
+  .press-contact-panel { padding: 20px; }
+  .card-block .spec-table { table-layout: fixed; width: 100%; }
+  .card-block .spec-table th, .card-block .spec-table td { overflow-wrap: anywhere; padding-inline: 8px; }
 }
 
 

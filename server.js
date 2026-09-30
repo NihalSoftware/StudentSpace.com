@@ -38,6 +38,12 @@ const MIME_TYPES = {
 const APP_ROUTES = [
   '/',
   '/home',
+  '/founder',
+  '/research-innovation',
+  '/technology',
+  '/new-mexico',
+  '/community-partners',
+  '/open-knowledge',
   '/our-story',
   '/edplan-ai',
   '/give-back',

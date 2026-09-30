@@ -17,6 +17,36 @@
       title: 'StudentSpace — Twenty-Seven Years Building Edtech. Now Giving It Away to New Mexico.',
       description: 'StudentSpace is opening its 27 years of student-tracking software, source code, and business playbooks free to New Mexico builders.'
     },
+    '/founder': {
+      viewId: 'view-founder',
+      title: "Founder — Prof. S.N.S Nagra | StudentSpace",
+      description: "Meet Prof. S.N.S Nagra, co-founder of StudentSpace."
+    },
+    '/research-innovation': {
+      viewId: 'view-research',
+      title: "Research & Innovation | StudentSpace",
+      description: "Explore student success, learning outcomes, AI and education research."
+    },
+    '/technology': {
+      viewId: 'view-technology',
+      title: "Technology & Interoperability | StudentSpace",
+      description: "How StudentSpace connects SIS, CRM and LMS data for student success."
+    },
+    '/new-mexico': {
+      viewId: 'view-new-mexico',
+      title: "New Mexico Initiatives | StudentSpace",
+      description: "Education planning and technology access for New Mexico students and entrepreneurs."
+    },
+    '/community-partners': {
+      viewId: 'view-community',
+      title: "Community & Partners | StudentSpace",
+      description: "Institutions, education organizations, community programs and collaboration opportunities."
+    },
+    '/open-knowledge': {
+      viewId: 'view-knowledge',
+      title: "Open Knowledge — Code & Documentation | StudentSpace",
+      description: "Source code, technical documentation and engineering guidance for qualified entrepreneurs."
+    },
     '/our-story': {
       viewId: 'view-story',
       title: 'Our Story — StudentSpace: From Santa Fe Startup to Statewide Give-Back',
@@ -29,7 +59,7 @@
     },
     '/give-back': {
       viewId: 'view-giveback',
-      title: 'Give-Back Program — Source Code, Playbooks & Mentorship for New Mexico Builders',
+      title: 'Give Back to — Students, Educators, Institutions & Entrepreneurs',
       description: 'Take what we built. StudentSpace is giving away source code, product designs, and business playbooks free with no cost and no equity to New Mexico founders.'
     },
     '/clients': {
@@ -74,8 +104,8 @@
     },
     '/press-release': {
       viewId: 'view-press-release',
-      title: 'Press Release — Nihal Software Awarded Contract for NGO SEWA',
-      description: 'Nihal Software awarded contract funded by USAID to develop custom mobile application solution for NGO SEWA (Self Employed Women\'s Association).'
+      title: 'Press Release — StudentSpace & Nihal Software: SEWA Project',
+      description: 'StudentSpace and Nihal Software share the SEWA custom solution project announcement.'
     },
     '/playground': {
       viewId: 'view-playground',
@@ -122,7 +152,7 @@
    */
   function navigate(path, pushState = true) {
     // Extract hash if present
-    const hash = path.includes('#') ? path.split('#')[1] : (window.location.hash ? window.location.hash.replace(/^#/, '') : '');
+    const hash = path.includes('#') ? path.split('#')[1] : '';
 
     // Normalize path
     let normalized = path.split('?')[0].split('#')[0].replace(/\/+$/, '') || '/';
@@ -168,9 +198,7 @@
     // 5. Handle Tab Activation if on Playground
     if (normalized === '/playground' || normalized === '/projects') {
       const validTabs = ['admission', 'advising', 'early-alert', 'retention'];
-      if (validTabs.includes(hash)) {
-        switchPlaygroundTab(hash);
-      }
+      switchPlaygroundTab(validTabs.includes(hash) ? hash : 'admission');
     }
 
     // 6. Scroll to top or element & close mobile drawer
