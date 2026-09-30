@@ -32,7 +32,19 @@
 
       <nav class="primary" id="primaryNav">
         <a href="/" class="nav-link" data-route="/">Home</a>
-        <a href="/give-back" class="nav-link" data-route="/give-back">Give Back to</a>
+        <div class="dropdown" id="giveBackDropdown">
+          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Give Back ▾
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="/give-back" data-route="/give-back" role="menuitem">Give Back Overview</a>
+            <a href="/research-innovation" data-route="/research-innovation" role="menuitem">Research &amp; Innovation</a>
+            <a href="/technology" data-route="/technology" role="menuitem">Technology</a>
+            <a href="/new-mexico" data-route="/new-mexico" role="menuitem">New Mexico</a>
+            <a href="/community-partners" data-route="/community-partners" role="menuitem">Community &amp; Partners</a>
+            <a href="/open-knowledge" data-route="/open-knowledge" role="menuitem">Open Knowledge</a>
+          </div>
+        </div>
         <a href="/startup-access" class="nav-link" data-route="/startup-access">Startup Access</a>
 
         <div class="dropdown" id="projectsDropdown">
@@ -63,11 +75,6 @@
           <div class="dropdown-menu" role="menu">
             <a href="/our-story" data-route="/our-story" role="menuitem">Our Story</a>
             <a href="/founder" data-route="/founder" role="menuitem">Founder</a>
-            <a href="/research-innovation" data-route="/research-innovation" role="menuitem">Research &amp; Innovation</a>
-            <a href="/technology" data-route="/technology" role="menuitem">Technology</a>
-            <a href="/new-mexico" data-route="/new-mexico" role="menuitem">New Mexico</a>
-            <a href="/community-partners" data-route="/community-partners" role="menuitem">Community &amp; Partners</a>
-            <a href="/open-knowledge" data-route="/open-knowledge" role="menuitem">Open Knowledge</a>
             <a href="/leadership" data-route="/leadership" role="menuitem">Leadership &amp; Team</a>
             <a href="/nihal-foundation" data-route="/nihal-foundation" role="menuitem">Nihal Foundation</a>
             <a href="/press-release" data-route="/press-release" role="menuitem">Press Release</a>
@@ -365,7 +372,7 @@
           <div class="section-head"><p class="hero-eyebrow">New Mexico</p><h1>Built in Santa Fe. Giving back to New Mexico.</h1><p>StudentSpace began in Santa Fe in 1998. Our local initiatives share that experience with students, educators and entrepreneurs in the state.</p></div>
           <div class="split">
             <div><h2>Student planning</h2><p class="dim">edplan.ai is a StudentSpace corporate social responsibility initiative focused on education planning for New Mexico students.</p><a href="/edplan-ai" data-route="/edplan-ai">Learn about edplan.ai</a></div>
-            <div><h2>Entrepreneurs and employment</h2><p class="dim">Give Back to and Startup Access provide eligible entrepreneurs with code, technical documentation and onboarding. Our aim is to help local businesses grow and create employment opportunities in New Mexico.</p><a href="/startup-access" data-route="/startup-access">Explore Startup Access</a></div>
+            <div><h2>Entrepreneurs and employment</h2><p class="dim">Give Back and Startup Access provide eligible entrepreneurs with code, technical documentation and onboarding. Our aim is to help local businesses grow and create employment opportunities in New Mexico.</p><a href="/startup-access" data-route="/startup-access">Explore Startup Access</a></div>
           </div>
         </div>
       </section>
@@ -388,7 +395,7 @@
           <div class="section-head"><p class="hero-eyebrow">Open Knowledge</p><h1>Source code and technical documentation for entrepreneurs</h1><p>We share the knowledge needed to understand and build on selected StudentSpace technology. Here, Open Knowledge refers to code, documentation and practical engineering guidance.</p></div>
           <div class="split">
             <div><h2>What we provide</h2><p class="dim">Source code, architecture diagrams, database schemas, integration guidance, deployment documentation and technical walkthroughs help entrepreneurs adapt the software to their own products.</p></div>
-            <div><h2>How to request access</h2><p class="dim">Apply through Give Back to or Startup Access and describe what you want to build. Access to selected repositories is subject to qualification, approval and applicable licensing agreements. AI and education research topics are covered on our Research &amp; Innovation page.</p><div class="action-links"><a href="/startup-access" data-route="/startup-access">Request technology access</a><a href="/research-innovation" data-route="/research-innovation">Explore research</a></div></div>
+            <div><h2>How to request access</h2><p class="dim">Apply through Give Back or Startup Access and describe what you want to build. Access to selected repositories is subject to qualification, approval and applicable licensing agreements. AI and education research topics are covered on our Research &amp; Innovation page.</p><div class="action-links"><a href="/startup-access" data-route="/startup-access">Request technology access</a><a href="/research-innovation" data-route="/research-innovation">Explore research</a></div></div>
           </div>
         </div>
       </section>
@@ -398,7 +405,7 @@
       <section style="padding-top: 72px;">
         <div class="wrap">
           <p class="hero-eyebrow">Students, educators, institutions and entrepreneurs</p>
-          <h1 style="font-size:clamp(32px,4.5vw,52px); max-width:18ch;">Give Back to</h1>
+          <h1 style="font-size:clamp(32px,4.5vw,52px); max-width:18ch;">Give Back</h1>
           <p class="lede" style="margin-top:18px;">We're giving away the ideas, product designs and source code behind StudentSpace's edtech products — free, to individuals and startups based in New Mexico. Develop them further, brand them your own way, and build a company around them. We won't charge for it, and we won't take a piece of what you build.</p>
         </div>
       </section>
@@ -1408,7 +1415,7 @@
             <p class="hero-eyebrow">Connect with StudentSpace</p>
             <h1>Get in touch</h1>
             <p>Contact our U.S. or India team about StudentSpace products, technical support, or access to source code and documentation.</p>
-            <p>Entrepreneurs can tell us what they want to build through the Give Back to and Startup Access programs.</p>
+            <p>Entrepreneurs can tell us what they want to build through the Give Back and Startup Access programs.</p>
             <p>Schools, colleges and community organizations can ask about planning tools, student success systems, and working with our team.</p>
             <p>For a partnership or collaboration inquiry, describe your organization, the people you serve, your goals, and the technical or training support you need.</p>
           </div>
@@ -1464,7 +1471,7 @@
                 <dd><a href="https://wa.me/919818764265" target="_blank" rel="noopener noreferrer">+91 98187 64265</a></dd>
                 <dt>India Office Hours</dt>
                 <dd>09:30 AM to 06:30 PM</dd>
-                <dt>Give Back to</dt>
+                <dt>Give Back</dt>
                 <dd><a href="mailto:givingback@studentspace.com">givingback@studentspace.com</a></dd>
 
                 <dt>General &amp; Support</dt>
@@ -2568,7 +2575,7 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
           <div class="footer-col">
             <h4>Initiatives</h4>
             <a href="/" data-route="/">Home</a>
-            <a href="/give-back" data-route="/give-back">Give Back to</a>
+            <a href="/give-back" data-route="/give-back">Give Back</a>
             <a href="/startup-access" data-route="/startup-access">Startup Access</a>
             <a href="/faq" data-route="/faq">Program FAQ</a>
           </div>
