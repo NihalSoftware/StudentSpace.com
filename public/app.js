@@ -159,6 +159,7 @@
     
     // Fallback if not found
     const route = ROUTE_MAP[normalized] || ROUTE_MAP['/'];
+    document.body.classList.toggle('home-theme', route.viewId === 'view-home');
     if (!ROUTE_MAP[normalized]) {
       normalized = '/';
     }

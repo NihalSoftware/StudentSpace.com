@@ -13,8 +13,9 @@
 
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/clients.css">
+  <link rel="stylesheet" href="/home.css">
 </head>
-<body>
+<body class="home-theme">
 
   <!-- Accessible Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -24,6 +25,7 @@
     <div class="header-row">
       <a href="/" class="brand-link" data-route="/" aria-label="StudentSpace Home">
         <img src="/assets/studentspace-logo.png" alt="StudentSpace — Tracking Performance, Measuring Success &amp; Evaluating Impact" class="brand-logo" width="240" height="39">
+        <span class="home-wordmark" aria-hidden="true">Student<span>Space</span><small>Rooted in New Mexico. Built for possibility.</small></span>
       </a>
 
       <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
@@ -94,63 +96,80 @@
     <!-- 1. HOME                                    -->
     <!-- ========================================== -->
     <main id="view-home" class="page-view active" tabindex="-1">
-      <section class="hero">
-        <div class="wrap">
+      <section class="home-hero" aria-labelledby="home-title">
+        <img class="home-hero-photo" src="/assets/home/new-mexico-students.png" alt="Students collaborating around a laptop on a New Mexico campus with mountains in the background" width="1756" height="896" fetchpriority="high">
+        <div class="wrap home-hero-content">
           <p class="hero-eyebrow">Santa Fe, New Mexico · Since 1998</p>
-          <h2>More than a quarter century of education technology, research, and experience.</h2><h3>Today we're opening our source code, our products, and everything we've learned about edtech — free, to any New Mexican ready to build something of their own.</h3>
-          <p class="lede">StudentSpace has spent nearly three decades building student-tracking and retention software for colleges and universities across the country. Today we're opening our source code, our products, and everything we've learned about edtech — free, to any New Mexican ready to build something of their own.</p>
-          <div class="hero-actions">
-            <a href="/give-back" class="btn btn-primary" data-route="/give-back">See the Give-Back Program</a>
-          </div>
+          <h1 id="home-title">Real students.<br>Bigger possibilities.</h1>
+          <p class="home-hero-intro">Learning, research and collaboration<br class="home-wide-break"> for a stronger tomorrow in New Mexico.</p>
+          <p class="home-hero-values">Learn <span>·</span> Research <span>·</span> Build <span>·</span> Give Back</p>
+          <div class="home-hero-actions"><a href="/#home-start" data-route="/#home-start" class="home-button home-button-rust">Find your starting point <span aria-hidden="true">↗</span></a><a href="/our-story" data-route="/our-story" class="home-text-link">Our New Mexico story <span aria-hidden="true">→</span></a></div>
         </div>
-
-        <!-- Signature Mesa Horizon Silhouette Motif -->
-        <div class="hero-figure">
-          <svg class="horizon" viewBox="0 0 1200 260" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a New Mexico mesa horizon at dusk">
-            <rect x="0" y="0" width="1200" height="260" fill="var(--color-ink)"/>
-            <circle cx="960" cy="90" r="56" fill="var(--color-gold)" opacity="0.85"/>
-            <polygon points="0,190 140,120 260,175 400,90 520,170 600,150 640,175 760,110 860,160 1000,130 1120,175 1200,150 1200,260 0,260" fill="var(--color-ink-alt)"/>
-            <polygon points="0,230 90,205 220,225 360,190 470,225 620,205 760,230 880,200 1020,225 1200,205 1200,260 0,260" fill="var(--color-panel)"/>
-          </svg>
-        </div>
+        <p class="home-hero-audience">New Mexico<br>Students<br>Educators<br>Institutions<br>Communities</p>
+        <svg class="home-hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0C180 72 310 88 590 100H0Z" fill="#b75b35"/><path d="M0 76C210 94 350 88 730 100H0Z" fill="#14616a"/></svg>
       </section>
 
-      <!-- Stat Strip -->
-      <div class="stat-strip">
-        <div class="wrap">
-          <div class="stat"><b>1998</b><span>Founded in Santa Fe</span></div>
-          <div class="stat"><b>250+</b><span>Institutions served nationwide</span></div>
-          <div class="stat"><b>3</b><span>Products now open to NM builders</span></div>
-          <div class="stat"><b>$0</b><span>Cost to eligible New Mexicans</span></div>
-        </div>
-      </div>
+      <!-- Existing statistics preserved. -->
+      <div class="stat-strip"><div class="wrap">
+        <div class="stat"><b>1998</b><span>Founded in Santa Fe</span></div>
+        <div class="stat"><b>250+</b><span>Institutions served nationwide</span></div>
+        <div class="stat"><b>3</b><span>Products now open to NM builders</span></div>
+        <div class="stat"><b>$0</b><span>Cost to eligible New Mexicans</span></div>
+      </div></div>
 
-      <!-- Two-up Summary Cards -->
-      <section>
+      <div class="home-client-strip"><div class="wrap"><p>Part of the student-success story at</p><a href="/clients" data-route="/clients" aria-label="Meet our college and university clients"><img src="/assets/clients/rio-grande.jpg" alt="University of Rio Grande" width="180" height="75" loading="lazy"><img src="/assets/clients/ana-g-mendez.jpg" alt="Universidad Ana G. Mendez" width="180" height="75" loading="lazy"><img src="/assets/clients/kodiak.jpg" alt="Kodiak College" width="180" height="75" loading="lazy"><img src="/assets/clients/howard.jpg" alt="Howard College" width="180" height="75" loading="lazy"></a></div></div>
+
+      <!-- Existing entry-card content and links preserved. -->
+      <section id="home-start" class="home-pathways">
         <div class="wrap">
-          <div class="split">
-            <div class="card-block">
-              <h3>edplan.ai</h3>
-              <p>A free education-planning portal for every student in New Mexico — built with our CSR funds, for the state that made this company possible.</p>
-              <a href="/edplan-ai" class="btn btn-ghost" data-route="/edplan-ai">Learn about edplan.ai</a>
-            </div>
-            <div class="card-block">
+          <div class="home-section-heading"><p class="home-kicker">Choose your starting point</p><h2>Decades of edtech,<br><span>given back to New Mexico.</span></h2></div>
+          <div class="home-path-grid">
+            <article class="home-path-card home-path-builders">
+              <span class="home-card-number" aria-hidden="true">01</span><p class="home-kicker">For entrepreneurs &amp; builders</p>
               <h3>The Give-Back Program</h3>
               <p>The code, product designs and business playbooks behind our tracking and assessment tools — handed to New Mexico entrepreneurs, at no cost, to build their own companies.</p>
-              <a href="/give-back" class="btn btn-ghost" data-route="/give-back">See what's included</a>
-            </div>
+              <div class="home-card-actions"><a href="/startup-access#apply" class="home-button home-button-rust" data-route="/startup-access#apply">Apply for free access <span aria-hidden="true">→</span></a><a href="/give-back" class="home-text-link" data-route="/give-back">See what's included</a></div>
+            </article>
+            <article class="home-path-card home-path-students">
+              <span class="home-card-number" aria-hidden="true">02</span><p class="home-kicker">For students, parents &amp; schools</p>
+              <h3>edplan.ai</h3>
+              <p>A free education-planning portal for every student in New Mexico — built with our CSR funds, for the state that made this company possible.</p>
+              <div class="home-card-actions"><a href="/edplan-ai" class="home-button home-button-blue" data-route="/edplan-ai">Learn about edplan.ai</a></div>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- Pull Quote -->
-      <section class="surface">
-        <div class="wrap">
-          <div class="quote-box">
-            <p class="quote-text">"A company which is student-centric, extremely generous, and willing to share the source code — that's who we've always tried to be. Now we're making it official."</p>
+      <!-- Original homepage introduction, illustration and quotation retained. -->
+      <section class="home-experience">
+        <div class="wrap home-experience-grid">
+          <div class="home-experience-copy"><p class="home-kicker">Our story</p>
+            <h2>More than a quarter century of education technology, research, and experience.</h2><h3>Today we're opening our source code, our products, and everything we've learned about edtech — free, to any New Mexican ready to build something of their own.</h3>
+            <p class="lede">StudentSpace has spent nearly three decades building student-tracking and retention software for colleges and universities across the country. Today we're opening our source code, our products, and everything we've learned about edtech — free, to any New Mexican ready to build something of their own.</p>
+            <div class="home-card-actions"><a href="/give-back" class="home-text-link" data-route="/give-back">See the Give-Back Program</a><a href="/our-story" class="home-button home-button-outline" data-route="/our-story">Read our story <span aria-hidden="true">→</span></a></div>
+          </div>
+          <div class="home-experience-aside"><div class="hero-figure">
+            <svg class="horizon" viewBox="0 0 1200 260" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a New Mexico mesa horizon at dusk">
+              <rect x="0" y="0" width="1200" height="260" fill="var(--color-ink)"/>
+              <circle cx="960" cy="90" r="56" fill="var(--color-gold)" opacity="0.85"/>
+              <polygon points="0,190 140,120 260,175 400,90 520,170 600,150 640,175 760,110 860,160 1000,130 1120,175 1200,150 1200,260 0,260" fill="var(--color-ink-alt)"/>
+              <polygon points="0,230 90,205 220,225 360,190 470,225 620,205 760,230 880,200 1020,225 1200,205 1200,260 0,260" fill="var(--color-panel)"/>
+            </svg>
+          </div><div class="quote-box"><p class="quote-text">"A company which is student-centric, extremely generous, and willing to share the source code — that's who we've always tried to be. Now we're making it official."</p></div></div>
+        </div>
+      </section>
+
+      <section class="home-products">
+        <div class="wrap"><div class="home-section-heading"><p class="home-kicker">Our products</p><h2>Three products. Real campus experience.</h2></div>
+          <div class="home-product-grid">
+            <article class="home-product home-product-green"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="12" cy="10" r="5"/><path d="M3 28v-5c0-5 4-8 9-8s9 3 9 8v5H3Z"/><circle cx="25" cy="11" r="4"/><path d="M23 18c5 0 7 3 7 7v3h-6v-5c0-2-.4-3.6-1-5Z"/></svg><h3>Full Circle Tracking</h3><p>Connects student data, advising and early alerts so educators can support students throughout their journey.</p><a href="/products/full-circle-tracking" data-route="/products/full-circle-tracking">View details <span aria-hidden="true">→</span></a></article>
+            <article class="home-product home-product-blue"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="19" width="6" height="11" rx="1"/><rect x="13" y="11" width="6" height="19" rx="1"/><rect x="23" y="3" width="6" height="27" rx="1"/></svg><h3>SchoolView</h3><p>Enrollment, advancement and operations in one dashboard, built for colleges without a large IT department.</p><a href="/products/school-view" data-route="/products/school-view">View details <span aria-hidden="true">→</span></a></article>
+            <article class="home-product home-product-purple"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 2h14l7 7v20H7V2Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 2v8h8M11 16h12M11 22h12" fill="none" stroke="currentColor" stroke-width="3"/></svg><h3>Assessment of Student Learning</h3><p>Competency-based learning assessment with evidence to support program improvement and accreditation.</p><a href="/products/assessment-of-student-learning" data-route="/products/assessment-of-student-learning">View details <span aria-hidden="true">→</span></a></article>
           </div>
         </div>
       </section>
+
+      <section class="home-contact"><div class="wrap"><div><p class="home-kicker">Questions?</p><h2>Have a question before you begin?</h2><p>Ask us about the programs, the software or edplan.ai.<br>We'd be glad to help you find your next step.</p></div><a href="/contact" data-route="/contact" class="home-button home-button-rust">Ask our team <span aria-hidden="true">→</span></a></div></section>
     </main>
 
     <!-- ========================================== -->
