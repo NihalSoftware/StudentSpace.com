@@ -58,6 +58,7 @@ const APP_ROUTES = [
   '/press-release',
   '/playground',
   '/projects',
+  '/new-mexico-projects',
   '/startup-access'
 ];
 

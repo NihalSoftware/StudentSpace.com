@@ -1,24 +1,23 @@
-/* StudentSpace Design Tokens (Exact Hex & Font Specifications) */
+/* Shared homepage design language: cream surfaces, teal text and rust actions. */
 :root {
-  --color-ink: #141D26;             /* Primary dark background */
-  --color-ink-alt: #1B2733;         /* Secondary dark panels */
-  --color-panel: #0F1620;           /* Header/footer, darkest surface */
-  --color-surface: #E9DFC7;         /* Light section background */
-  --color-surface-alt: #DED2B4;     /* Cards on light sections */
-  --color-ink-text: #F3EFE3;        /* Text on dark backgrounds */
-  --color-ink-dim: #B9C1C9;         /* Secondary text on dark */
-  --color-on-surface: #1C2229;      /* Text on light backgrounds */
-  --color-on-surface-dim: #525C66;
-  --color-turquoise: #3AA79C;       /* Primary accent, links, active states */
-  --color-turquoise-dim: #2A7E75;
-  --color-chile: #B93F2E;           /* Secondary accent, high-emphasis CTAs */
-  --color-chile-dim: #933022;
-  --color-gold: #D8A63C;            /* Sparing highlight only (hero graphic detail) */
-  
-  --border-hairline: rgba(243, 239, 227, 0.14);
-  --border-strong: rgba(243, 239, 227, 0.28);
-  --border-surface: rgba(28, 34, 41, 0.16);
-  --radius: 2px;
+  --color-ink: #fffcf7;
+  --color-ink-alt: #f5efe3;
+  --color-panel: #fffdf8;
+  --color-surface: #f3f0e7;
+  --color-surface-alt: #fffdf8;
+  --color-ink-text: #103e43;
+  --color-ink-dim: #476165;
+  --color-on-surface: #103e43;
+  --color-on-surface-dim: #476165;
+  --color-turquoise: #14616a;
+  --color-turquoise-dim: #104b53;
+  --color-chile: #ac4828;
+  --color-chile-dim: #8f351e;
+  --color-gold: #87631c;
+  --border-hairline: rgba(16, 62, 67, .12);
+  --border-strong: rgba(16, 62, 67, .32);
+  --border-surface: rgba(16, 62, 67, .16);
+  --radius: 12px;
   --maxw: 1180px;
 }
 
@@ -83,11 +82,11 @@ ul, ol {
 }
 
 section {
-  padding: 92px 0;
+  padding: 76px 0;
 }
 
 @media (max-width: 768px) {
-  section { padding: 60px 0; }
+  section { padding: 48px 0; }
   .wrap { padding: 0 20px; }
 }
 
@@ -121,7 +120,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(15, 22, 32, 0.95);
+  background: rgba(255, 252, 247, .96);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-hairline);
   padding: 0 20px;
@@ -250,7 +249,7 @@ nav.primary {
   min-width: 230px;
   border-radius: var(--radius);
   z-index: 60;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 12px 28px rgba(30, 48, 47, .12);
 }
 
 .dropdown:hover .dropdown-menu,
@@ -340,7 +339,8 @@ nav.primary {
   font-weight: 600;
   font-size: 15px;
   padding: 13px 24px;
-  border-radius: var(--radius);
+  min-height: 44px;
+  border-radius: 5px;
   cursor: pointer;
   border: 1px solid transparent;
   text-decoration: none;
@@ -349,13 +349,13 @@ nav.primary {
 }
 
 .btn-primary {
-  background: var(--color-turquoise);
-  color: #0A1715;
+  background: var(--color-chile);
+  color: #fff;
 }
 
 .btn-primary:hover {
-  background: var(--color-turquoise-dim);
-  color: #FFFFFF;
+  background: var(--color-chile-dim);
+  color: #fff;
 }
 
 .btn-ghost {
@@ -607,9 +607,7 @@ nav.primary {
 .prod-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border-surface);
-  border: 1px solid var(--border-surface);
+  gap: 22px;
 }
 
 .prod-cell {
@@ -773,7 +771,7 @@ nav.primary {
 
 .placeholder-tag {
   font-family: 'Space Grotesk', monospace;
-  background: rgba(243, 239, 227, 0.08);
+  background: rgba(20, 97, 106, .08);
   border: 1px dashed var(--border-strong);
   padding: 12px 16px;
   margin-top: 14px;
@@ -903,7 +901,7 @@ nav.primary {
 }
 
 .field-error {
-  color: #FFA599;
+  color: #9c3526;
   font-size: 13px;
   margin-top: 6px;
   display: none;
@@ -947,7 +945,7 @@ nav.primary {
   display: block;
   background: rgba(185, 63, 46, 0.16);
   border: 1px solid var(--color-chile);
-  color: #FFC5BC;
+  color: #9c3526;
 }
 
 /* Footer */
@@ -969,6 +967,21 @@ footer {
   display: flex;
   gap: 64px;
   flex-wrap: wrap;
+}
+
+.footer-brand-intro {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 100%;
+}
+
+.footer-brand-intro > .brand-link { flex: 0 0 auto; }
+.footer-brand-intro > p { flex: 1 1 220px; min-width: 0; margin: 0; }
+
+@media (max-width: 600px) {
+  .footer-brand-intro { gap: 14px; flex-wrap: wrap; }
+  .footer-brand-intro > p { flex-basis: 160px; }
 }
 
 .footer-col h4 {
@@ -1013,6 +1026,7 @@ footer {
 .page-view.active {
   display: block;
 }
+.page-view:focus { outline: none; }
 /* Nihal Foundation: source content in the site's existing visual style. */
 .foundation-hero { padding: 72px 0 64px; }
 .foundation-hero h1 { font-size: clamp(36px, 5vw, 60px); }
@@ -1219,6 +1233,30 @@ footer {
 /* ============================================================ */
 /* DASHBOARD PLAYGROUND & PROJECTS STYLES                      */
 /* ============================================================ */
+.regional-projects-hero { padding: 72px 0 44px; border-bottom: 1px solid var(--border-hairline); }
+.regional-projects-hero h1 { font-size: clamp(32px,4.2vw,52px); max-width: 23ch; }
+.regional-projects-lede { max-width: 64ch; margin-bottom: 0; font-size: 19px; color: var(--color-ink-dim); }
+.regional-projects-section { padding-block: 48px 72px; }
+.regional-projects-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
+.regional-project-card { min-width: 0; border-top: 3px solid var(--color-turquoise); }
+.regional-project-card:first-child { grid-column: 1 / -1; }
+.regional-project-card h2 { font-size: 28px; }
+.regional-project-card h3 { font-size: 20px; line-height: 1.35; }
+.regional-project-card p { max-width: 90ch; }
+.regional-project-card .regional-project-tag { font-size: 13px; color: var(--color-turquoise); margin-bottom: 24px; }
+.regional-project-card p:last-child { margin-bottom: 0; }
+.regional-projects-closing { padding-block: 56px; }
+.regional-projects-closing h2 { font-size: clamp(26px,3vw,36px); }
+.regional-projects-closing p { max-width: 75ch; }
+.regional-projects-closing a:not(.btn) { color: var(--color-on-surface); }
+.regional-project-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+@media (max-width: 700px) {
+  .regional-projects-hero { padding-block: 48px 32px; }
+  .regional-projects-section { padding-block: 32px 48px; }
+  .regional-projects-grid { grid-template-columns: 1fr; }
+  .regional-project-card { padding: 26px 24px; }
+  .regional-projects-lede { font-size: 17px; }
+}
 .playground-hero {
   padding: 72px 0 36px;
 }
@@ -1422,7 +1460,7 @@ footer {
   text-overflow: ellipsis;
 }
 .chart-bar-track {
-  background: rgba(243, 239, 227, 0.08);
+  background: rgba(20, 97, 106, .08);
   height: 20px;
   border-radius: 2px;
   overflow: hidden;
@@ -1446,7 +1484,7 @@ footer {
 .fill-gold { background: var(--color-gold); }
 .fill-chile { background: var(--color-chile); }
 .fill-blue { background: #4A90E2; }
-.fill-purple { background: #9B51E0; }
+.fill-purple { background: #684699; }
 
 /* Dashboard Tables */
 .dashboard-table-wrap {
@@ -1461,7 +1499,7 @@ footer {
 }
 .dashboard-table th {
   padding: 10px 14px;
-  background: rgba(243, 239, 227, 0.04);
+  background: rgba(20, 97, 106, .06);
   color: var(--color-ink-dim);
   font-weight: 600;
   border-bottom: 1px solid var(--border-hairline);
@@ -1475,7 +1513,7 @@ footer {
   color: var(--color-ink-text);
 }
 .dashboard-table tr:hover td {
-  background: rgba(243, 239, 227, 0.02);
+  background: rgba(20, 97, 106, .04);
 }
 
 /* Metric Stats Row */
@@ -1486,7 +1524,7 @@ footer {
   margin: 20px 0;
 }
 .metric-stat-box {
-  background: rgba(243, 239, 227, 0.03);
+  background: rgba(20, 97, 106, .05);
   border: 1px solid var(--border-hairline);
   padding: 16px;
   border-radius: var(--radius);
@@ -1571,7 +1609,7 @@ footer {
   border-radius: var(--radius);
   border: 1px solid var(--border-hairline);
   background: var(--color-panel);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 16px 40px rgba(16, 62, 67, .08);
 }
 
 /* Core Message */
@@ -1708,7 +1746,7 @@ footer {
   margin: 0;
 }
 .clarification-note {
-  background: rgba(243, 239, 227, 0.04);
+  background: rgba(20, 97, 106, .06);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius);
   padding: 16px 20px;
@@ -2187,4 +2225,60 @@ footer {
 }
 
 
+/* Site-wide shell and reusable homepage components. */
+body .home-wordmark { display: block; color: #123e43; font-size: 22px; line-height: 1.05; font-weight: 700; letter-spacing: -.7px; }
+body .home-wordmark > span { color: #146c78; font-weight: 500; }
+body .home-wordmark small { display: block; margin-top: 6px; font: 9px 'Libre Franklin',sans-serif; letter-spacing: .2px; }
+body header { background: rgba(255,252,247,.96); }
+body .brand-logo { width: 42px; max-width: 42px; height: 42px; object-fit: cover; object-position: left; }
+body .brand-link { gap: 10px; }
+body .nav-link { font-size: 14px; padding-inline: 11px; }
+body .nav-cta { background: #ac4828; border-color: #ac4828 !important; color: #fff !important; border-radius: 5px; }
+body .dropdown-menu { background: #fffdf8; box-shadow: 0 12px 28px rgba(30,48,47,.12); }
+body .menu-toggle { border-radius: 4px; }
 
+body footer { --color-ink-text: #f3efe3; --color-ink-dim: #bfceca; --color-turquoise: #86c8bc; --border-hairline: rgba(243,239,227,.14); background: #10383e; }
+@media (min-width: 921px) {
+  #aboutDropdown .dropdown-menu { left: auto; right: 0; }
+}
+@media (max-width: 1150px) {
+  body .nav-link { font-size: 12px; padding-inline: 8px; }
+  body .home-wordmark { font-size: 18px; }
+  body .home-wordmark small { font-size: 8px; }
+}
+@media (max-width: 920px) {
+  body nav.primary { background: #fffdf8; }
+  body .nav-link { font-size: 15px; }
+  body .dropdown-menu { background: #f3efe4; box-shadow: none; }
+  .dropdown:not(.mobile-open) .dropdown-menu { display: none; }
+}
+@media (max-width: 600px) {
+  body .brand-logo { width: 34px; max-width: 34px; height: 34px; }
+  body .home-wordmark { font-size: 19px; }
+  body .home-wordmark small { font-size: 7px; }
+}
+h1 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -.035em; font-weight: 700; }
+.hero-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.hero { padding-top: 76px; }
+.prod-cell { border-radius: var(--radius); border: 1px solid var(--border-hairline); }
+.prod-cell:nth-child(3n + 1) { background: #edf6ed; }
+.prod-cell:nth-child(3n + 2) { background: #ecf4fb; }
+.prod-cell:nth-child(3n) { background: #f2eef9; }
+.card-block, .team-card, .foundation-panel { background: var(--color-panel); }
+.team-card, .foundation-panel { border-radius: var(--radius); }
+.quote-text, .prominent-quote-banner p.main-quote { font-family: Georgia, 'Times New Roman', serif; }
+.field input, .field select, .field textarea { background: #fffdfa; border-radius: 6px; }
+.field input::placeholder, .field textarea::placeholder { color: #617476; opacity: 1; }
+.field input[aria-invalid="true"], .field textarea[aria-invalid="true"], .field select[aria-invalid="true"] { border-color: #9c3526; }
+.playground-tab-btn { border-radius: 5px; }
+.playground-tab-btn.active { background: var(--color-turquoise); color: #fff; }
+.final-cta-section, .clients-contact, .regional-projects-closing { background: linear-gradient(120deg, #faf0df, #f4dfca); }
+.nav-cta:hover { background: var(--color-chile-dim); }
+@media (max-width: 600px) {
+  .hero { padding-top: 48px; }
+  .card-block { padding: 26px 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

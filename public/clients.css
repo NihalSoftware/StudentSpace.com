@@ -75,12 +75,13 @@
 /* Original client testimonial imagery, with a readable overlay and responsive cards. */
 .client-testimonials {
   padding: 64px 0;
-  background: linear-gradient(rgba(17, 45, 112, .7), rgba(17, 45, 112, .8)),
+  background: linear-gradient(rgba(16, 56, 62, .82), rgba(16, 56, 62, .9)),
     url('assets/clients/testimonials-background.jpg') center / cover no-repeat;
+  background-color: #10383e;
   color: #fff;
 }
 .client-testimonials .section-head h2 { color: #fff; }
-.client-testimonials .section-head p { color: #e4ebf7; }
+.client-testimonials .section-head p { color: #e3eee6; }
 .testimonial-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -90,11 +91,11 @@
   margin: 0;
   padding: 28px 22px;
   border: 1px solid rgba(255, 255, 255, .5);
-  border-radius: 6px;
+  border-radius: var(--radius);
   background: rgba(255, 255, 255, .94);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, .16);
+  box-shadow: 0 4px 16px rgba(16, 62, 67, .12);
   text-align: center;
-  color: #1c2229;
+  color: #103e43;
 }
 .testimonial-portrait {
   display: block;
@@ -107,13 +108,13 @@
 .testimonial-initials {
   display: grid;
   place-items: center;
-  background: #dce5f4;
-  color: #234278;
+  background: #e5f0ea;
+  color: #14616a;
   font: 600 30px 'Space Grotesk', sans-serif;
 }
-.testimonial-card h3 { color: #1c2229; font-size: 20px; line-height: 1.3; }
-.testimonial-role { color: #525c66; font-size: 14px; line-height: 1.65; }
-.testimonial-card blockquote { margin: 24px 0 0; color: #23458f; font-size: 15px; }
+.testimonial-card h3 { color: #103e43; font-size: 20px; line-height: 1.3; }
+.testimonial-role { color: #476165; font-size: 14px; line-height: 1.65; }
+.testimonial-card blockquote { margin: 24px 0 0; color: #14616a; font-size: 15px; }
 .testimonial-card blockquote p { margin: 0; }
 @media (max-width: 1100px) {
   .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

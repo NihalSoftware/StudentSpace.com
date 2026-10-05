@@ -117,6 +117,11 @@
       title: 'Projects & Dashboards — StudentSpace Playground',
       description: 'Explore StudentSpace project dashboards: Admission Dashboard, Advising Log, Early Alert, and Retention insights.'
     },
+    '/new-mexico-projects': {
+      viewId: 'view-regional-projects',
+      title: 'Northern New Mexico Projects | StudentSpace',
+      description: "Early work with GEAR UP, Title V and Title III programs in Northern New Mexico, helping educators follow each student's progress."
+    },
     '/startup-access': {
       viewId: 'view-startup-access',
       title: 'Startup Access | StudentSpace',
