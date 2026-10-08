@@ -207,6 +207,9 @@ const server = http.createServer((req, res) => {
             errors.email = 'Please provide a valid email address.';
           }
         }
+        if (!['give_back', 'edplan_school', 'fct_transfer', 'schoolview_transfer', 'asl_transfer', 'media_partnership', 'other'].includes(data.reason)) {
+          errors.reason = 'Please choose a valid inquiry type.';
+        }
         if (!message) {
           errors.message = 'Please provide details about what you want to build or ask.';
         }

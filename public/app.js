@@ -157,10 +157,11 @@
    */
   function navigate(path, pushState = true) {
     // Extract hash if present
-    const hash = path.includes('#') ? path.split('#')[1] : '';
+    const url = new URL(path, window.location.origin);
+    const hash = url.hash.slice(1);
 
     // Normalize path
-    let normalized = path.split('?')[0].split('#')[0].replace(/\/+$/, '') || '/';
+    let normalized = url.pathname.replace(/\/+$/, '') || '/';
     
     // Fallback if not found
     const route = ROUTE_MAP[normalized] || ROUTE_MAP['/'];
@@ -168,6 +169,8 @@
     if (!ROUTE_MAP[normalized]) {
       normalized = '/';
     }
+
+    document.getElementById('foundationContact').hidden = normalized !== '/nihal-foundation';
 
     // 1. Toggle page views
     document.querySelectorAll('.page-view').forEach(view => {
@@ -181,7 +184,7 @@
     // 2. Update active states on nav links
     document.querySelectorAll('[data-route]').forEach(link => {
       const linkTarget = link.getAttribute('data-route');
-      const linkBase = linkTarget ? linkTarget.split('#')[0] : '';
+      const linkBase = linkTarget ? linkTarget.split(/[?#]/)[0] : '';
       if (linkTarget === path || linkBase === normalized) {
         link.setAttribute('aria-current', 'page');
       } else {
@@ -197,8 +200,23 @@
 
     // 4. Update Browser History
     if (pushState) {
-      const fullUrl = normalized + (hash ? '#' + hash : '');
+      const fullUrl = normalized + url.search + (hash ? '#' + hash : '');
       history.pushState(null, '', fullUrl);
+    }
+
+    if (normalized === '/contact') {
+      contactForm.reset();
+      clearFormFeedback(contactForm, formStatus);
+      const reason = document.getElementById('f-reason');
+      const requested = url.searchParams.get('reason');
+      reason.value = Array.from(reason.options).some(option => option.value === requested) ? requested : '';
+      updateContactContext();
+    }
+    if (normalized === '/startup-access') {
+      startupForm.reset();
+      startupForm.style.display = '';
+      startupSuccessBox.style.display = 'none';
+      clearFormFeedback(startupForm, startupStatus);
     }
 
     // 5. Handle Tab Activation if on Playground
@@ -241,7 +259,7 @@
 
   // Handle Browser Back / Forward buttons
   window.addEventListener('popstate', function () {
-    navigate(window.location.pathname + window.location.hash, false);
+    navigate(window.location.pathname + window.location.search + window.location.hash, false);
   });
 
   // Handle hash changes
@@ -274,8 +292,6 @@
     });
   });
 
-  // Initialize view from current browser URL
-  navigate(window.location.pathname + window.location.hash, false);
 
   // ============================================================
   // FULL-STACK APPLICATION FORM: POST /api/apply
@@ -287,84 +303,55 @@
   if (contactForm) {
     contactForm.addEventListener('submit', async function (e) {
       e.preventDefault();
-
-      // Reset previous error indicators
-      document.querySelectorAll('.field-error').forEach(el => {
-        el.style.display = 'none';
-        el.textContent = '';
-      });
-      formStatus.className = 'form-status';
-      formStatus.style.display = 'none';
-
+      if (submitBtn.disabled) return;
+      clearFormFeedback(contactForm, formStatus);
       const formData = new FormData(contactForm);
       const payload = {
-        name: formData.get('name') || '',
-        email: formData.get('email') || '',
-        reason: formData.get('reason') || 'give_back',
-        city: formData.get('city') || '',
-        message: formData.get('message') || ''
+        name: (formData.get('name') || '').trim(),
+        email: (formData.get('email') || '').trim(),
+        reason: formData.get('reason') || '',
+        city: (formData.get('city') || '').trim(),
+        message: (formData.get('message') || '').trim()
       };
-
-      // Client pre-validation
-      let hasClientError = false;
-      if (!payload.name.trim()) {
-        showFieldError('f-name', 'Full name is required.');
-        hasClientError = true;
+      if (!payload.name) showFieldError('f-name', 'Full name is required.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) showFieldError('f-email', 'Please provide a valid email address.');
+      if (!payload.reason) showFieldError('f-reason', 'Please choose what you are reaching out about.');
+      if (!payload.message) showFieldError('f-msg', 'Please tell us what you are hoping to build or ask.');
+      if (contactForm.querySelector('[aria-invalid="true"]')) {
+        focusFirstError(contactForm);
+        return;
       }
-      if (!payload.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
-        showFieldError('f-email', 'Please provide a valid email address.');
-        hasClientError = true;
-      }
-      if (!payload.message.trim()) {
-        showFieldError('f-msg', 'Please tell us what you are hoping to build or ask.');
-        hasClientError = true;
-      }
-
-      if (hasClientError) return;
-
-      // Pending state
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting application...';
-
+      submitBtn.textContent = 'Sending message...';
+      const inquiry = document.getElementById('f-reason').selectedOptions[0].textContent;
       try {
         const res = await fetch('/api/apply', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(payload)
         });
-
         const data = await res.json();
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send message';
-
         if (res.ok && data.success) {
           formStatus.className = 'form-status success';
-          formStatus.innerHTML = `
-            <strong>Thank you, ${escapeHtml(payload.name)}!</strong><br>
-            Your application regarding <em>"${escapeHtml(payload.reason)}"</em> has been received by our Santa Fe team.<br>
-            <small style="display:inline-block; margin-top:6px; opacity:0.9;">
-              Confirmation ID: <code>${data.id}</code> · Stored in database &amp; notification dispatched.
-            </small>
-          `;
+          formStatus.textContent = 'Your message about ' + inquiry + ' has been received. Our team will be in touch.';
           contactForm.reset();
+          updateContactContext();
         } else {
-          // Server validation errors
-          if (data.errors) {
-            Object.keys(data.errors).forEach(field => {
-              showFieldError(`f-${field}`, data.errors[field]);
-            });
-          }
+          const fieldIds = { name: 'f-name', email: 'f-email', reason: 'f-reason', city: 'f-city', message: 'f-msg' };
+          Object.entries(data.errors || {}).forEach(([field, message]) => {
+            if (fieldIds[field]) showFieldError(fieldIds[field], message);
+          });
           formStatus.className = 'form-status error';
-          formStatus.textContent = data.message || 'There was an issue submitting your application. Please check the fields above.';
+          formStatus.textContent = data.message || data.error || 'There was an issue sending your message. Please check the fields above.';
+          focusFirstError(contactForm);
         }
-      } catch (err) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send message';
+      } catch {
         formStatus.className = 'form-status error';
         formStatus.textContent = 'Network error connecting to application server. Please email givingback@studentspace.com.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message';
+        formStatus.style.display = 'block';
       }
     });
   }
@@ -400,14 +387,7 @@
       e.preventDefault();
 
       // Reset previous error messages
-      startupForm.querySelectorAll('.field-error').forEach(el => {
-        el.style.display = 'none';
-        el.textContent = '';
-      });
-      if (startupStatus) {
-        startupStatus.className = 'form-status';
-        startupStatus.style.display = 'none';
-      }
+      clearFormFeedback(startupForm, startupStatus);
 
       const formData = new FormData(startupForm);
       const techList = [];
@@ -448,11 +428,7 @@
 
       let hasError = false;
       function showSaError(fieldId, msg) {
-        const el = document.getElementById(fieldId + '-error');
-        if (el) {
-          el.textContent = msg;
-          el.style.display = 'block';
-        }
+        showFieldError(fieldId, msg);
         hasError = true;
       }
 
@@ -474,7 +450,7 @@
           startupStatus.className = 'form-status error';
           startupStatus.textContent = 'Please complete all required fields highlighted above.';
           startupStatus.style.display = 'block';
-          startupStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          focusFirstError(startupForm);
         }
         return;
       }
@@ -498,6 +474,7 @@
         startupSubmitBtn.textContent = 'Submit Startup Access Application';
 
         if (res.ok && data.success) {
+          startupForm.reset();
           startupForm.style.display = 'none';
           if (startupStatus) startupStatus.style.display = 'none';
           if (startupSuccessBox) {
@@ -505,6 +482,13 @@
             startupSuccessBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }
         } else {
+          const fieldIds = { fullName: 'sa-name', email: 'sa-email', companyName: 'sa-company',
+            nmConnection: 'sa-nmConnection', problem: 'sa-problem', customer: 'sa-customer',
+            product: 'sa-product', techFit: 'sa-techFit', agreeNoGuarantee: 'sa-agreeNoGuarantee', agreeContact: 'sa-agreeContact' };
+          Object.entries(data.errors || {}).forEach(([field, message]) => {
+            if (fieldIds[field]) showFieldError(fieldIds[field], message);
+          });
+          focusFirstError(startupForm);
           if (startupStatus) {
             startupStatus.className = 'form-status error';
             startupStatus.textContent = data.message || 'There was an issue submitting your application. Please check your inputs.';
@@ -532,11 +516,15 @@
     if (!errEl) {
       errEl = document.createElement('div');
       errEl.className = 'field-error';
+      errEl.id = fieldId + '-error';
       parentField.appendChild(errEl);
     }
     errEl.textContent = message;
     errEl.style.display = 'block';
-    fieldInput.focus();
+    fieldInput.setAttribute('aria-invalid', 'true');
+    const descriptions = new Set((fieldInput.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean));
+    descriptions.add(errEl.id);
+    fieldInput.setAttribute('aria-describedby', Array.from(descriptions).join(' '));
   }
 
   function escapeHtml(str) {
@@ -549,6 +537,33 @@
       '"': '&quot;'
     }[tag] || tag));
   }
+
+  function clearFormFeedback(form, status) {
+    form.querySelectorAll('.field-error').forEach(el => {
+      el.style.display = 'none';
+      el.textContent = '';
+    });
+    form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+    status.className = 'form-status';
+    status.textContent = '';
+    status.style.display = 'none';
+  }
+
+  function focusFirstError(form) {
+    const field = form.querySelector('[aria-invalid="true"]');
+    if (field) field.focus();
+  }
+
+  function updateContactContext() {
+    const select = document.getElementById('f-reason');
+    document.getElementById('contactContext').textContent = select.value
+      ? 'Your inquiry: ' + select.selectedOptions[0].textContent
+      : 'Choose what you are reaching out about.';
+  }
+
+  document.getElementById('f-reason').addEventListener('change', updateContactContext);
+  // Initialize after the shared forms and their status elements are available.
+  navigate(window.location.pathname + window.location.search + window.location.hash, false);
 
 })();
 

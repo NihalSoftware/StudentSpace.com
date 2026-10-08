@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "test": "node --test tests/*.test.js",
+    "lint": "node scripts/lint.js"
   },
   "keywords": [
     "studentspace",
@@ -14,5 +16,8 @@
     "new-mexico"
   ],
   "author": "StudentSpace",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
 }

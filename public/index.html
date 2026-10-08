@@ -302,7 +302,7 @@
             </div>
           </div>
           <div style="margin-top:44px;">
-            <a href="/contact" class="btn btn-chile" data-route="/contact">Bring edplan.ai to your school</a>
+            <a href="/contact?reason=edplan_school" class="btn btn-chile" data-route="/contact?reason=edplan_school">Bring edplan.ai to your school</a>
           </div>
         </div>
       </section>
@@ -330,7 +330,7 @@
           <h2>Two ways to work with edplan.ai</h2>
           <p>Schools and districts can contact our team about student planning needs. Entrepreneurs can apply for access to the selected technology and documentation through Startup Access.</p>
           <div class="action-links">
-            <a href="/contact" class="btn btn-chile" data-route="/contact">Discuss a school rollout</a>
+            <a href="/contact?reason=edplan_school" class="btn btn-chile" data-route="/contact?reason=edplan_school">Discuss a school rollout</a>
             <a href="/startup-access" class="btn btn-secondary" data-route="/startup-access">Build with the technology</a>
           </div>
         </div>
@@ -407,7 +407,7 @@
             <div><h2>Institutions and education organizations</h2><p class="dim">Our published client community includes the University of Rio Grande, Universidad Ana G. Mendez and Timothy Leadership Training Institute. These relationships span student success systems, assessment and program reporting.</p><a href="/clients" data-route="/clients">Meet some of our clients</a><p class="source-link"><a href="https://www.studentspace.com/timothy" target="_blank" rel="noopener noreferrer">Read the Timothy Leadership Training case study</a></p></div>
             <div><h2>Community initiatives</h2><p class="dim">Nihal Foundation's Youth Opportunity Centers connect skill development with employment. StudentSpace's New Mexico programs share technology and technical knowledge with local builders.</p><a href="/nihal-foundation" data-route="/nihal-foundation">Explore Nihal Foundation</a></div>
           </div>
-          <div class="section-head" style="margin-top:40px;"><h2>Propose a collaboration</h2><p>Tell us about your institution or organization, who you serve, the outcomes you want to improve, and the support you need. Collaboration may involve student planning, data integration, training or adapting our technology through the access programs.</p><a href="/contact" class="btn btn-chile" data-route="/contact">Discuss a partnership</a></div>
+          <div class="section-head" style="margin-top:40px;"><h2>Propose a collaboration</h2><p>Tell us about your institution or organization, who you serve, the outcomes you want to improve, and the support you need. Collaboration may involve student planning, data integration, training or adapting our technology through the access programs.</p><a href="/contact?reason=media_partnership" class="btn btn-chile" data-route="/contact?reason=media_partnership">Discuss a partnership</a></div>
         </div>
       </section>
     </main>
@@ -504,7 +504,7 @@
             </div>
           </div>
           <div style="margin-top:44px; display:flex; gap:16px; flex-wrap:wrap;">
-            <a href="/contact" class="btn btn-chile" data-route="/contact">Start an application</a>
+            <a href="/contact?reason=give_back" class="btn btn-chile" data-route="/contact?reason=give_back">Start an application</a>
             <a href="/faq" class="btn btn-on-surface" data-route="/faq">Read program FAQ</a>
           </div>
         </div>
@@ -1074,7 +1074,7 @@
                 </div>
                 <div class="field">
                   <label for="sa-state">State</label>
-                  <input type="text" id="sa-state" name="state" value="New Mexico">
+                  <input type="text" id="sa-state" name="state" placeholder="State">
                 </div>
               </div>
 
@@ -1269,7 +1269,7 @@
               </div>
 
               <!-- Submission Status Banner -->
-              <div id="startupFormStatus" class="form-status" style="display:none; margin:20px 0;"></div>
+              <div id="startupFormStatus" role="status" aria-live="polite" class="form-status" style="display:none; margin:20px 0;"></div>
 
               <div style="margin-top:28px;">
                 <button type="submit" id="startupSubmitBtn" class="btn btn-primary" style="width:100%; font-size:17px; padding:16px;">Submit Startup Access Application</button>
@@ -1277,7 +1277,7 @@
             </form>
 
             <!-- Success Box -->
-            <div id="startupSuccessBox" class="startup-success-box" style="display:none;">
+            <div id="startupSuccessBox" role="status" aria-live="polite" class="startup-success-box" style="display:none;">
               <div style="font-size: 42px; margin-bottom: 12px; color:var(--color-turquoise);">✓</div>
               <h3>Application Received</h3>
               <p>Application received. Thank you for telling us what you want to build. The StudentSpace team will review your application and contact you using the information you provided.</p>
@@ -1444,6 +1444,7 @@
           <div class="contact-grid">
             <div>
               <form id="contactForm" novalidate>
+                <p id="contactContext" aria-live="polite">Choose what you are reaching out about.</p>
                 <div class="field">
                   <label for="f-name">Full name *</label>
                   <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Your full name">
@@ -1454,7 +1455,8 @@
                 </div>
                 <div class="field">
                   <label for="f-reason">I'm reaching out about *</label>
-                  <select id="f-reason" name="reason" required>
+                  <select id="f-reason" name="reason" required aria-describedby="contactContext">
+                    <option value="">Choose an inquiry type</option>
                     <option value="give_back">Give-Back Program application</option>
                     <option value="edplan_school">Bringing edplan.ai to a school or district</option>
                     <option value="fct_transfer">Full Circle Tracking transfer inquiry</option>
@@ -1492,7 +1494,7 @@
                 <dt>WhatsApp (India)</dt>
                 <dd><a href="https://wa.me/919818764265" target="_blank" rel="noopener noreferrer">+91 98187 64265</a></dd>
                 <dt>India Office Hours</dt>
-                <dd>09:30 AM to 06:30 PM</dd>
+                <dd>09:30 AM to 06:30 PM IST</dd>
                 <dt>Give Back</dt>
                 <dd><a href="mailto:support@studentspace.com">support@studentspace.com</a></dd>
 
@@ -2042,7 +2044,7 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
                 <h3>Data Scope &amp; Visualizations</h3>
                 <p><strong>Data Included:</strong> Graduates, freshmen, dropouts, continuing students, student admission percentage by program, and dropout reasons.</p>
 
-                <h4 style="font-size:15px; margin: 18px 0 10px; color: var(--color-ink-text);">Program Admission Percentage (Pie Chart):</h4>
+                <h4 style="font-size:15px; margin: 18px 0 10px; color: var(--color-ink-text);">Program Admission Percentage (Bar Chart):</h4>
                 <div class="css-bar-chart">
                   <div class="chart-bar-item">
                     <span class="chart-bar-label">Engineering &amp; Tech</span>
@@ -2070,8 +2072,8 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
 
             <!-- Shaded Graph Reasons for Student Dropouts -->
             <div class="dashboard-card">
-              <h3>Dropout Reasons Breakdown (Shaded Area Graph)</h3>
-              <p>Reasons for student dropouts (Tuition Cost, Personal, Failing Grade, Academic Inadequacy) tracked over time to implement proactive institutional remedies.</p>
+              <h3>Dropout Reasons Breakdown</h3>
+              <p>Illustrative percentages by dropout reason, shown as summary cards. These sample values are not a time series.</p>
 
               <div class="dashboard-grid-3col" style="margin-top: 20px; margin-bottom: 0;">
                 <div style="background: rgba(20, 97, 106, .05); border:1px solid var(--border-hairline); padding: 18px; border-radius: var(--radius);">
@@ -2086,7 +2088,7 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
                 </div>
                 <div style="background: rgba(20, 97, 106, .05); border:1px solid var(--border-hairline); padding: 18px; border-radius: var(--radius);">
                   <strong style="color: var(--color-turquoise); font-size: 20px; display:block; margin-bottom: 4px;">21%</strong>
-                  <span style="color: var(--color-ink-text); font-weight:600;">Failing Grade &amp; GPA</span>
+                  <span style="color: var(--color-ink-text); font-weight:600;">Failing Grade &amp; Low GPA</span>
                   <p style="font-size: 13px; color:var(--color-ink-dim); margin-top: 6px;">Academic probation, prerequisite failures, and unsatisfactory progress.</p>
                 </div>
                 <div style="background: rgba(20, 97, 106, .05); border:1px solid var(--border-hairline); padding: 18px; border-radius: var(--radius);">
@@ -2450,7 +2452,7 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
                 </tr>
               </table>
               <div style="margin-top: 24px;">
-                <a href="/contact" class="btn btn-chile" data-route="/contact">Apply for Full Circle Tracking</a>
+                <a href="/contact?reason=fct_transfer" class="btn btn-chile" data-route="/contact?reason=fct_transfer">Apply for Full Circle Tracking</a>
               </div>
             </div>
           </div>
@@ -2505,7 +2507,7 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
                 </tr>
               </table>
               <div style="margin-top: 24px;">
-                <a href="/contact" class="btn btn-chile" data-route="/contact">Apply for SchoolView</a>
+                <a href="/contact?reason=schoolview_transfer" class="btn btn-chile" data-route="/contact?reason=schoolview_transfer">Apply for SchoolView</a>
               </div>
             </div>
           </div>
@@ -2560,7 +2562,7 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
                 </tr>
               </table>
               <div style="margin-top: 24px;">
-                <a href="/contact" class="btn btn-chile" data-route="/contact">Apply for ASL Codebase</a>
+                <a href="/contact?reason=asl_transfer" class="btn btn-chile" data-route="/contact?reason=asl_transfer">Apply for ASL Codebase</a>
               </div>
             </div>
           </div>
@@ -2599,7 +2601,6 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
             <div class="faq-item">
               <h3 class="faq-q">What license governs the transferred code?</h3>
               <p class="faq-a">
-                <span class="faq-placeholder">[Legal to confirm exact license terms]</span><br>
                 The underlying principle of the transfer is to empower New Mexico recipients to commercialize, rebrand, adapt, and build viable independent businesses around the software without ongoing royalty fees or equity encumbrance from StudentSpace. The exact formal license agreement will be provided prior to repository transfer.
               </p>
             </div>
@@ -2645,7 +2646,7 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
             <a href="/faq" data-route="/faq">Program FAQ</a>
           </div>
           <div class="footer-col">
-            <h4>Products &amp; Solutions</h4>
+            <h4>Projects &amp; Products</h4>
             <a href="/new-mexico-projects" data-route="/new-mexico-projects">Northern New Mexico Projects</a>
             <a href="/edplan-ai" data-route="/edplan-ai">edplan.ai Portal</a>
             <a href="/products/full-circle-tracking" data-route="/products/full-circle-tracking">Full Circle Tracking</a>
@@ -2674,6 +2675,7 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
           </div>
           <div class="footer-col">
             <h4>Contact</h4>
+            <a href="mailto:givingback@studentspace.com">givingback@studentspace.com</a>
             <a href="mailto:sales@studentspace.com">sales@studentspace.com</a>
             <a href="mailto:support@studentspace.com">support@studentspace.com</a>
             <a href="tel:+15056280989">+1 (505) 628-0002</a>
@@ -2683,6 +2685,15 @@ Infants got Vaccinated; Pregnant women also got their dosage of Calcium and Iron
       <div style="margin-top:24px; padding-top:16px; border-top:1px solid var(--border-hairline); font-size:13px; color:var(--color-ink-dim); text-align:center;">
         Startup Access is a StudentSpace initiative for qualified entrepreneurs. Participation and access are subject to approval and applicable agreements.
       </div>
+      <!-- Public business contact details: https://www.nihalfoundation.in/contact -->
+      <aside id="foundationContact" hidden aria-labelledby="foundationContactTitle" style="margin-top:24px;">
+        <h4 id="foundationContactTitle">Nihal Foundation â€” India Office</h4>
+        <address style="font-style:normal;">
+          B-1 Tower, 1st Floor, Office No-166<br>
+          Spaze-i-tech Park Sector-49, Sohna Road Gurgaon-122002
+        </address>
+        <p><a href="tel:+911244043414">+91 124-4043414</a> Â· <a href="https://www.nihalfoundation.in/contact" target="_blank" rel="noopener noreferrer">Nihal Foundation contact and website</a></p>
+      </aside>
       <div class="footer-bottom">
         <span>© 1998–2026 StudentSpace. Santa Fe, New Mexico.</span>
         <span>A corporate-sponsored give-back initiative for New Mexico builders and students.</span>
