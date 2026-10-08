@@ -59,8 +59,8 @@
     },
     '/give-back': {
       viewId: 'view-giveback',
-      title: 'Give Back to — Students, Educators, Institutions & Entrepreneurs',
-      description: 'Take what we built. StudentSpace is giving away source code, product designs, and business playbooks free with no cost and no equity to New Mexico founders.'
+      title: "What We’re Giving Back to New Mexico | StudentSpace",
+      description: "Selected StudentSpace technologies, product ideas, source code and experience at no cost to eligible New Mexico students, individuals and startups."
     },
     '/clients': {
       viewId: 'view-clients',
