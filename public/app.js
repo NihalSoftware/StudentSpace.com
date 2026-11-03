@@ -19,8 +19,8 @@
     },
     '/founder': {
       viewId: 'view-founder',
-      title: "Founder — Prof. S.N.S Nagra | StudentSpace",
-      description: "Meet Prof. S.N.S Nagra, co-founder of StudentSpace."
+      title: "Founder — Prof. Sarab Singh | StudentSpace",
+      description: "Meet Prof. Sarab Singh, Co-Founder & Advisor Emeritus and Chief Mission Officer & Mentor at StudentSpace, advancing accessible, responsible AI in education."
     },
     '/research-innovation': {
       viewId: 'view-research',
